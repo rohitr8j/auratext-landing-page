@@ -39,7 +39,7 @@ const GitHubReleases = () => {
   useEffect(() => {
     const fetchReleases = async () => {
       try {
-        const response = await fetch('https://api.github.com/repos/Y4shr4j/auratext-releases/releases');
+        const response = await fetch('https://api.github.com/repos/auratext-app/releases/releases');
         if (!response.ok) {
           throw new Error('Failed to fetch releases');
         }
@@ -201,7 +201,7 @@ const GitHubReleases = () => {
 
                   <Button
                     as={Link}
-                    href={`https://github.com/Y4shr4j/auratext-releases/releases/tag/${release.tag_name}`}
+                    href={`https://github.com/auratext-app/releases/releases/tag/${release.tag_name}`}
                     target="_blank"
                     leftIcon={<LuGithub />}
                     variant="outline"
@@ -308,7 +308,7 @@ const GitHubReleases = () => {
           
           <Button
             as={Link}
-            href="https://github.com/Y4shr4j/auratext-releases"
+            href="https://github.com/auratext-app/releases"
             target="_blank"
             leftIcon={<LuGithub />}
             rightIcon={<LuExternalLink />}

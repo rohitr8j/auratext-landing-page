@@ -20,7 +20,7 @@ git commit -m "Initial commit: AuraText landing page"
 
 3. **Connect Local to GitHub**:
 ```bash
-git remote add origin https://github.com/Y4shr4j/auratext-landing-page.git
+git remote add origin https://github.com/auratext-app/auratext-landing-page.git
 git branch -M main
 git push -u origin main
 ```
@@ -154,7 +154,7 @@ Since GitHub Pages is static, you'll need to handle file uploads differently:
 2. **Update Download API**:
 ```javascript
 // In your download API, redirect to GitHub releases
-const GITHUB_RELEASES_URL = 'https://github.com/Y4shr4j/auratext-releases/releases/latest';
+const GITHUB_RELEASES_URL = 'https://github.com/auratext-app/releases/releases/latest';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
