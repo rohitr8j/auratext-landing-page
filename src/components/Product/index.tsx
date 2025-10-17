@@ -1,5 +1,5 @@
 "use client";
-import { StargateColors } from "#/src/utils/Colors";
+import { AuraTextColors } from "#/src/utils/Colors";
 import { Flex, Heading, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import Copywriting from "./categories/copywriting";
@@ -35,11 +35,11 @@ const Product = () => {
         base: 2,
         xl: "auto",
       }}
-      border={`1px solid ${StargateColors.lightBg}`}
+      border={`1px solid ${AuraTextColors.lightBg}`}
       borderRadius={24}
     >
       <Heading textAlign={"center"} px={2}>
-        ... But what can Stargate do for You?
+        ... But what can AuraText do for You?
       </Heading>
       <Flex
         gap={4}
@@ -50,7 +50,7 @@ const Product = () => {
         px={4}
         mt={5}
         borderBottom={{
-          base: `1px solid ${StargateColors.lightBg}`,
+          base: `1px solid ${AuraTextColors.lightBg}`,
           md: "none",
         }}
         justify={{
@@ -74,7 +74,7 @@ const Product = () => {
             transition={"all 0.25s ease"}
             {...(currentCategory === category.toLowerCase()
               ? {
-                  bgColor: StargateColors.black,
+                  bgColor: AuraTextColors.black,
                   shadow: "lg",
                 }
               : {})}
@@ -85,8 +85,8 @@ const Product = () => {
               whiteSpace={"nowrap"}
               color={
                 currentCategory === category.toLowerCase()
-                  ? StargateColors.white
-                  : StargateColors.grey
+                  ? AuraTextColors.white
+                  : AuraTextColors.grey
               }
             >
               {category}

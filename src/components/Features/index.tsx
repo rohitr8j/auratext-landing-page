@@ -1,15 +1,15 @@
 "use client";
-import { StargateColors } from "#/src/utils/Colors";
+import { AuraTextColors } from "#/src/utils/Colors";
 import { Flex, Grid, Heading, Icon, Text } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import { IconType } from "react-icons";
 import {
+  LuLock,
   LuBot,
-  LuCreditCard,
-  LuGauge,
-  LuLanguages,
-  LuLayoutTemplate,
-  LuLifeBuoy,
+  LuZap,
+  LuMonitor,
+  LuShield,
+  LuDownload,
 } from "react-icons/lu";
 
 const Features = () => {
@@ -30,8 +30,11 @@ const Features = () => {
           md: 48,
         }}
         textAlign={"center"}
+        fontFamily="'Space Mono', monospace"
+        fontWeight={400}
+        color={AuraTextColors.text}
       >
-        Your Favourite AI Tool
+        Key Features
       </Heading>
       <Grid
         templateColumns={{
@@ -59,26 +62,26 @@ interface CardProps {
 }
 
 const Card = ({ icon, title, children }: CardProps) => (
-  <Flex maxW={350} role="group">
+  <Flex maxW={350} role="group" p={6} borderRadius={12} bg={AuraTextColors.white} border={`1px solid ${AuraTextColors.lightGrey}`} transition={"all 0.25s ease"} _hover={{ borderColor: AuraTextColors.primary, shadow: "lg" }}>
     <Icon
       as={icon}
       fontSize={48}
       mr={5}
       p={2}
-      bg={StargateColors.lightGrey}
+      bg={AuraTextColors.lightBg}
       rounded={"md"}
       strokeWidth={1.5}
       transition={"all 0.25s ease"}
+      color={AuraTextColors.primary}
       _groupHover={{
-        bg: StargateColors.black,
-        color: StargateColors.white,
-        shadow: "dark-lg",
+        bg: AuraTextColors.primary,
+        color: AuraTextColors.white,
         transform: "scale(1.1)",
       }}
     />
-    <Flex direction={"column"} gap={1}>
-      <Heading fontSize={"xl"}>{title}</Heading>
-      <Text fontSize={"small"} color={StargateColors.grey}>
+    <Flex direction={"column"} gap={2}>
+      <Heading fontSize={"xl"} fontFamily="'Space Mono', monospace" fontWeight={400} color={AuraTextColors.text}>{title}</Heading>
+      <Text fontSize={"sm"} color={AuraTextColors.textLight} fontFamily="'Space Mono', monospace" fontWeight={400} lineHeight={1.6}>
         {children}
       </Text>
     </Flex>
@@ -87,34 +90,34 @@ const Card = ({ icon, title, children }: CardProps) => (
 
 const Cards = [
   {
+    icon: LuLock,
+    title: "Smart Cursor Lock",
+    text: "First click locks to any application, subsequent clicks insert directly. No more clicking in target fields.",
+  },
+  {
     icon: LuBot,
-    title: "AI Generator",
-    text: "Automate and optimize with our advanced AI technology, designed for efficiency and smarter decision-making.",
+    title: "Multi-AI Provider Support",
+    text: "Choose from Gemini, Perplexity, OpenAI, or bring your own API key. No vendor lock-in.",
   },
   {
-    icon: LuGauge,
-    title: "Dashboard",
-    text: "Monitor performance at a glance with our user-friendly dashboard, your command center for data insights.",
+    icon: LuZap,
+    title: "Real-time Text Analysis",
+    text: "AI analyzes your text as you type and provides intelligent suggestions for improved writing quality.",
   },
   {
-    icon: LuCreditCard,
-    title: "Secure Payments",
-    text: "Experience safe and reliable transactions with our robust, encrypted payment system.",
+    icon: LuMonitor,
+    title: "Overlay Mode",
+    text: "Floating button stays on top of any application for instant access without interfering with your workflow.",
   },
   {
-    icon: LuLanguages,
-    title: "Multilang",
-    text: "Reach a global audience with multi-language support, enhancing user experience across borders.",
+    icon: LuShield,
+    title: "Secure & Private",
+    text: "All API keys stored locally, no data sent to our servers. Your privacy and security are our priority.",
   },
   {
-    icon: LuLayoutTemplate,
-    title: "Ready-to-use templates",
-    text: "Kickstart your project with our versatile, easy-to-customize templates for any use case.",
-  },
-  {
-    icon: LuLifeBuoy,
-    title: "Support Centre",
-    text: "Get prompt, expert support when you need it. We're here to ensure your seamless experience.",
+    icon: LuDownload,
+    title: "Easy Installation",
+    text: "One-click installer with no additional dependencies. Works seamlessly with Windows 10/11.",
   },
 ];
 

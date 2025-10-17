@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AuraText File Upload</title>
+    <style>
+        body { 
+            font-family: 'Space Mono', monospace; 
+            padding: 20px; 
+            background: #f8fafc;
+            color: #1a1a1a;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .form-group { margin: 20px 0; }
+        input, select, button { 
+            padding: 12px; 
+            margin: 8px 0; 
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-family: 'Space Mono', monospace;
+        }
+        button { 
+            background: #2563eb; 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            font-weight: 400;
+        }
+        button:hover { background: #1e40af; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 8px; }
+        .success { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+        .error { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AuraText File Upload</h1>
+        <p>Upload your AuraText files to make them available for download.</p>
+        
+        <form id="uploadForm">
+            <div class="form-group">
+                <label><strong>File Type:</strong></label>
+                <select name="type" required>
+                    <option value="">Select file type...</option>
+                    <option value="main">Main Application (.exe)</option>
+                    <option value="extension">Browser Extension (.zip)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label><strong>Select File:</strong></label>
+                <input type="file" name="file" required accept=".exe,.zip">
+            </div>
+            
+            <button type="submit">Upload File</button>
+        </form>
+        
+        <div id="result"></div>
+    </div>
+    
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<p>Uploading...</p>';
+            
+            try {
+                const response = await fetch('/api/download', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    resultDiv.innerHTML = `
+                        <div class="result success">
+                            <h3>✅ Upload Successful!</h3>
+                            <p><strong>File:</strong> ${result.filename}</p>
+                            <p><strong>Size:</strong> ${(result.size / 1024 / 1024).toFixed(2)} MB</p>
+                            <p><strong>Description:</strong> ${result.description}</p>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="result error">
+                            <h3>❌ Upload Failed</h3>
+                            <p><strong>Error:</strong> ${result.error}</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <h3>❌ Upload Failed</h3>
+                        <p><strong>Error:</strong> ${error.message}</p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

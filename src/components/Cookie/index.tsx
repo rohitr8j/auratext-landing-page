@@ -1,15 +1,15 @@
 "use client";
-import { StargateColors } from "#/src/utils/Colors";
+import { AuraTextColors } from "#/src/utils/Colors";
 import useCookieVisibility from "#/src/utils/CookieVisibility";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import React, { FC, useEffect, useState } from "react";
 
 const Cookie: FC = () => {
-  const [showCookie, setShowCookie] = useCookieVisibility("stargate-cookie");
+  const [showCookie, setShowCookie] = useCookieVisibility("auratext-cookie");
 
   return showCookie ? (
     <Flex
-      bg={StargateColors.white}
+      bg={AuraTextColors.white}
       shadow={"lg"}
       rounded={"full"}
       padding={"8px 8px 8px 16px"}
@@ -30,21 +30,21 @@ const Cookie: FC = () => {
       }}
       zIndex={1000}
     >
-      <Text color={StargateColors.grey} fontSize={"small"}>
+      <Text color={AuraTextColors.grey} fontSize={"small"}>
         This website uses cookies to enhance your experience.
       </Text>
       <Button
         rounded={"full"}
         fontSize={"small"}
         size={"sm"}
-        bg={StargateColors.black}
-        color={StargateColors.white}
+        bg={AuraTextColors.black}
+        color={AuraTextColors.white}
         _hover={{
           opacity: 0.8,
         }}
         px={5}
         onClick={() => {
-          localStorage.setItem("stargate-cookie", "true");
+          localStorage.setItem("auratext-cookie", "true");
           setShowCookie(false);
         }}
       >

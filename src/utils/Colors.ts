@@ -1,10 +1,13 @@
-export const StargateColors = {
-  primary: "#e340bf",
-  secondary: "#a440e3",
-  grey: "#656f7e",
-  black: "#09090b",
-  darkBg: "#262626",
-  white: "#FFFFFF",
-  lightBg: "#d9d9d9",
-  lightGrey: "#f2f2f2",
+export const AuraTextColors = {
+  primary: "#2563eb",
+  secondary: "#1e40af", 
+  grey: "#6b7280",
+  black: "#1a1a1a",
+  darkBg: "#f8fafc",
+  white: "#ffffff",
+  lightBg: "#f1f5f9",
+  lightGrey: "#e2e8f0",
+  accent: "#3b82f6",
+  text: "#1a1a1a",
+  textLight: "#64748b",
 };

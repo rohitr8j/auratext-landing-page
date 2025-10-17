@@ -11,20 +11,21 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { LuMenu, LuX } from "react-icons/lu";
+import { LuMenu, LuX, LuZap } from "react-icons/lu";
 import { motion } from "framer-motion";
-import { StargateColors } from "#/src/utils/Colors";
+import { AuraTextColors } from "#/src/utils/Colors";
 import useBannerVisibility from "#/src/utils/BannerVisibility";
 
 const NavItems = [
   { name: "Features", href: "/#features" },
-  { name: "Product", href: "/#product" },
-  { name: "Pricing", href: "/#pricing" },
+  { name: "Download", href: "/#download" },
+  { name: "Releases", href: "/#releases" },
+  { name: "Support", href: "/#footer" },
 ];
 
 const Navbar: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [showBanner] = useBannerVisibility("stargate-banner");
+  const [showBanner] = useBannerVisibility("auratext-banner");
   const [activeSection, setActiveSection] = useState("");
   const { isOpen, onToggle } = useDisclosure();
 
@@ -65,14 +66,14 @@ const Navbar: FC = () => {
         position={isScrolled ? "fixed" : "absolute"}
         top={isScrolled ? 0 : "auto"}
         zIndex={100}
-        bg={isScrolled ? "white" : "#ffffff25"}
+        bg={isScrolled ? AuraTextColors.white : "rgba(255, 255, 255, 0.8)"}
         w="100%"
         justify="center"
         align="center"
         backdropFilter="blur(24px)"
         minH={75}
         transition="all .25s ease"
-        borderBottom="1px solid #ffffff50"
+        borderBottom={`1px solid ${AuraTextColors.lightGrey}`}
         direction="column"
       >
         <Flex
@@ -83,20 +84,28 @@ const Navbar: FC = () => {
           align="center"
           justify="space-between"
         >
-          <Text
-            as={Link}
-            href="/"
-            fontSize="3xl"
-            userSelect="none"
-            color={isScrolled ? "black" : "white"}
-            fontWeight={600}
-          >
-            Stargate
-          </Text>
+          <Flex align="center" gap={3}>
+            <LuZap 
+              size={32} 
+              color={AuraTextColors.text}
+              className="zap-icon"
+            />
+            <Text
+              as={Link}
+              href="/"
+              fontSize="3xl"
+              userSelect="none"
+              color={AuraTextColors.text}
+              fontWeight={400}
+              fontFamily="'Space Mono', monospace"
+            >
+              AuraText
+            </Text>
+          </Flex>
           <Flex
             gap={5}
             display={{ base: "none", lg: "flex" }}
-            color={isScrolled ? "black" : "white"}
+            color={AuraTextColors.text}
           >
             {NavItems.map((item, index) => (
               <Flex
@@ -107,12 +116,10 @@ const Navbar: FC = () => {
                 py={2}
                 borderRadius={12}
                 transition="all .25s ease"
-                _hover={{ bg: isScrolled ? "#00000010" : "#ffffff25" }}
+                _hover={{ bg: AuraTextColors.lightBg }}
                 bg={
                   activeSection === item.name.toLowerCase()
-                    ? isScrolled
-                      ? "#00000010"
-                      : "#ffffff25"
+                    ? AuraTextColors.lightBg
                     : "transparent"
                 }
               >
@@ -122,19 +129,18 @@ const Navbar: FC = () => {
           </Flex>
 
           <Flex gap={4} display={{ base: "none", lg: "flex" }}>
-            <Button variant="link" color={isScrolled ? "black" : "white"}>
-              Log in
-            </Button>
             <Button
               as={motion.a}
-              whileHover={{ scale: 1.1 }}
-              href="#footer"
-              rounded="full"
-              background={isScrolled ? StargateColors.primary : "white"}
-              color={isScrolled ? "white" : "black"}
-              _hover={{ bg: isScrolled ? StargateColors.primary : "white" }}
+              whileHover={{ scale: 1.05 }}
+              href="#download"
+              rounded="8px"
+              background={AuraTextColors.primary}
+              color={AuraTextColors.white}
+              _hover={{ bg: AuraTextColors.secondary }}
+              fontFamily="'Space Mono', monospace"
+              fontWeight={400}
             >
-              Start for free
+              Download
             </Button>
           </Flex>
 
@@ -143,7 +149,7 @@ const Navbar: FC = () => {
             aria-label="Hamburger menu"
             variant="unstyled"
             onClick={onToggle}
-            color={isScrolled ? "black" : "white"}
+            color={AuraTextColors.text}
             display={{ base: "flex", lg: "none" }}
             fontSize={"lg"}
           />
@@ -165,24 +171,24 @@ const Navbar: FC = () => {
                 as={Link}
                 href={item.href}
                 key={index}
-                color={isScrolled ? "black" : "white"}
+                color={AuraTextColors.text}
               >
                 <Text>{item.name}</Text>
               </Flex>
             ))}
             <Flex gap={5} mt={5}>
-              <Button variant="link" color={isScrolled ? "black" : "white"}>
-                Log in
-              </Button>
               <Button
                 as={motion.a}
-                whileHover={{ scale: 1.1 }}
-                href="#"
-                rounded="full"
-                background={isScrolled ? StargateColors.primary : "white"}
-                color={isScrolled ? "white" : "black"}
+                whileHover={{ scale: 1.05 }}
+                href="#download"
+                rounded="8px"
+                background={AuraTextColors.primary}
+                color={AuraTextColors.white}
+                _hover={{ bg: AuraTextColors.secondary }}
+                fontFamily="'Space Mono', monospace"
+                fontWeight={400}
               >
-                Start for free
+                Download
               </Button>
             </Flex>
           </Flex>

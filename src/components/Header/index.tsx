@@ -1,34 +1,39 @@
 "use client";
-import { Button, Flex, Heading, Text, keyframes } from "@chakra-ui/react";
+import { Button, Flex, Heading, Text, keyframes, useToast } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import HeroBottomSVG from "./HeroBottomSVG";
-import { StargateColors } from "#/src/utils/Colors";
-import { LuZap } from "react-icons/lu";
+import { AuraTextColors } from "#/src/utils/Colors";
+import { LuDownload, LuPlay, LuInstagram, LuTwitter, LuMail, LuZap, LuCheck } from "react-icons/lu";
 import Link from "next/link";
 
-const words = [
-  "Copywriter",
-  "Assistant",
-  "Marketer",
-  "Developer",
-  "Strategist",
-  "Creator",
-];
-
 const Header = () => {
-  const [currentWord, setCurrentWord] = useState<string>(words[0]);
-  const [index, setIndex] = useState(0);
+  const [emailCopied, setEmailCopied] = useState(false);
+  const toast = useToast();
+  const emailAddress = "auratext.app@gmail.com";
 
-  useEffect(() => {
-    setCurrentWord(words[index]);
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % words.length);
-      setCurrentWord(words[index]);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [index]);
+  const copyEmailToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      setEmailCopied(true);
+      toast({
+        title: "Email copied!",
+        description: `${emailAddress} copied to clipboard`,
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch (err) {
+      toast({
+        title: "Copy failed",
+        description: "Please copy the email manually: auratext.app@gmail.com",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
 
   return (
     <Flex
@@ -36,91 +41,168 @@ const Header = () => {
       initial="initial"
       animate="animate"
       minH="100svh"
-      bg={
-        "linear-gradient(120deg,#70A4D4 0%,#ca71ff 20%,#8469cc 30%,#48B9E6 50%,#8469cc 70%,#9F70D4 100%)"
-      }
-      bgSize={"200% 200%"}
-      animation={`${bgAnimation} 20s ease-in-out alternate infinite`}
+      bg="linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)"
       position={"relative"}
       align={"center"}
       justify={"center"}
       direction={"column"}
-      px={2}
+      px={8}
     >
-      <Flex bg={"#ffffff50"} px={4} rounded={"full"} mb={5}>
-        <Text color={StargateColors.white} fontSize={"xs"}>
-          Unleash The Power of AI
+      <Flex bg={AuraTextColors.lightBg} px={6} py={2} rounded={"full"} mb={8}>
+        <Text color={AuraTextColors.textLight} fontSize={"sm"} fontFamily="'Space Mono', monospace" fontWeight={400}>
+          AI-Powered Text Assistant for Windows
         </Text>
       </Flex>
-      <Heading
-        fontSize={{
-          base: 48,
-          md: 64,
-          lg: 84,
-        }}
-        color={StargateColors.white}
-        lineHeight={1}
-        textAlign={"center"}
-      >
-        Your Ultimate
-      </Heading>
-      <AnimatePresence mode="wait">
+      
+      <Flex align="center" justify="center" gap={6} mb={4}>
+        <LuZap 
+          size={64} 
+          color={AuraTextColors.text}
+          className="zap-icon"
+        />
         <Heading
-          as={motion.h1}
           fontSize={{
             base: 48,
             md: 64,
             lg: 84,
           }}
-          key={currentWord}
-          color={StargateColors.white}
-          lineHeight={1}
-          initial={{ opacity: 0.2, filter: "blur(4px)" }}
-          animate={{ opacity: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0.2, filter: "blur(4px)" }}
+          color={AuraTextColors.text}
+          lineHeight={1.1}
+          textAlign={"center"}
+          fontFamily="'Space Mono', monospace"
+          fontWeight={400}
         >
-          {currentWord}
+          AuraText
         </Heading>
-      </AnimatePresence>
-      <Text color={StargateColors.white} maxW={300} textAlign={"center"} mt={5}>
-        Elevating AI: The Ultimate Platform for Intelligent Solutions
-      </Text>
-      <Button
-        leftIcon={<LuZap />}
-        as={motion.a}
-        href={"#"}
-        whileHover={{ scale: 1.1 }}
-        size={"lg"}
-        mt={5}
-        gap={2}
-        cursor={"pointer"}
+      </Flex>
+      
+      <Text 
+        color={AuraTextColors.textLight} 
+        maxW={600} 
+        textAlign={"center"} 
+        fontSize="lg"
+        fontFamily="'Space Mono', monospace"
+        fontWeight={400}
+        mb={12}
+        lineHeight={1.6}
       >
-        START FOR FREE
-      </Button>
+        Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking. 
+        Works with Windows 10/11.
+      </Text>
+      
+      <Flex gap={4} direction={{ base: "column", md: "row" }} align="center">
+        <Button
+          leftIcon={<LuDownload />}
+          as={motion.a}
+          href={"#download"}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          size={"lg"}
+          bg={AuraTextColors.primary}
+          color={AuraTextColors.white}
+          _hover={{ bg: AuraTextColors.secondary }}
+          fontFamily="'Space Mono', monospace"
+          fontWeight={400}
+          px={8}
+          py={6}
+          borderRadius="8px"
+        >
+          Download for Windows
+        </Button>
+        
+        <Button
+          leftIcon={<LuPlay />}
+          as={motion.a}
+          href={"#demo"}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          size={"lg"}
+          variant="outline"
+          borderColor={AuraTextColors.primary}
+          color={AuraTextColors.primary}
+          _hover={{ bg: AuraTextColors.lightBg }}
+          fontFamily="'Space Mono', monospace"
+          fontWeight={400}
+          px={8}
+          py={6}
+          borderRadius="8px"
+        >
+          Watch Demo
+        </Button>
+      </Flex>
+      
       <Text
-        mt={2}
+        mt={8}
         as={Link}
         href={"#features"}
-        color={StargateColors.white}
-        opacity={0.75}
+        color={AuraTextColors.textLight}
+        opacity={0.8}
         transition={"all .25s ease"}
         _hover={{ opacity: 1 }}
+        fontFamily="'Space Mono', monospace"
+        fontWeight={400}
+        fontSize="sm"
       >
-        Discover Stargate
+        Learn More ↓
       </Text>
+      
+      {/* Social Media Links */}
+      <Flex gap={4} mt={8} align="center">
+        <Text 
+          fontSize="sm" 
+          color={AuraTextColors.textLight}
+          fontFamily="'Space Mono', monospace"
+          fontWeight={400}
+        >
+          Follow us:
+        </Text>
+        <Flex gap={3}>
+          <Button
+            as={Link}
+            href="https://www.instagram.com/auratext.app/"
+            target="_blank"
+            size="sm"
+            variant="ghost"
+            color={AuraTextColors.textLight}
+            _hover={{ color: AuraTextColors.primary }}
+            p={2}
+            minW="auto"
+          >
+            <LuInstagram size={20} />
+          </Button>
+          <Button
+            as={Link}
+            href="https://x.com/auratext"
+            target="_blank"
+            size="sm"
+            variant="ghost"
+            color={AuraTextColors.textLight}
+            _hover={{ color: AuraTextColors.primary }}
+            p={2}
+            minW="auto"
+          >
+            <LuTwitter size={20} />
+          </Button>
+          <Button
+            onClick={copyEmailToClipboard}
+            size="sm"
+            variant="ghost"
+            color={emailCopied ? AuraTextColors.primary : AuraTextColors.textLight}
+            _hover={{ color: AuraTextColors.primary }}
+            p={2}
+            minW="auto"
+            cursor="pointer"
+            transition="all 0.2s"
+            title={emailCopied ? "Copied!" : "Click to copy email"}
+          >
+            {emailCopied ? <LuCheck size={20} /> : <LuMail size={20} />}
+          </Button>
+        </Flex>
+      </Flex>
+      
       <HeroBottomSVG />
     </Flex>
   );
 };
-
-const bgAnimation = keyframes`
-  0% {
-    background-position: 0% 100%
-  }
-
-  to {
-    background-position: 100% 100%
-  }
-`;
 
 export default Header;

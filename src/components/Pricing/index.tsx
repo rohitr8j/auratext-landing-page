@@ -1,5 +1,5 @@
 "use client";
-import { StargateColors } from "#/src/utils/Colors";
+import { AuraTextColors } from "#/src/utils/Colors";
 import {
   Badge,
   Button,
@@ -79,7 +79,7 @@ const Pricing = () => {
         base: 2,
         xl: "auto",
       }}
-      border={`1px solid ${StargateColors.lightBg}`}
+      border={`1px solid ${AuraTextColors.lightBg}`}
       borderRadius={24}
     >
       <Heading textAlign={"center"} px={2}>
@@ -90,7 +90,7 @@ const Pricing = () => {
         gap={2}
         p={2}
         borderRadius={16}
-        border={`1px solid ${StargateColors.lightBg}`}
+        border={`1px solid ${AuraTextColors.lightBg}`}
       >
         <Flex
           key={"monthly"}
@@ -101,7 +101,7 @@ const Pricing = () => {
           borderRadius={12}
           transition={"all 0.25s ease"}
           {...(currentBilling === "monthly" && {
-            bgColor: StargateColors.black,
+            bgColor: AuraTextColors.black,
           })}
         >
           <Text
@@ -109,8 +109,8 @@ const Pricing = () => {
             fontSize={"sm"}
             color={
               currentBilling === "monthly"
-                ? StargateColors.white
-                : StargateColors.grey
+                ? AuraTextColors.white
+                : AuraTextColors.grey
             }
           >
             Monthly
@@ -128,7 +128,7 @@ const Pricing = () => {
           borderRadius={12}
           transition={"all 0.25s ease"}
           {...(currentBilling === "annual" && {
-            bgColor: StargateColors.black,
+            bgColor: AuraTextColors.black,
           })}
         >
           <Text
@@ -136,8 +136,8 @@ const Pricing = () => {
             fontSize={"sm"}
             color={
               currentBilling === "annual"
-                ? StargateColors.white
-                : StargateColors.grey
+                ? AuraTextColors.white
+                : AuraTextColors.grey
             }
           >
             Annual
@@ -147,13 +147,13 @@ const Pricing = () => {
             px={2}
             bg={
               currentBilling === "annual"
-                ? StargateColors.white
-                : StargateColors.primary
+                ? AuraTextColors.white
+                : AuraTextColors.primary
             }
             color={
               currentBilling === "annual"
-                ? StargateColors.black
-                : StargateColors.white
+                ? AuraTextColors.black
+                : AuraTextColors.white
             }
           >
             2 months free
@@ -174,9 +174,9 @@ const Pricing = () => {
               p={4}
               direction={"column"}
               w={"100%"}
-              border={`1px solid ${StargateColors.lightBg}`}
+              border={`1px solid ${AuraTextColors.lightBg}`}
               borderRadius={18}
-              color={StargateColors.black}
+              color={AuraTextColors.black}
               layout
               initial={{ opacity: 0.2 }}
               animate={{ opacity: 1 }}
@@ -188,7 +188,7 @@ const Pricing = () => {
                 fontSize="sm"
                 textAlign="center"
                 mb={4}
-                color={StargateColors.grey}
+                color={AuraTextColors.grey}
               >
                 {plan.name}
               </Text>
@@ -206,7 +206,7 @@ const Pricing = () => {
                 <Text
                   textAlign="center"
                   fontSize="sm"
-                  color={StargateColors.grey}
+                  color={AuraTextColors.grey}
                 >
                   {currentBilling}
                 </Text>
@@ -218,12 +218,12 @@ const Pricing = () => {
                     key={`${feature}-${currentBilling}`}
                   >
                     <Flex
-                      bg={`${StargateColors.primary}25`}
+                      bg={`${AuraTextColors.primary}25`}
                       mr={2}
                       borderRadius={"full"}
                       p={1}
                     >
-                      <Icon as={LuCheck} color={StargateColors.primary} />
+                      <Icon as={LuCheck} color={AuraTextColors.primary} />
                     </Flex>
                     <Text key={feature}>{feature}</Text>
                   </Flex>
@@ -234,11 +234,11 @@ const Pricing = () => {
                 w="full"
                 {...(plan.name === "Enterprise"
                   ? {
-                      bg: StargateColors.primary,
-                      color: StargateColors.white,
+                      bg: AuraTextColors.primary,
+                      color: AuraTextColors.white,
                       _hover: {
-                        bg: StargateColors.primary,
-                        color: StargateColors.white,
+                        bg: AuraTextColors.primary,
+                        color: AuraTextColors.white,
                         opacity: 0.8,
                       },
                     }

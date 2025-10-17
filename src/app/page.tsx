@@ -3,7 +3,8 @@ import Audience from "../components/Audience";
 import Features from "../components/Features";
 import Functions from "../components/Functions";
 import Product from "../components/Product";
-import Pricing from "../components/Pricing";
+import Download from "../components/Download";
+import GitHubReleases from "../components/GitHubReleases";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
       <Functions />
       <Audience />
       <Product />
-      <Pricing />
+      <Download />
+      <GitHubReleases />
     </main>
   );
 }

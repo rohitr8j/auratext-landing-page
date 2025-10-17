@@ -1,4 +1,4 @@
-import { StargateColors } from "#/src/utils/Colors";
+import { AuraTextColors } from "#/src/utils/Colors";
 import { Icon } from "@chakra-ui/react";
 import React from "react";
 
@@ -6,7 +6,7 @@ const FooterTopSVG = () => {
   return (
     <Icon
       viewBox="0 0 1440 52"
-      fill={StargateColors.white}
+      fill={AuraTextColors.white}
       w={"100%"}
       h={"auto"}
       position={"absolute"}

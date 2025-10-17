@@ -21,7 +21,7 @@ const Audience = () => {
         textAlign={"center"}
         mb={10}
       >
-        We recommend Stargate for
+        We recommend AuraText for
       </Heading>
       <Grid
         templateColumns={{

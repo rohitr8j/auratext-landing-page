@@ -23,54 +23,77 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    template: "Stargate | %s",
-    default: "Stargate | NextJS SaaS Landing",
+    template: "AuraText | %s",
+    default: "AuraText | AI-Powered Text Assistant for Windows",
   },
   description:
-    "Stargate is a modern SaaS Landing Page template built with NextJS. It's designed to provide a seamless and engaging experience for showcasing software products, especially those in the tech and startup niches.",
+    "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
   icons: [{ rel: "icon", url: favicon.src }],
-  metadataBase: new URL("https://stargate.nfteam.eu/"),
+  metadataBase: new URL("https://auratext.app/"),
   openGraph: {
-    title: "Stargate | NextJS SaaS Landing",
-    siteName: "Stargate | NextJS SaaS Landing",
+    title: "AuraText | AI-Powered Text Assistant for Windows",
+    siteName: "AuraText",
     description:
-      "Stargate is a modern SaaS Landing Page template built with NextJS. It's designed to provide a seamless and engaging experience for showcasing software products, especially those in the tech and startup niches.",
-    url: "https://stargate.nfteam.eu/",
+      "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
+    url: "https://auratext.app/",
     type: "website",
-    locale: "hu_HU",
+    locale: "en_US",
     images: [
       {
         url: SummaryLargeImage.src,
         width: SummaryLargeImage.width,
         height: SummaryLargeImage.height,
-        alt: "Stargate | NextJS SaaS Landing",
+        alt: "AuraText | AI-Powered Text Assistant for Windows",
       },
     ],
   },
   twitter: {
-    title: "Stargate | NextJS SaaS Landing",
-    creator: "@nfteam_eu",
-    site: "@nfteam_eu",
+    title: "AuraText | AI-Powered Text Assistant for Windows",
+    creator: "@auratext",
+    site: "@auratext",
     description:
-      "Stargate is a modern SaaS Landing Page template built with NextJS. It's designed to provide a seamless and engaging experience for showcasing software products, especially those in the tech and startup niches.",
+      "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
     card: "summary_large_image",
     images: [
       {
         url: SummaryLargeImage.src,
         width: SummaryLargeImage.width,
         height: SummaryLargeImage.height,
-        alt: "Stargate | NextJS SaaS Landing",
+        alt: "AuraText | AI-Powered Text Assistant for Windows",
       },
     ],
   },
   alternates: {
-    canonical: "https://stargate.nfteam.eu/",
+    canonical: "https://auratext.app/",
   },
 };
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400&display=swap"
+          rel="stylesheet"
+        />
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'GA_MEASUREMENT_ID', {
+                page_title: 'AuraText Landing Page',
+                page_location: window.location.href,
+              });
+            `,
+          }}
+        />
+      </head>
       <body>
         <Providers>
           <Cookie />
