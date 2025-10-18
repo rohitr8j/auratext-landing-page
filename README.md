@@ -21,15 +21,13 @@ AuraText is a modern, AI-powered text assistant designed for Windows 10/11. Gene
 - **Platform**: Windows 10/11
 - **Size**: ~63MB
 - **Format**: .exe installer
-<!-- Temporarily commented out - GitHub release links hidden -->
-<!-- - **Download**: [Latest Release](https://github.com/Y4shr4j/auratext-releases/releases/latest) -->
+- **Download**: [Latest Release](https://github.com/Y4shr4j/auratext-releases/releases/latest)
 
 ### Browser Extension
 - **Platform**: Chrome, Edge, Firefox
 - **Size**: ~1MB
 - **Format**: .zip file
-<!-- Temporarily commented out - GitHub release links hidden -->
-<!-- - **Download**: [Latest Release](https://github.com/Y4shr4j/auratext-releases/releases/latest) -->
+- **Download**: [Latest Release](https://github.com/Y4shr4j/auratext-releases/releases/latest)
 
 ## 🛠️ Development
 
@@ -78,8 +76,7 @@ npm run export
 ## 🔗 Links
 
 - **Website**: [auratxt.com](https://auratxt.com)
-<!-- Temporarily commented out - GitHub repository link hidden -->
-<!-- - **Releases**: [github.com/Y4shr4j/auratext-releases](https://github.com/Y4shr4j/auratext-releases) -->
+- **Releases**: [github.com/Y4shr4j/auratext-releases](https://github.com/Y4shr4j/auratext-releases)
 - **Instagram**: [@auratext.app](https://www.instagram.com/auratext.app/)
 - **X/Twitter**: [@auratext](https://x.com/auratext)
 - **Email**: auratext.app@gmail.com

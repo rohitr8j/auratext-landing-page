@@ -35,63 +35,15 @@ const Download = () => {
   }, [latestRelease]);
 
   const downloadMainApp = async () => {
-    try {
-      // Track download event
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'download', {
-          event_category: 'engagement',
-          event_label: 'main_app',
-          value: 1,
-        });
-      }
-
-      // Use latest release URL or fallback
-      const mainAppAsset = latestRelease?.assets?.find(asset => 
-        asset.name.includes('.exe') && asset.name.includes('Setup')
-      );
-      
-      const downloadUrl = mainAppAsset?.browser_download_url || 
-        'https://github.com/Y4shr4j/auratext-releases/releases/latest/download/AuraText-Setup-1.0.3.exe';
-      
-      // Open download in new tab
-      window.open(downloadUrl, '_blank');
-      
-      console.log('Download initiated:', mainAppAsset?.name || 'AuraText-Setup.exe');
-    } catch (error) {
-      console.error('Download error:', error);
-    }
+    // Downloads disabled - users cannot download from website
+    alert('Downloads are currently disabled. Please visit our GitHub repository for downloads.');
+    return;
   };
 
   const downloadExtension = async () => {
-    try {
-      // Track download event
-      if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'download', {
-          event_category: 'engagement',
-          event_label: 'browser_extension',
-          value: 1,
-        });
-      }
-
-      // Use latest release URL or fallback
-      const extensionAsset = latestRelease?.assets?.find(asset => 
-        asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
-        asset.name.toLowerCase().includes('.zip') || 
-        asset.name.toLowerCase().includes('extension') ||
-        asset.name.toLowerCase().includes('browser')
-      );
-      
-      const downloadUrl = extensionAsset?.browser_download_url || 
-        'https://github.com/Y4shr4j/auratext-releases/releases/latest/download/auratext-browser-bridge.zip';
-      
-      // Open download in new tab
-      window.open(downloadUrl, '_blank');
-      
-      console.log('Available assets:', latestRelease?.assets?.map(asset => asset.name));
-      console.log('Extension asset found:', extensionAsset);
-    } catch (error) {
-      console.error('Download error:', error);
-    }
+    // Downloads disabled - users cannot download from website
+    alert('Downloads are currently disabled. Please visit our GitHub repository for downloads.');
+    return;
   };
 
   return (
