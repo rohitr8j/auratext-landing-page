@@ -37,8 +37,16 @@ const Product = () => {
       }}
       border={`1px solid ${AuraTextColors.lightBg}`}
       borderRadius={24}
+      bg="#000000"
     >
-      <Heading textAlign={"center"} px={2}>
+      <Heading 
+        textAlign={"center"} 
+        px={2}
+        color={AuraTextColors.text}
+        fontFamily="'Space Mono', monospace"
+        fontWeight={400}
+        fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
+      >
         ... But what can AuraText do for You?
       </Heading>
       <Flex

@@ -23,6 +23,7 @@ const Features = () => {
       px={2}
       maxW={1200}
       mx={"auto"}
+      bg="#000000"
     >
       <Heading
         fontSize={{
@@ -62,7 +63,7 @@ interface CardProps {
 }
 
 const Card = ({ icon, title, children }: CardProps) => (
-  <Flex maxW={350} role="group" p={6} borderRadius={12} bg={AuraTextColors.white} border={`1px solid ${AuraTextColors.lightGrey}`} transition={"all 0.25s ease"} _hover={{ borderColor: AuraTextColors.primary, shadow: "lg" }}>
+  <Flex maxW={350} role="group" p={6} borderRadius={12} bg={AuraTextColors.lightBg} border={`1px solid ${AuraTextColors.lightGrey}`} transition={"all 0.25s ease"} _hover={{ borderColor: AuraTextColors.primary, shadow: "lg" }}>
     <Icon
       as={icon}
       fontSize={48}

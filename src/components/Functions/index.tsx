@@ -31,6 +31,7 @@ const Functions = () => {
       px={2}
       maxW={1200}
       mx={"auto"}
+      bg="#000000"
     >
       <Grid
         templateRows="repeat(3, 1fr)"

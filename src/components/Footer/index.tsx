@@ -106,7 +106,7 @@ const Footer = () => {
           Follow us for updates and support
         </Text>
         
-        <HStack spacing={6}>
+        <HStack spacing={{ base: 3, md: 6 }} wrap="wrap" justify="center">
           <Button
             as={Link}
             href="https://www.instagram.com/auratext.app/"
@@ -116,15 +116,16 @@ const Footer = () => {
             borderColor={AuraTextColors.white}
             color={AuraTextColors.white}
             _hover={{ 
-              bg: AuraTextColors.white, 
-              color: AuraTextColors.text,
+              bg: "rgba(255, 255, 255, 0.1)", 
+              color: AuraTextColors.white,
               borderColor: AuraTextColors.white 
             }}
             fontFamily="'Space Mono', monospace"
             fontWeight={400}
             borderRadius="8px"
-            px={6}
+            px={{ base: 4, md: 6 }}
             py={3}
+            size={{ base: "sm", md: "md" }}
           >
             Instagram
           </Button>
@@ -138,15 +139,16 @@ const Footer = () => {
             borderColor={AuraTextColors.white}
             color={AuraTextColors.white}
             _hover={{ 
-              bg: AuraTextColors.white, 
-              color: AuraTextColors.text,
+              bg: "rgba(255, 255, 255, 0.1)", 
+              color: AuraTextColors.white,
               borderColor: AuraTextColors.white 
             }}
             fontFamily="'Space Mono', monospace"
             fontWeight={400}
             borderRadius="8px"
-            px={6}
+            px={{ base: 4, md: 6 }}
             py={3}
+            size={{ base: "sm", md: "md" }}
           >
             X (Twitter)
           </Button>
@@ -158,15 +160,16 @@ const Footer = () => {
             borderColor={AuraTextColors.white}
             color={AuraTextColors.white}
             _hover={{ 
-              bg: AuraTextColors.white, 
-              color: AuraTextColors.text,
+              bg: "rgba(255, 255, 255, 0.1)", 
+              color: AuraTextColors.white,
               borderColor: AuraTextColors.white 
             }}
             fontFamily="'Space Mono', monospace"
             fontWeight={400}
             borderRadius="8px"
-            px={6}
+            px={{ base: 4, md: 6 }}
             py={3}
+            size={{ base: "sm", md: "md" }}
             cursor="pointer"
             transition="all 0.2s"
           >

@@ -6,7 +6,7 @@ const FooterTopSVG = () => {
   return (
     <Icon
       viewBox="0 0 1440 52"
-      fill={AuraTextColors.white}
+      fill="#000000"
       w={"100%"}
       h={"auto"}
       position={"absolute"}

@@ -41,7 +41,19 @@ const Header = () => {
       initial="initial"
       animate="animate"
       minH="100svh"
-      bg="linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)"
+      bg={{
+        base: `
+        radial-gradient(circle at 100% 140%, ${AuraTextColors.primary},${AuraTextColors.secondary}75, transparent, transparent, transparent), 
+        radial-gradient(circle at 50% 160%, ${AuraTextColors.primary},${AuraTextColors.secondary}75, transparent, transparent, transparent),
+        radial-gradient(circle at 0% 140%, ${AuraTextColors.primary},${AuraTextColors.secondary}75, transparent, transparent, transparent),
+        black
+        `,
+        md: `
+        radial-gradient(circle at 100% 150%, ${AuraTextColors.primary},${AuraTextColors.secondary}75, transparent, transparent, transparent), 
+        radial-gradient(circle at 15% 175%, ${AuraTextColors.primary},${AuraTextColors.secondary}75, transparent, transparent, transparent),
+        black
+        `,
+      }}
       position={"relative"}
       align={"center"}
       justify={"center"}

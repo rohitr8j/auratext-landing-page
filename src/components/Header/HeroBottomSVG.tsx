@@ -6,7 +6,7 @@ const HeroBottomSVG = () => {
   return (
     <Icon
       viewBox="0 0 1440 104.1"
-      fill={AuraTextColors.white}
+      fill="#000000"
       w={"100%"}
       h={"auto"}
       position={"absolute"}

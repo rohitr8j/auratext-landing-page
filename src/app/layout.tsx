@@ -15,8 +15,8 @@ interface LayoutProps {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#e141c0",
-  colorScheme: "light",
+  themeColor: "#3b82f6",
+  colorScheme: "dark",
   initialScale: 1,
   width: "device-width",
 };
@@ -94,12 +94,14 @@ export default function RootLayout({ children }: LayoutProps) {
           }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning={true} style={{ backgroundColor: '#000000' }}>
         <Providers>
           <Cookie />
           <Banner />
           <Navbar />
-          {children}
+          <div style={{ backgroundColor: '#000000', minHeight: '100vh' }}>
+            {children}
+          </div>
           <Footer />
         </Providers>
       </body>

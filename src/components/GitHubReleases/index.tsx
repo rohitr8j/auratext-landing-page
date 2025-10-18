@@ -171,6 +171,7 @@ const GitHubReleases = () => {
       px={{ base: 6, md: 10 }}
       maxW={1200}
       mx={{ base: 2, xl: "auto" }}
+      bg="#000000"
     >
       <VStack spacing={8} align="center" maxW={1000}>
         <VStack spacing={4} align="center">
@@ -203,19 +204,17 @@ const GitHubReleases = () => {
               as={motion.div}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
               w="full"
               p={6}
               border={`1px solid ${AuraTextColors.lightGrey}`}
               borderRadius={16}
-              bg={AuraTextColors.white}
+              bg={AuraTextColors.lightBg}
               _hover={{ borderColor: AuraTextColors.primary, shadow: "lg" }}
-              transition="all 0.25s ease"
             >
               <VStack spacing={4} align="start" w="full">
-                <HStack justify="space-between" w="full" align="start">
-                  <VStack align="start" spacing={2}>
-                    <HStack spacing={3}>
+                <HStack justify="space-between" w="full" align="start" direction={{ base: "column", md: "row" }} spacing={{ base: 4, md: 0 }}>
+                  <VStack align="start" spacing={2} w={{ base: "100%", md: "auto" }}>
+                    <HStack spacing={3} wrap="wrap">
                       <Badge 
                         colorScheme={index === 0 ? "green" : "blue"} 
                         borderRadius="full" 
@@ -226,7 +225,7 @@ const GitHubReleases = () => {
                         {index === 0 ? "Latest" : "Release"}
                       </Badge>
                       <Text 
-                        fontSize="lg" 
+                        fontSize={{ base: "md", md: "lg" }} 
                         fontFamily="'Space Mono', monospace" 
                         fontWeight={400}
                         color={AuraTextColors.text}
@@ -262,8 +261,9 @@ const GitHubReleases = () => {
                     _hover={{ bg: AuraTextColors.lightBg }}
                     fontFamily="'Space Mono', monospace"
                     fontWeight={400}
-                    size="sm"
+                    size={{ base: "xs", md: "sm" }}
                     rightIcon={<LuExternalLink />}
+                    w={{ base: "100%", md: "auto" }}
                   >
                     View Release
                   </Button>

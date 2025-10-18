@@ -17,6 +17,7 @@ export const ProductCard = ({ icon, title, children }: CardProps) => (
       mr={5}
       p={2}
       bg={AuraTextColors.lightGrey}
+      color={AuraTextColors.text}
       rounded={"md"}
       strokeWidth={1.5}
       transition={"all 0.25s ease"}
@@ -27,8 +28,19 @@ export const ProductCard = ({ icon, title, children }: CardProps) => (
         transform: "scale(1.1)",
       }}
     />
-    <Heading fontSize={"xl"}>{title}</Heading>
-    <Text fontSize={"small"} color={AuraTextColors.grey}>
+    <Heading 
+      fontSize={"xl"} 
+      color={AuraTextColors.text}
+      fontFamily="'Space Mono', monospace"
+      fontWeight={400}
+    >
+      {title}
+    </Heading>
+    <Text 
+      fontSize={"small"} 
+      color={AuraTextColors.textLight}
+      fontFamily="'Space Mono', monospace"
+    >
       {children}
     </Text>
   </Flex>

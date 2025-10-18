@@ -66,14 +66,13 @@ const Navbar: FC = () => {
         position={isScrolled ? "fixed" : "absolute"}
         top={isScrolled ? 0 : "auto"}
         zIndex={100}
-        bg={isScrolled ? AuraTextColors.white : "rgba(255, 255, 255, 0.8)"}
+        bg={isScrolled ? AuraTextColors.darkBg : "rgba(0, 0, 0, 0.8)"}
         w="100%"
         justify="center"
         align="center"
         backdropFilter="blur(24px)"
         minH={75}
         transition="all .25s ease"
-        borderBottom={`1px solid ${AuraTextColors.lightGrey}`}
         direction="column"
       >
         <Flex

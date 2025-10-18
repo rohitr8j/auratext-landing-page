@@ -1,5 +1,6 @@
 import { Box, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
+import { AuraTextColors } from "#/src/utils/Colors";
 
 const Audience = () => {
   return (
@@ -12,6 +13,7 @@ const Audience = () => {
       px={2}
       maxW={1200}
       mx={"auto"}
+      bg="#000000"
     >
       <Heading
         fontSize={{
@@ -20,6 +22,9 @@ const Audience = () => {
         }}
         textAlign={"center"}
         mb={10}
+        color={AuraTextColors.text}
+        fontFamily="'Space Mono', monospace"
+        fontWeight={400}
       >
         We recommend AuraText for
       </Heading>
@@ -48,6 +53,9 @@ const Audience = () => {
         }}
         textAlign={"center"}
         mt={10}
+        color={AuraTextColors.text}
+        fontFamily="'Space Mono', monospace"
+        fontWeight={400}
       >
         and many others.
       </Heading>
@@ -64,7 +72,7 @@ const Card = ({ color, children }: CardProps) => {
   return (
     <Flex
       align={"center"}
-      bg={`${color}25`}
+      bg={`${color}60`}
       px={8}
       py={5}
       rounded={"lg"}
