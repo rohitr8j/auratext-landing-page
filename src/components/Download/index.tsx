@@ -20,6 +20,20 @@ import { useLatestRelease } from "#/src/hooks/useGitHubReleases";
 const Download = () => {
   const { latestRelease, loading, error } = useLatestRelease();
 
+  // Debug logging
+  React.useEffect(() => {
+    if (latestRelease?.assets) {
+      console.log('Latest release assets:', latestRelease.assets.map(asset => asset.name));
+      const extensionAsset = latestRelease.assets.find(asset => 
+        asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
+        asset.name.toLowerCase().includes('.zip') || 
+        asset.name.toLowerCase().includes('extension') ||
+        asset.name.toLowerCase().includes('browser')
+      );
+      console.log('Extension asset detected:', extensionAsset);
+    }
+  }, [latestRelease]);
+
   const downloadMainApp = async () => {
     try {
       // Track download event
@@ -61,39 +75,43 @@ const Download = () => {
 
       // Use latest release URL or fallback
       const extensionAsset = latestRelease?.assets?.find(asset => 
-        asset.name.includes('.zip') && asset.name.includes('Extension')
+        asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
+        asset.name.toLowerCase().includes('.zip') || 
+        asset.name.toLowerCase().includes('extension') ||
+        asset.name.toLowerCase().includes('browser')
       );
       
       const downloadUrl = extensionAsset?.browser_download_url || 
-        'https://github.com/Y4shr4j/auratext-releases/releases/latest/download/AuraText-Extension.zip';
+        'https://github.com/Y4shr4j/auratext-releases/releases/latest/download/auratext-browser-bridge.zip';
       
       // Open download in new tab
       window.open(downloadUrl, '_blank');
       
-      console.log('Download initiated:', extensionAsset?.name || 'AuraText-Extension.zip');
+      console.log('Available assets:', latestRelease?.assets?.map(asset => asset.name));
+      console.log('Extension asset found:', extensionAsset);
     } catch (error) {
       console.error('Download error:', error);
     }
   };
 
   return (
-          <Flex
-            id="download"
-            direction={"column"}
-            justify={"center"}
-            align={"center"}
-            py={24}
-            px={{
-              base: 6,
-              md: 10,
-            }}
-            maxW={1200}
-            mx={{
-              base: 2,
-              xl: "auto",
-            }}
+    <Flex
+      id="download"
+      direction={"column"}
+      justify={"center"}
+      align={"center"}
+      py={24}
+      px={{
+        base: 6,
+        md: 10,
+      }}
+      maxW={1200}
+      mx={{
+        base: 2,
+        xl: "auto",
+      }}
             bg="#000000"
-          >
+    >
       <VStack spacing={8} align="center" maxW={800}>
         <Heading 
           textAlign={"center"} 
@@ -267,7 +285,12 @@ const Download = () => {
                 isLoading={loading}
                 loadingText="Loading..."
               >
-                {latestRelease?.assets?.find(asset => asset.name.includes('.zip')) ? 
+                {latestRelease?.assets?.find(asset => 
+                  asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
+                  asset.name.toLowerCase().includes('.zip') || 
+                  asset.name.toLowerCase().includes('extension') ||
+                  asset.name.toLowerCase().includes('browser')
+                ) ? 
                   'Download Extension' : 'Coming Soon'}
               </Button>
             </VStack>
@@ -416,7 +439,12 @@ const Download = () => {
                 isLoading={loading}
                 loadingText="Loading..."
               >
-                {latestRelease?.assets?.find(asset => asset.name.includes('.zip')) ? 
+                {latestRelease?.assets?.find(asset => 
+                  asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
+                  asset.name.toLowerCase().includes('.zip') || 
+                  asset.name.toLowerCase().includes('extension') ||
+                  asset.name.toLowerCase().includes('browser')
+                ) ? 
                   'Download Extension' : 'Coming Soon'}
               </Button>
             </VStack>
