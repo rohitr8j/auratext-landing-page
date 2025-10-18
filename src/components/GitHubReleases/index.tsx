@@ -250,7 +250,8 @@ const GitHubReleases = () => {
                     </HStack>
                   </VStack>
 
-                  <Button
+                  {/* Temporarily commented out - GitHub release links hidden */}
+                  {/* <Button
                     as={Link}
                     href={`https://github.com/Y4shr4j/auratext-releases/releases/tag/${release.tag_name}`}
                     target="_blank"
@@ -266,7 +267,7 @@ const GitHubReleases = () => {
                     w={{ base: "100%", md: "auto" }}
                   >
                     View Release
-                  </Button>
+                  </Button> */}
                 </HStack>
 
                 {release.body && (
@@ -358,7 +359,8 @@ const GitHubReleases = () => {
             Want to see all releases and contribute to AuraText?
           </Text>
           
-          <Button
+          {/* Temporarily commented out - GitHub repository link hidden */}
+          {/* <Button
             as={Link}
             href="https://github.com/Y4shr4j/auratext-releases"
             target="_blank"
@@ -376,7 +378,7 @@ const GitHubReleases = () => {
             borderRadius="8px"
           >
             Visit GitHub Repository
-          </Button>
+          </Button> */}
         </VStack>
       </VStack>
     </Flex>
