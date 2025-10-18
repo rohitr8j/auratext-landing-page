@@ -37,7 +37,7 @@ const Download = () => {
       );
       
       const downloadUrl = mainAppAsset?.browser_download_url || 
-        'https://github.com/auratext-app/releases/releases/latest/download/AuraText-Setup-1.0.3.exe';
+        'https://github.com/Y4shr4j/auratext-releases/releases/latest/download/AuraText-Setup-1.0.3.exe';
       
       // Open download in new tab
       window.open(downloadUrl, '_blank');
@@ -65,7 +65,7 @@ const Download = () => {
       );
       
       const downloadUrl = extensionAsset?.browser_download_url || 
-        'https://github.com/auratext-app/releases/releases/latest/download/AuraText-Extension.zip';
+        'https://github.com/Y4shr4j/auratext-releases/releases/latest/download/AuraText-Extension.zip';
       
       // Open download in new tab
       window.open(downloadUrl, '_blank');

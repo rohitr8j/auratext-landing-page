@@ -39,7 +39,7 @@ const GitHubReleases = () => {
   useEffect(() => {
     const fetchReleases = async () => {
       try {
-        const response = await fetch('https://api.github.com/repos/auratext-app/releases/releases');
+        const response = await fetch('https://api.github.com/repos/Y4shr4j/auratext-releases/releases');
         if (!response.ok) {
           throw new Error('Failed to fetch releases');
         }
@@ -62,6 +62,7 @@ const GitHubReleases = () => {
       day: 'numeric'
     });
   };
+
 
   const formatFileSize = (bytes: number) => {
     if (bytes === 0) return '0 Bytes';
@@ -102,9 +103,60 @@ const GitHubReleases = () => {
         maxW={1200}
         mx={{ base: 2, xl: "auto" }}
       >
-        <Text fontFamily="'Space Mono', monospace" color="red.500">
-          Error loading releases: {error}
-        </Text>
+        <VStack spacing={8} align="center" maxW={600}>
+          <VStack spacing={4} align="center">
+            <Heading 
+              textAlign={"center"} 
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontFamily="'Space Mono', monospace"
+              fontWeight={400}
+              color={AuraTextColors.text}
+            >
+              Releases Coming Soon
+            </Heading>
+            
+            <Text 
+              textAlign={"center"} 
+              fontSize="lg"
+              color={AuraTextColors.textLight}
+              fontFamily="'Space Mono', monospace"
+              fontWeight={400}
+            >
+              We're working on making AuraText releases available. Check back soon for downloads and updates.
+            </Text>
+          </VStack>
+
+          <VStack spacing={4} align="center">
+            <Text 
+              fontSize="sm" 
+              color={AuraTextColors.textLight} 
+              fontFamily="'Space Mono', monospace" 
+              textAlign="center"
+            >
+              Want to stay updated on AuraText development?
+            </Text>
+            
+            <Button
+              as={Link}
+              href="https://github.com/Y4shr4j"
+              target="_blank"
+              leftIcon={<LuGithub />}
+              rightIcon={<LuExternalLink />}
+              variant="outline"
+              borderColor={AuraTextColors.primary}
+              color={AuraTextColors.primary}
+              _hover={{ bg: AuraTextColors.lightBg }}
+              fontFamily="'Space Mono', monospace"
+              fontWeight={400}
+              size="lg"
+              px={8}
+              py={6}
+              borderRadius="8px"
+            >
+              Visit AuraText Organization
+            </Button>
+          </VStack>
+        </VStack>
       </Flex>
     );
   }
@@ -201,7 +253,7 @@ const GitHubReleases = () => {
 
                   <Button
                     as={Link}
-                    href={`https://github.com/auratext-app/releases/releases/tag/${release.tag_name}`}
+                    href={`https://github.com/Y4shr4j/auratext-releases/releases/tag/${release.tag_name}`}
                     target="_blank"
                     leftIcon={<LuGithub />}
                     variant="outline"
@@ -308,7 +360,7 @@ const GitHubReleases = () => {
           
           <Button
             as={Link}
-            href="https://github.com/auratext-app/releases"
+            href="https://github.com/Y4shr4j/auratext-releases"
             target="_blank"
             leftIcon={<LuGithub />}
             rightIcon={<LuExternalLink />}
