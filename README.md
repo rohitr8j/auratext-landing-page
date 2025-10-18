@@ -1,9 +1,5 @@
 # AuraText Landing Page
 
-<div align="center">
-  <img width="100%" src="https://i.imgur.com/XjcKIXF.png" alt="AuraText Landing Page">
-</div>
-
 ## ⚡ AuraText - AI-Powered Text Assistant for Windows
 
 AuraText is a modern, AI-powered text assistant designed for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.
