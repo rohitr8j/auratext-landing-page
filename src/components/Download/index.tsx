@@ -35,15 +35,49 @@ const Download = () => {
   }, [latestRelease]);
 
   const downloadMainApp = async () => {
-    // Downloads disabled - users cannot download from website
-    alert('Downloads are currently disabled. Please visit our GitHub repository for downloads.');
-    return;
+    if (!latestRelease?.assets) {
+      alert('No release data available. Please visit our GitHub repository for downloads.');
+      return;
+    }
+
+    // Find the main application asset (usually .exe file)
+    const mainAsset = latestRelease.assets.find(asset => 
+      asset.name.toLowerCase().includes('.exe') ||
+      asset.name.toLowerCase().includes('setup') ||
+      asset.name.toLowerCase().includes('installer') ||
+      asset.name.toLowerCase().includes('auratext')
+    );
+
+    if (mainAsset) {
+      // Open download link in new tab
+      window.open(mainAsset.browser_download_url, '_blank');
+    } else {
+      // Fallback to GitHub releases page
+      window.open('https://github.com/y4shr4j/auratext-releases/releases/latest', '_blank');
+    }
   };
 
   const downloadExtension = async () => {
-    // Downloads disabled - users cannot download from website
-    alert('Downloads are currently disabled. Please visit our GitHub repository for downloads.');
-    return;
+    if (!latestRelease?.assets) {
+      alert('No release data available. Please visit our GitHub repository for downloads.');
+      return;
+    }
+
+    // Find the extension asset (usually .zip file)
+    const extensionAsset = latestRelease.assets.find(asset => 
+      asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
+      asset.name.toLowerCase().includes('.zip') || 
+      asset.name.toLowerCase().includes('extension') ||
+      asset.name.toLowerCase().includes('browser')
+    );
+
+    if (extensionAsset) {
+      // Open download link in new tab
+      window.open(extensionAsset.browser_download_url, '_blank');
+    } else {
+      // Fallback to GitHub releases page
+      window.open('https://github.com/y4shr4j/auratext-releases/releases/latest', '_blank');
+    }
   };
 
   return (
