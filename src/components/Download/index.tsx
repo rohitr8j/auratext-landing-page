@@ -40,26 +40,24 @@ const Download = () => {
       return;
     }
 
-    // Find the main application asset - prioritize .exe files
+    // Find the main application asset - specifically look for AuraText-Setup-*.exe files
     let mainAsset = latestRelease.assets.find(asset => 
-      asset.name.toLowerCase().includes('.exe')
+      asset.name.toLowerCase().includes('auratext-setup') && 
+      asset.name.toLowerCase().endsWith('.exe')
     );
 
-    // If no .exe found, look for setup/installer files
+    // If no AuraText-Setup exe found, look for any .exe file
+    if (!mainAsset) {
+      mainAsset = latestRelease.assets.find(asset => 
+        asset.name.toLowerCase().endsWith('.exe')
+      );
+    }
+
+    // If still no .exe found, look for setup/installer files
     if (!mainAsset) {
       mainAsset = latestRelease.assets.find(asset => 
         asset.name.toLowerCase().includes('setup') ||
         asset.name.toLowerCase().includes('installer')
-      );
-    }
-
-    // If still no main app found, look for any auratext file that's not a zip
-    if (!mainAsset) {
-      mainAsset = latestRelease.assets.find(asset => 
-        asset.name.toLowerCase().includes('auratext') &&
-        !asset.name.toLowerCase().includes('.zip') &&
-        !asset.name.toLowerCase().includes('extension') &&
-        !asset.name.toLowerCase().includes('browser')
       );
     }
 
