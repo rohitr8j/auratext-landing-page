@@ -141,7 +141,9 @@ const Header = () => {
         <Button
           leftIcon={<LuPlay />}
           as={motion.a}
-          href={"#demo"}
+          href={"https://x.com/YashRa4j/status/1977397222116401537"}
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           size={"lg"}
