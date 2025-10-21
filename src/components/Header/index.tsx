@@ -60,8 +60,23 @@ const Header = () => {
       direction={"column"}
       px={8}
     >
-      <Flex bg={AuraTextColors.lightBg} px={6} py={2} rounded={"full"} mb={8}>
-        <Text color={AuraTextColors.textLight} fontSize={"sm"} fontFamily="'Space Mono', monospace" fontWeight={400}>
+      <Flex 
+        bg={AuraTextColors.lightBg} 
+        px={{ base: 4, sm: 6 }} 
+        py={2} 
+        rounded={"full"} 
+        mb={8}
+        maxW={{ base: "90%", sm: "auto" }}
+        mx="auto"
+      >
+        <Text 
+          color={AuraTextColors.textLight} 
+          fontSize={{ base: "xs", sm: "sm" }} 
+          fontFamily="'Space Mono', monospace" 
+          fontWeight={400}
+          textAlign="center"
+          whiteSpace="nowrap"
+        >
           AI-Powered Text Assistant for Windows
         </Text>
       </Flex>

@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
     const filepath = join(downloadsDir, config.filename);
 
     // Write file to disk
-    await writeFile(filepath, buffer);
+    await writeFile(filepath, new Uint8Array(buffer));
 
     return NextResponse.json({ 
       success: true, 

@@ -91,7 +91,7 @@ const Card = ({ color, children }: CardProps) => {
         outline={"5px solid white"}
       />
       <Text
-        color={color}
+        color="white"
         fontSize={{
           base: 12,
           md: 14,
@@ -108,27 +108,27 @@ const Card = ({ color, children }: CardProps) => {
 const Cards = [
   {
     title: "Digital Agencies",
-    color: "#E6990B",
+    color: "#2D3748",
   },
   {
     title: "Designers",
-    color: "#A431C7",
+    color: "#2D3748",
   },
   {
     title: "Entrepreneurs",
-    color: "#42C9B2",
+    color: "#2D3748",
   },
   {
     title: "Developers",
-    color: "#348FDA",
+    color: "#2D3748",
   },
   {
     title: "Students",
-    color: "#41B668",
+    color: "#2D3748",
   },
   {
     title: "Startups",
-    color: "#DA4D8F",
+    color: "#2D3748",
   },
 ];
 
