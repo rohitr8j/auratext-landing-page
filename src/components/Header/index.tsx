@@ -59,6 +59,7 @@ const Header = () => {
       justify={"center"}
       direction={"column"}
       px={8}
+      pt={{ base: 20, md: 24 }}
     >
       <Flex 
         bg={AuraTextColors.lightBg} 
