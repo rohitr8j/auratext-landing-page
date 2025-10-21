@@ -9,13 +9,13 @@ const FILE_CONFIG = {
     filename: 'AuraText-Setup-1.0.3.exe',
     size: 'Latest Version',
     description: 'Main AuraText application for Windows 10/11',
-    url: 'https://github.com/lkasdfj/auratext-releases/releases/latest/download/AuraText-Setup-1.0.3.exe'
+    url: 'https://github.com/y4shr4j/auratext-releases/releases/latest/download/AuraText-Setup-1.0.3.exe'
   },
   extension: {
     filename: 'AuraText-Extension.zip', 
     size: 'Coming Soon',
     description: 'Browser extension for Chrome, Edge, Firefox',
-    url: 'https://github.com/lkasdfj/auratext-releases/releases'
+    url: 'https://github.com/y4shr4j/auratext-releases/releases'
   }
 };
 
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
       size: config.size,
       description: config.description,
       url: config.url,
-      githubReleases: 'https://github.com/lkasdfj/auratext-releases/releases'
+      githubReleases: 'https://github.com/y4shr4j/auratext-releases/releases'
     });
 
   } catch (error) {

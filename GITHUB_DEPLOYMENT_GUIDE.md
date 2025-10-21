@@ -242,4 +242,4 @@ npx serve out/
 ```
 
 Your AuraText landing page will be live at:
-`https://lkasdfj.github.io/auratext-landing-page`
+`https://y4shr4j.github.io/auratext-landing-page`

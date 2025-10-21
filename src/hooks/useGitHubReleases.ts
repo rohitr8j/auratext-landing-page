@@ -19,7 +19,7 @@ export const useLatestRelease = () => {
   useEffect(() => {
     const fetchLatestRelease = async () => {
       try {
-        const response = await fetch('https://api.github.com/repos/lkasdfj/auratext-releases/releases/latest');
+        const response = await fetch('https://api.github.com/repos/y4shr4j/auratext-releases/releases/latest');
         if (!response.ok) {
           throw new Error('Failed to fetch latest release');
         }
@@ -46,7 +46,7 @@ export const useReleases = () => {
   useEffect(() => {
     const fetchReleases = async () => {
       try {
-        const response = await fetch('https://api.github.com/repos/lkasdfj/auratext-releases/releases');
+        const response = await fetch('https://api.github.com/repos/y4shr4j/auratext-releases/releases');
         if (!response.ok) {
           throw new Error('Failed to fetch releases');
         }
