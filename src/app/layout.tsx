@@ -79,14 +79,14 @@ export default function RootLayout({ children }: LayoutProps) {
           rel="stylesheet"
         />
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNHE967CYV"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'GA_MEASUREMENT_ID', {
+              gtag('config', 'G-ZNHE967CYV', {
                 page_title: 'AuraText Landing Page',
                 page_location: window.location.href,
               });
