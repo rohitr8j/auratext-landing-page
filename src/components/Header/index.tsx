@@ -1,5 +1,5 @@
 "use client";
-import { Button, Flex, Heading, Text, keyframes, useToast } from "@chakra-ui/react";
+import { Button, Flex, Heading, Text, keyframes, useToast, Box } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import HeroBottomSVG from "./HeroBottomSVG";
@@ -141,7 +141,7 @@ const Header = () => {
         <Button
           leftIcon={<LuPlay />}
           as={motion.a}
-          href={"https://x.com/YashRa4j/status/1977397222116401537"}
+          href={"https://youtu.be/Fh1bW8Kcnlc"}
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
@@ -160,6 +160,23 @@ const Header = () => {
           Watch Demo
         </Button>
       </Flex>
+      
+      {/* Product Hunt Badge */}
+      <Box mt={6}>
+        <a 
+          href="https://www.producthunt.com/products/auratext?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-auratext&#0045;2" 
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img 
+            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029932&theme=light&t=1761217492362" 
+            alt="AuraText - ✍️ Your AI writing copilot — anywhere you type | Product Hunt" 
+            style={{ width: '250px', height: '54px' }} 
+            width="250" 
+            height="54" 
+          />
+        </a>
+      </Box>
       
       <Text
         mt={8}
