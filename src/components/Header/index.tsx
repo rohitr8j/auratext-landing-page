@@ -164,13 +164,13 @@ const Header = () => {
       {/* Product Hunt Badge */}
       <Box mt={6}>
         <a 
-          href="https://www.producthunt.com/products/auratext?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-auratext&#0045;2" 
+          href="https://www.producthunt.com/products/auratext?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-auratext" 
           target="_blank"
           rel="noopener noreferrer"
         >
           <img 
-            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029932&theme=light&t=1761217492362" 
-            alt="AuraText - ✍️ Your AI writing copilot — anywhere you type | Product Hunt" 
+            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029350&theme=light&t=1761329769298" 
+            alt="AuraText - ✍️&#0032;Your&#0032;AI&#0032;writing&#0032;copilot&#0032;—&#0032;anywhere&#0032;you&#0032;type | Product Hunt" 
             style={{ width: '250px', height: '54px' }} 
             width="250" 
             height="54" 
