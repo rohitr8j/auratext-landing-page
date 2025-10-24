@@ -200,6 +200,19 @@ const Download = () => {
           Choose your preferred version. Both are free and work seamlessly together.
         </Text>
 
+        {/* Product Hunt Badge */}
+        <Box mt={4} mb={4}>
+          <a href="https://www.producthunt.com/products/auratext?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-auratext" target="_blank">
+            <img 
+              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029350&theme=light&t=1761329769298" 
+              alt="AuraText - ✍️ Your AI writing copilot — anywhere you type | Product Hunt" 
+              style={{ width: "250px", height: "54px" }} 
+              width="250" 
+              height="54" 
+            />
+          </a>
+        </Box>
+
         <VStack spacing={{ base: 6, md: 8 }} w="100%" display={{ base: "flex", md: "none" }}>
           {/* Mobile Layout - Vertical Stack */}
           {/* Main App Download */}
