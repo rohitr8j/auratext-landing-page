@@ -62,9 +62,30 @@ const Download = () => {
     }
 
     if (mainAsset) {
+      // Track download event in Google Analytics
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'file_download', {
+          file_name: mainAsset.name,
+          file_type: 'main_app',
+          file_version: latestRelease.tag_name,
+          download_url: mainAsset.browser_download_url,
+          event_category: 'download',
+          event_label: 'AuraText Main Application'
+        });
+      }
+
       // Open download link in new tab
       window.open(mainAsset.browser_download_url, '_blank');
     } else {
+      // Track fallback event
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'download_fallback', {
+          event_category: 'download',
+          event_label: 'GitHub Releases Page',
+          fallback_reason: 'no_main_app_found'
+        });
+      }
+      
       // Fallback to GitHub releases page
       window.open('https://github.com/y4shr4j/auratext-releases/releases/latest', '_blank');
     }
@@ -85,9 +106,30 @@ const Download = () => {
     );
 
     if (extensionAsset) {
+      // Track download event in Google Analytics
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'file_download', {
+          file_name: extensionAsset.name,
+          file_type: 'browser_extension',
+          file_version: latestRelease.tag_name,
+          download_url: extensionAsset.browser_download_url,
+          event_category: 'download',
+          event_label: 'AuraText Browser Extension'
+        });
+      }
+
       // Open download link in new tab
       window.open(extensionAsset.browser_download_url, '_blank');
     } else {
+      // Track fallback event
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'download_fallback', {
+          event_category: 'download',
+          event_label: 'GitHub Releases Page',
+          fallback_reason: 'no_extension_found'
+        });
+      }
+      
       // Fallback to GitHub releases page
       window.open('https://github.com/y4shr4j/auratext-releases/releases/latest', '_blank');
     }
@@ -206,7 +248,17 @@ const Download = () => {
                 isLoading={loading}
                 loadingText="Loading..."
               >
-                {latestRelease ? `Download ${latestRelease.tag_name}` : 'Download Latest'}
+                {latestRelease ? 
+                  `Download ${latestRelease.tag_name}` + 
+                  (latestRelease.assets.find(asset => 
+                    asset.name.toLowerCase().includes('auratext-setup') && 
+                    asset.name.toLowerCase().endsWith('.exe')
+                  )?.download_count ? 
+                    ` (${latestRelease.assets.find(asset => 
+                      asset.name.toLowerCase().includes('auratext-setup') && 
+                      asset.name.toLowerCase().endsWith('.exe')
+                    )?.download_count} downloads)` : '') 
+                  : 'Download Latest'}
               </Button>
             </VStack>
           </Box>
@@ -365,7 +417,17 @@ const Download = () => {
                 isLoading={loading}
                 loadingText="Loading..."
               >
-                {latestRelease ? `Download ${latestRelease.tag_name}` : 'Download Latest'}
+                {latestRelease ? 
+                  `Download ${latestRelease.tag_name}` + 
+                  (latestRelease.assets.find(asset => 
+                    asset.name.toLowerCase().includes('auratext-setup') && 
+                    asset.name.toLowerCase().endsWith('.exe')
+                  )?.download_count ? 
+                    ` (${latestRelease.assets.find(asset => 
+                      asset.name.toLowerCase().includes('auratext-setup') && 
+                      asset.name.toLowerCase().endsWith('.exe')
+                    )?.download_count} downloads)` : '') 
+                  : 'Download Latest'}
               </Button>
             </VStack>
           </Box>
