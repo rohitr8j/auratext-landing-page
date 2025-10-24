@@ -20,6 +20,31 @@ import { useLatestRelease } from "#/src/hooks/useGitHubReleases";
 const Download = () => {
   const { latestRelease, loading, error } = useLatestRelease();
 
+  // Function to track download with comprehensive analytics
+  const trackDownload = (fileType: string, fileName: string, downloadUrl: string) => {
+    // Track in Google Analytics with complete details
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'file_download', {
+        file_name: fileName,
+        file_type: fileType,
+        file_version: latestRelease?.tag_name || 'unknown',
+        download_url: downloadUrl,
+        event_category: 'download',
+        event_label: fileType === 'main_app' ? 'AuraText Main Application' : 'AuraText Browser Extension',
+        page_title: document.title,
+        page_location: window.location.href,
+        timestamp: new Date().toISOString(),
+        user_agent: navigator.userAgent,
+        screen_resolution: `${screen.width}x${screen.height}`,
+        language: navigator.language,
+        referrer: document.referrer || 'direct',
+        download_source: 'website',
+        file_size: 'unknown', // Could be enhanced with actual file size
+        download_method: 'direct_link'
+      });
+    }
+  };
+
   // Debug logging
   React.useEffect(() => {
     if (latestRelease?.assets) {
@@ -62,27 +87,27 @@ const Download = () => {
     }
 
     if (mainAsset) {
-      // Track download event in Google Analytics
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'file_download', {
-          file_name: mainAsset.name,
-          file_type: 'main_app',
-          file_version: latestRelease.tag_name,
-          download_url: mainAsset.browser_download_url,
-          event_category: 'download',
-          event_label: 'AuraText Main Application'
-        });
-      }
+      // Track download with comprehensive analytics
+      trackDownload('main_app', mainAsset.name, mainAsset.browser_download_url);
 
       // Open download link in new tab
       window.open(mainAsset.browser_download_url, '_blank');
     } else {
-      // Track fallback event
+      // Track fallback event with comprehensive details
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'download_fallback', {
           event_category: 'download',
           event_label: 'GitHub Releases Page',
-          fallback_reason: 'no_main_app_found'
+          fallback_reason: 'no_main_app_found',
+          page_title: document.title,
+          page_location: window.location.href,
+          timestamp: new Date().toISOString(),
+          user_agent: navigator.userAgent,
+          screen_resolution: `${screen.width}x${screen.height}`,
+          language: navigator.language,
+          referrer: document.referrer || 'direct',
+          download_source: 'website',
+          file_type: 'main_app'
         });
       }
       
@@ -106,27 +131,27 @@ const Download = () => {
     );
 
     if (extensionAsset) {
-      // Track download event in Google Analytics
-      if (typeof window !== 'undefined' && window.gtag) {
-        window.gtag('event', 'file_download', {
-          file_name: extensionAsset.name,
-          file_type: 'browser_extension',
-          file_version: latestRelease.tag_name,
-          download_url: extensionAsset.browser_download_url,
-          event_category: 'download',
-          event_label: 'AuraText Browser Extension'
-        });
-      }
+      // Track download with comprehensive analytics
+      trackDownload('browser_extension', extensionAsset.name, extensionAsset.browser_download_url);
 
       // Open download link in new tab
       window.open(extensionAsset.browser_download_url, '_blank');
     } else {
-      // Track fallback event
+      // Track fallback event with comprehensive details
       if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('event', 'download_fallback', {
           event_category: 'download',
           event_label: 'GitHub Releases Page',
-          fallback_reason: 'no_extension_found'
+          fallback_reason: 'no_extension_found',
+          page_title: document.title,
+          page_location: window.location.href,
+          timestamp: new Date().toISOString(),
+          user_agent: navigator.userAgent,
+          screen_resolution: `${screen.width}x${screen.height}`,
+          language: navigator.language,
+          referrer: document.referrer || 'direct',
+          download_source: 'website',
+          file_type: 'browser_extension'
         });
       }
       
@@ -248,17 +273,7 @@ const Download = () => {
                 isLoading={loading}
                 loadingText="Loading..."
               >
-                {latestRelease ? 
-                  `Download ${latestRelease.tag_name}` + 
-                  (latestRelease.assets.find(asset => 
-                    asset.name.toLowerCase().includes('auratext-setup') && 
-                    asset.name.toLowerCase().endsWith('.exe')
-                  )?.download_count ? 
-                    ` (${latestRelease.assets.find(asset => 
-                      asset.name.toLowerCase().includes('auratext-setup') && 
-                      asset.name.toLowerCase().endsWith('.exe')
-                    )?.download_count} downloads)` : '') 
-                  : 'Download Latest'}
+                {latestRelease ? `Download ${latestRelease.tag_name}` : 'Download Latest'}
               </Button>
             </VStack>
           </Box>
@@ -417,17 +432,7 @@ const Download = () => {
                 isLoading={loading}
                 loadingText="Loading..."
               >
-                {latestRelease ? 
-                  `Download ${latestRelease.tag_name}` + 
-                  (latestRelease.assets.find(asset => 
-                    asset.name.toLowerCase().includes('auratext-setup') && 
-                    asset.name.toLowerCase().endsWith('.exe')
-                  )?.download_count ? 
-                    ` (${latestRelease.assets.find(asset => 
-                      asset.name.toLowerCase().includes('auratext-setup') && 
-                      asset.name.toLowerCase().endsWith('.exe')
-                    )?.download_count} downloads)` : '') 
-                  : 'Download Latest'}
+                {latestRelease ? `Download ${latestRelease.tag_name}` : 'Download Latest'}
               </Button>
             </VStack>
           </Box>

@@ -12,6 +12,7 @@ declare global {
         event_category?: string;
         event_label?: string;
         fallback_reason?: string;
+        [key: string]: any; // Allow additional custom parameters
       }
     ) => void;
   }
