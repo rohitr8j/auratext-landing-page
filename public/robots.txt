@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://auratext.app/sitemap.xml
+# Sitemap location (both www and non-www)
+Sitemap: https://auratxt.com/sitemap.xml
 
 # Disallow admin and API routes if needed
 Disallow: /api/

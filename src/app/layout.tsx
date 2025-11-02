@@ -61,13 +61,13 @@ export const metadata: Metadata = {
     { rel: "apple-touch-icon", url: favicon.src },
   ],
   manifest: "/manifest.json",
-  metadataBase: new URL("https://auratext.app/"),
+  metadataBase: new URL("https://auratxt.com/"),
   openGraph: {
     title: "AuraText | AI-Powered Text Assistant for Windows",
     siteName: "AuraText",
     description:
       "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
-    url: "https://auratext.app/",
+    url: "https://auratxt.com/",
     type: "website",
     locale: "en_US",
     images: [
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://auratext.app/",
+    canonical: "https://auratxt.com/",
   },
   category: "technology",
   applicationName: "AuraText",
@@ -127,7 +127,7 @@ export default function RootLayout({ children }: LayoutProps) {
     },
     description:
       "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
-    url: "https://auratext.app/",
+    url: "https://auratxt.com/",
     author: {
       "@type": "Organization",
       name: "AuraText",
@@ -136,7 +136,7 @@ export default function RootLayout({ children }: LayoutProps) {
       "@type": "Organization",
       name: "AuraText",
     },
-    screenshot: "https://auratext.app/images/summary_large_image.png",
+    screenshot: "https://auratxt.com/images/summary_large_image.png",
     softwareVersion: "1.0",
     releaseNotes: "AI-powered text assistant for Windows with intelligent cursor locking and seamless text insertion.",
   };
@@ -145,8 +145,8 @@ export default function RootLayout({ children }: LayoutProps) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "AuraText",
-    url: "https://auratext.app/",
-    logo: "https://auratext.app/images/summary_large_image.png",
+    url: "https://auratxt.com/",
+    logo: "https://auratxt.com/images/summary_large_image.png",
     description:
       "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
     sameAs: [

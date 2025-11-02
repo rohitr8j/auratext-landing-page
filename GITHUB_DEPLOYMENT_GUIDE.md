@@ -172,7 +172,7 @@ export async function GET(request: NextRequest) {
 
 1. **Add CNAME file**:
 ```bash
-echo "auratext.app" > public/CNAME
+echo "auratxt.com" > public/CNAME
 ```
 
 2. **Configure DNS**:
