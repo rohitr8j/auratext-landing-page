@@ -1,13 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Removed 'output: export' to enable API routes (required for Product Hunt integration)
   trailingSlash: true,
   images: {
     unoptimized: true
-  },
-  // Disable server-side features for static export
-  experimental: {
-    appDir: true
   }
 }
 

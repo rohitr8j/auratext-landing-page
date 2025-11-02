@@ -106,10 +106,6 @@ const ProductHuntStats = () => {
         </VStack>
 
         <Box
-          as={motion.div}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           p={8}
           border={`2px solid ${AuraTextColors.lightGrey}`}
           borderRadius={16}
@@ -117,7 +113,12 @@ const ProductHuntStats = () => {
           w="100%"
           maxW={500}
         >
-          <VStack spacing={6} align="center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <VStack spacing={6} align="center">
             {/* Product Hunt Logo/Badge */}
             <HStack spacing={3}>
               <Box
@@ -240,7 +241,8 @@ const ProductHuntStats = () => {
                 </HStack>
               </Badge>
             )}
-          </VStack>
+            </VStack>
+          </motion.div>
         </Box>
 
         <Divider my={8} />
