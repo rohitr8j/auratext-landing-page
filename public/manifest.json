@@ -1,0 +1,19 @@
+{
+  "name": "AuraText - AI-Powered Text Assistant for Windows",
+  "short_name": "AuraText",
+  "description": "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#3b82f6",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["productivity", "utilities"],
+  "lang": "en-US"
+}
+

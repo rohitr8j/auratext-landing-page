@@ -6,11 +6,14 @@ import HeroBottomSVG from "./HeroBottomSVG";
 import { AuraTextColors } from "#/src/utils/Colors";
 import { LuDownload, LuPlay, LuInstagram, LuTwitter, LuMail, LuZap, LuCheck } from "react-icons/lu";
 import Link from "next/link";
+import ProductHuntSocialProof from "../ProductHuntBadge";
+import { useProductHuntStats } from "#/src/hooks/useProductHunt";
 
 const Header = () => {
   const [emailCopied, setEmailCopied] = useState(false);
   const toast = useToast();
   const emailAddress = "auratext.app@gmail.com";
+  const { votes } = useProductHuntStats();
 
   const copyEmailToClipboard = async () => {
     try {
@@ -161,8 +164,13 @@ const Header = () => {
         </Button>
       </Flex>
       
-      {/* Product Hunt Badge */}
+      {/* Product Hunt Social Proof */}
       <Box mt={6}>
+        <ProductHuntSocialProof votes={votes} />
+      </Box>
+      
+      {/* Product Hunt Badge */}
+      <Box mt={4}>
         <a 
           href="https://www.producthunt.com/products/auratext?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-auratext" 
           target="_blank"
