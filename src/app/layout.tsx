@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     default: "AuraText | AI-Powered Text Assistant for Windows",
   },
   description:
-    "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
+    "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
   keywords: [
     "AuraText",
     "AI text assistant",
@@ -56,17 +56,25 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: [
-    { rel: "icon", url: favicon.src },
-    { rel: "apple-touch-icon", url: favicon.src },
-  ],
+  icons: {
+    icon: [
+      { url: favicon.src, sizes: "32x32", type: "image/png" },
+      { url: favicon.src, sizes: "16x16", type: "image/png" },
+      { url: "/images/favicon.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/favicon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/favicon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/images/favicon.png",
+  },
   manifest: "/manifest.json",
   metadataBase: new URL("https://auratxt.com/"),
   openGraph: {
     title: "AuraText | AI-Powered Text Assistant for Windows",
     siteName: "AuraText",
     description:
-      "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
+      "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
     url: "https://auratxt.com/",
     type: "website",
     locale: "en_US",
@@ -84,7 +92,7 @@ export const metadata: Metadata = {
     creator: "@auratext",
     site: "@auratext",
     description:
-      "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
+      "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
     card: "summary_large_image",
     images: [
       {
@@ -126,7 +134,7 @@ export default function RootLayout({ children }: LayoutProps) {
       ratingCount: "19",
     },
     description:
-      "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
+      "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
     url: "https://auratxt.com/",
     author: {
       "@type": "Organization",
@@ -146,9 +154,14 @@ export default function RootLayout({ children }: LayoutProps) {
     "@type": "Organization",
     name: "AuraText",
     url: "https://auratxt.com/",
-    logo: "https://auratxt.com/images/summary_large_image.png",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://auratxt.com/images/favicon.png",
+      width: 192,
+      height: 192,
+    },
     description:
-      "AuraText is an AI-powered text assistant for Windows 10/11. Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking.",
+      "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
     sameAs: [
       "https://twitter.com/auratext",
       "https://www.producthunt.com/posts/auratxt",
@@ -158,6 +171,17 @@ export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
+        {/* Favicon - Multiple sizes for better Google indexing and display */}
+        <link rel="icon" type="image/png" href="/images/favicon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon.png" />
+        <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png" />
+        <link rel="shortcut icon" href="/images/favicon.png" />
+        {/* Primary favicon.ico for Google (fallback) */}
+        <link rel="icon" href="/images/favicon.png" type="image/png" />
+        {/* Preconnect for fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
