@@ -124,13 +124,13 @@ const ProductHuntStats = () => {
               <Box
                 w={8}
                 h={8}
-                bg="#DA552F"
+                bg={AuraTextColors.lightGrey}
                 borderRadius="md"
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
               >
-                <Text color="white" fontSize="sm" fontWeight="bold">PH</Text>
+                <Text color={AuraTextColors.text} fontSize="sm" fontWeight="bold">PH</Text>
               </Box>
               <Text fontSize="lg" color={AuraTextColors.textLight} fontFamily="'Space Mono', monospace">
                 Product Hunt
@@ -166,7 +166,7 @@ const ProductHuntStats = () => {
               {/* Votes */}
               <VStack spacing={2}>
                 <HStack spacing={2}>
-                  <Icon as={LuHeart} boxSize={5} color="#DA552F" />
+                  <Icon as={LuHeart} boxSize={5} color={AuraTextColors.grey} />
                   <Text fontSize="2xl" fontWeight="bold" color={AuraTextColors.text} fontFamily="'Space Mono', monospace">
                     {votes.toLocaleString()}
                   </Text>
@@ -200,19 +200,19 @@ const ProductHuntStats = () => {
                 spacing={3}
                 px={6}
                 py={3}
-                bg="#DA552F"
+                bg={AuraTextColors.lightGrey}
                 borderRadius="full"
                 _hover={{ 
-                  bg: "#C44A26",
+                  bg: AuraTextColors.lightBg,
                   transform: "translateY(-2px)",
-                  boxShadow: "0 8px 20px rgba(218, 85, 47, 0.4)"
+                  boxShadow: "0 8px 20px rgba(42, 42, 42, 0.4)"
                 }}
                 transition="all 0.3s ease"
                 cursor="pointer"
               >
-                <Icon as={LuExternalLink} boxSize={5} color="white" />
+                <Icon as={LuExternalLink} boxSize={5} color={AuraTextColors.text} />
                 <Text 
-                  color="white" 
+                  color={AuraTextColors.text} 
                   fontSize="md" 
                   fontFamily="'Space Mono', monospace" 
                   fontWeight={400}
@@ -225,18 +225,17 @@ const ProductHuntStats = () => {
             {/* Trending Badge */}
             {votes > 100 && (
               <Badge 
-                colorScheme="orange" 
                 borderRadius="full" 
                 px={4} 
                 py={2}
                 fontSize="sm"
                 fontFamily="'Space Mono', monospace"
-                bg="rgba(255, 140, 0, 0.1)"
-                border="1px solid rgba(255, 140, 0, 0.3)"
-                color="#FF8C00"
+                bg={AuraTextColors.lightBg}
+                border={`1px solid ${AuraTextColors.lightGrey}`}
+                color={AuraTextColors.textLight}
               >
                 <HStack spacing={2}>
-                  <Icon as={LuTrendingUp} boxSize={4} />
+                  <Icon as={LuTrendingUp} boxSize={4} color={AuraTextColors.grey} />
                   <Text>Trending on Product Hunt</Text>
                 </HStack>
               </Badge>

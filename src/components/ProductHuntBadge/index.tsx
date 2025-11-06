@@ -60,11 +60,11 @@ const ProductHuntBadge: React.FC<ProductHuntBadgeProps> = ({
         as={motion.div}
         whileHover={{ 
           scale: 1.05,
-          boxShadow: "0 4px 12px rgba(218, 85, 47, 0.3)"
+          boxShadow: "0 4px 12px rgba(42, 42, 42, 0.4)"
         }}
         whileTap={{ scale: 0.95 }}
         transition="all 0.2s ease"
-        bg="#DA552F"
+        bg={AuraTextColors.lightGrey}
         borderRadius="full"
         cursor="pointer"
         display="inline-block"
@@ -73,25 +73,25 @@ const ProductHuntBadge: React.FC<ProductHuntBadgeProps> = ({
           spacing={2}
           px={config.px}
           py={config.py}
-          _hover={{ bg: "#C44A26" }}
+          _hover={{ bg: AuraTextColors.lightBg }}
           transition="all 0.3s ease"
         >
           {/* Product Hunt Logo */}
           <Box
             w={config.iconSize}
             h={config.iconSize}
-            bg="white"
+            bg={AuraTextColors.lightGrey}
             borderRadius="sm"
             display="flex"
             alignItems="center"
             justifyContent="center"
           >
-            <Text color="#DA552F" fontSize="xs" fontWeight="bold">PH</Text>
+            <Text color={AuraTextColors.text} fontSize="xs" fontWeight="bold">PH</Text>
           </Box>
 
           {/* Text */}
           <Text 
-            color="white" 
+            color={AuraTextColors.text} 
             fontSize={config.fontSize} 
             fontFamily="'Space Mono', monospace" 
             fontWeight={400}
@@ -102,11 +102,11 @@ const ProductHuntBadge: React.FC<ProductHuntBadgeProps> = ({
           {/* Stats (if enabled) */}
           {showStats && votes > 0 && (
             <>
-              <Text color="white" fontSize={config.fontSize}>•</Text>
+              <Text color={AuraTextColors.text} fontSize={config.fontSize}>•</Text>
               <HStack spacing={1}>
-                <Icon as={LuHeart} boxSize={config.iconSize} color="white" />
+                <Icon as={LuHeart} boxSize={config.iconSize} color={AuraTextColors.text} />
                 <Text 
-                  color="white" 
+                  color={AuraTextColors.text} 
                   fontSize={config.fontSize} 
                   fontFamily="'Space Mono', monospace"
                 >
@@ -117,7 +117,7 @@ const ProductHuntBadge: React.FC<ProductHuntBadgeProps> = ({
           )}
 
           {/* External Link Icon */}
-          <Icon as={LuExternalLink} boxSize={config.iconSize} color="white" />
+          <Icon as={LuExternalLink} boxSize={config.iconSize} color={AuraTextColors.text} />
         </HStack>
       </Box>
     </Link>
@@ -130,18 +130,17 @@ export const ProductHuntTrendingBadge: React.FC<{ votes?: number }> = ({ votes =
 
   return (
     <Badge 
-      colorScheme="orange" 
       borderRadius="full" 
       px={3} 
       py={1}
       fontSize="xs"
       fontFamily="'Space Mono', monospace"
-      bg="rgba(255, 140, 0, 0.1)"
-      border="1px solid rgba(255, 140, 0, 0.3)"
-      color="#FF8C00"
+      bg={AuraTextColors.lightBg}
+      border={`1px solid ${AuraTextColors.lightGrey}`}
+      color={AuraTextColors.textLight}
     >
       <HStack spacing={1}>
-        <Icon as={LuTrendingUp} boxSize={3} />
+        <Icon as={LuTrendingUp} boxSize={3} color={AuraTextColors.grey} />
         <Text>Trending on Product Hunt</Text>
       </HStack>
     </Badge>
@@ -157,9 +156,9 @@ export const ProductHuntSocialProof: React.FC<{ votes?: number }> = ({ votes = 0
       gap={4}
       py={2}
       px={4}
-      bg="rgba(218, 85, 47, 0.05)"
+      bg={AuraTextColors.lightBg}
       borderRadius="full"
-      border="1px solid rgba(218, 85, 47, 0.2)"
+      border={`1px solid ${AuraTextColors.lightGrey}`}
       w="fit-content"
       mx="auto"
     >
