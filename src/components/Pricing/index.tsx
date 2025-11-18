@@ -164,6 +164,16 @@ const Pricing = () => {
       <Heading textAlign={"center"} px={2} color={AuraTextColors.text}>
         Pricing
       </Heading>
+      <Text
+        textAlign={"center"}
+        color={AuraTextColors.textLight}
+        fontSize="sm"
+        mt={2}
+        mb={-2}
+        fontStyle="italic"
+      >
+        Payment options will be available soon
+      </Text>
       <Flex
         mt={6}
         gap={2}
@@ -316,7 +326,9 @@ const Pricing = () => {
                 isLoading={loadingPlan === plan.name}
                 loadingText="Processing..."
                 spinner={<Spinner size="sm" />}
-                disabled={loadingPlan !== null}
+                disabled={true}
+                opacity={0.6}
+                cursor="not-allowed"
                 {...(plan.name === "Enterprise"
                   ? {
                       bg: AuraTextColors.primary,
@@ -324,12 +336,12 @@ const Pricing = () => {
                       _hover: {
                         bg: AuraTextColors.primary,
                         color: AuraTextColors.white,
-                        opacity: 0.8,
+                        opacity: 0.6,
                       },
                     }
                   : {})}
               >
-                {loadingPlan === plan.name ? "Processing..." : `Choose ${plan.name}`}
+                Payment Coming Soon
               </Button>
             </Flex>
           ))}
