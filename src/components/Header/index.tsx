@@ -5,16 +5,13 @@ import React, { useEffect, useState } from "react";
 import HeroBottomSVG from "./HeroBottomSVG";
 import { AuraTextColors } from "#/src/utils/Colors";
 import { LuDownload, LuPlay, LuInstagram, LuTwitter, LuMail, LuZap, LuCheck } from "react-icons/lu";
-import { FaLinkedin, FaReddit } from "react-icons/fa";
+import { FaLinkedin, FaReddit, FaWindows } from "react-icons/fa";
 import Link from "next/link";
-import ProductHuntSocialProof from "../ProductHuntBadge";
-import { useProductHuntStats } from "#/src/hooks/useProductHunt";
 
 const Header = () => {
   const [emailCopied, setEmailCopied] = useState(false);
   const toast = useToast();
   const emailAddress = "auratext.app@gmail.com";
-  const { votes } = useProductHuntStats();
 
   const copyEmailToClipboard = async () => {
     try {
@@ -124,7 +121,7 @@ const Header = () => {
       
       <Flex gap={4} direction={{ base: "column", md: "row" }} align="center">
         <Button
-          leftIcon={<LuDownload />}
+          leftIcon={<FaWindows size={20} />}
           as={motion.a}
           href={"#download"}
           whileHover={{ scale: 1.05 }}
@@ -132,12 +129,18 @@ const Header = () => {
           size={"lg"}
           bg={AuraTextColors.primary}
           color={AuraTextColors.white}
-          _hover={{ bg: AuraTextColors.secondary }}
+          _hover={{ 
+            bg: AuraTextColors.secondary,
+            transform: "translateY(-2px)",
+            boxShadow: `0 8px 20px ${AuraTextColors.primary}40`
+          }}
           fontFamily="'Space Mono', monospace"
-          fontWeight={400}
+          fontWeight={500}
           px={8}
           py={6}
-          borderRadius="8px"
+          borderRadius="12px"
+          transition="all 0.3s ease"
+          boxShadow={`0 4px 12px ${AuraTextColors.primary}30`}
         >
           Download for Windows
         </Button>
@@ -165,13 +168,8 @@ const Header = () => {
         </Button>
       </Flex>
       
-      {/* Product Hunt Social Proof */}
-      <Box mt={6}>
-        <ProductHuntSocialProof votes={votes} />
-      </Box>
-      
       {/* Product Hunt Badge */}
-      <Box mt={4}>
+      <Box mt={6}>
         <a 
           href="https://www.producthunt.com/products/auratext?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-auratext" 
           target="_blank"
