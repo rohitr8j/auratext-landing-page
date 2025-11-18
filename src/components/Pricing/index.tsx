@@ -11,6 +11,8 @@ import {
   ListItem,
   Stack,
   Text,
+  useToast,
+  Spinner,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -18,6 +20,83 @@ import { LuCheck } from "react-icons/lu";
 
 const Pricing = () => {
   const [currentBilling, setCurrentBilling] = useState("monthly");
+  const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const toast = useToast();
+
+  // Stripe Price IDs - Replace these with your actual Stripe Price IDs from your Stripe Dashboard
+  // You can find/create these in: Stripe Dashboard > Products > [Your Product] > Pricing
+  const getPriceId = (planName: string, billing: string): string | null => {
+    // These are placeholder price IDs - you need to replace them with actual Stripe Price IDs
+    const priceMap: Record<string, Record<string, string>> = {
+      Basic: {
+        monthly: process.env.NEXT_PUBLIC_STRIPE_PRICE_BASIC_MONTHLY || "",
+        annual: process.env.NEXT_PUBLIC_STRIPE_PRICE_BASIC_ANNUAL || "",
+      },
+      Pro: {
+        monthly: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_MONTHLY || "",
+        annual: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_ANNUAL || "",
+      },
+      Enterprise: {
+        monthly: process.env.NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE_MONTHLY || "",
+        annual: process.env.NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE_ANNUAL || "",
+      },
+    };
+    return priceMap[planName]?.[billing] || null;
+  };
+
+  const handleCheckout = async (planName: string) => {
+    const priceId = getPriceId(planName, currentBilling);
+    
+    if (!priceId) {
+      toast({
+        title: "Configuration Error",
+        description: "Payment is not configured. Please contact support.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    setLoadingPlan(planName);
+
+    try {
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          priceId,
+          planName,
+          billing: currentBilling,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to create checkout session");
+      }
+
+      // Redirect to Stripe Checkout
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error("No checkout URL received");
+      }
+    } catch (error: any) {
+      console.error("Checkout error:", error);
+      toast({
+        title: "Checkout Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+      setLoadingPlan(null);
+    }
+  };
 
   const plans = [
     {
@@ -82,7 +161,7 @@ const Pricing = () => {
       border={`1px solid ${AuraTextColors.lightBg}`}
       borderRadius={24}
     >
-      <Heading textAlign={"center"} px={2}>
+      <Heading textAlign={"center"} px={2} color={AuraTextColors.text}>
         Pricing
       </Heading>
       <Flex
@@ -176,7 +255,7 @@ const Pricing = () => {
               w={"100%"}
               border={`1px solid ${AuraTextColors.lightBg}`}
               borderRadius={18}
-              color={AuraTextColors.black}
+              bg={AuraTextColors.darkBg}
               layout
               initial={{ opacity: 0.2 }}
               animate={{ opacity: 1 }}
@@ -200,6 +279,7 @@ const Pricing = () => {
                   }}
                   textAlign="center"
                   fontWeight={600}
+                  color={AuraTextColors.text}
                 >
                   {plan.price}
                 </Heading>
@@ -208,7 +288,7 @@ const Pricing = () => {
                   fontSize="sm"
                   color={AuraTextColors.grey}
                 >
-                  {currentBilling}
+                  per {currentBilling === "monthly" ? "month" : "year"}
                 </Text>
               </Stack>
               <Stack spacing={3} mb={6}>
@@ -225,13 +305,18 @@ const Pricing = () => {
                     >
                       <Icon as={LuCheck} color={AuraTextColors.primary} />
                     </Flex>
-                    <Text key={feature}>{feature}</Text>
+                    <Text key={feature} color={AuraTextColors.text}>{feature}</Text>
                   </Flex>
                 ))}
               </Stack>
               <Button
                 mt={"auto"}
                 w="full"
+                onClick={() => handleCheckout(plan.name)}
+                isLoading={loadingPlan === plan.name}
+                loadingText="Processing..."
+                spinner={<Spinner size="sm" />}
+                disabled={loadingPlan !== null}
                 {...(plan.name === "Enterprise"
                   ? {
                       bg: AuraTextColors.primary,
@@ -244,7 +329,7 @@ const Pricing = () => {
                     }
                   : {})}
               >
-                Choose {plan.name}
+                {loadingPlan === plan.name ? "Processing..." : `Choose ${plan.name}`}
               </Button>
             </Flex>
           ))}

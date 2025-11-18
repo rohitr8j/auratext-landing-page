@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Audience from "../components/Audience";
 import Features from "../components/Features";
 import Product from "../components/Product";
+import Pricing from "../components/Pricing";
 import Download from "../components/Download";
 import GitHubReleases from "../components/GitHubReleases";
 import ProductHuntStats from "../components/ProductHuntStats";
@@ -20,6 +21,9 @@ export default function Home() {
       </section>
       <section id="product" aria-label="Product Showcase">
         <Product />
+      </section>
+      <section id="pricing" aria-label="Pricing">
+        <Pricing />
       </section>
       <section id="download" aria-label="Download Section">
         <Download />

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import HeroBottomSVG from "./HeroBottomSVG";
 import { AuraTextColors } from "#/src/utils/Colors";
 import { LuDownload, LuPlay, LuInstagram, LuTwitter, LuMail, LuZap, LuCheck } from "react-icons/lu";
+import { FaLinkedin, FaReddit } from "react-icons/fa";
 import Link from "next/link";
 import ProductHuntSocialProof from "../ProductHuntBadge";
 import { useProductHuntStats } from "#/src/hooks/useProductHunt";
@@ -213,30 +214,68 @@ const Header = () => {
         </Text>
         <Flex gap={3}>
           <Button
-            as={Link}
+            as="a"
             href="https://www.instagram.com/auratext.app/"
             target="_blank"
+            rel="noopener noreferrer"
             size="sm"
             variant="ghost"
             color={AuraTextColors.textLight}
             _hover={{ color: AuraTextColors.primary }}
             p={2}
             minW="auto"
+            cursor="pointer"
+            title="Instagram"
           >
             <LuInstagram size={20} />
           </Button>
           <Button
-            as={Link}
+            as="a"
             href="https://x.com/auratext"
             target="_blank"
+            rel="noopener noreferrer"
             size="sm"
             variant="ghost"
             color={AuraTextColors.textLight}
             _hover={{ color: AuraTextColors.primary }}
             p={2}
             minW="auto"
+            cursor="pointer"
+            title="X (Twitter)"
           >
             <LuTwitter size={20} />
+          </Button>
+          <Button
+            as="a"
+            href="https://www.linkedin.com/company/auratext"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="sm"
+            variant="ghost"
+            color={AuraTextColors.textLight}
+            _hover={{ color: AuraTextColors.primary }}
+            p={2}
+            minW="auto"
+            cursor="pointer"
+            title="LinkedIn"
+          >
+            <FaLinkedin size={20} />
+          </Button>
+          <Button
+            as="a"
+            href="https://www.reddit.com/r/AuraText/"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="sm"
+            variant="ghost"
+            color={AuraTextColors.textLight}
+            _hover={{ color: AuraTextColors.primary }}
+            p={2}
+            minW="auto"
+            cursor="pointer"
+            title="Reddit"
+          >
+            <FaReddit size={20} />
           </Button>
           <Button
             onClick={copyEmailToClipboard}

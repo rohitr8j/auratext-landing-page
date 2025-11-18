@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import FooterTopSVG from "./FooterTopSVG";
 import FooterBg from "./FooterBg";
 import { LuArrowRight, LuInstagram, LuMail, LuTwitter, LuCopy, LuCheck } from "react-icons/lu";
+import { FaLinkedin, FaReddit } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -108,9 +109,10 @@ const Footer = () => {
         
         <HStack spacing={{ base: 3, md: 6 }} wrap="wrap" justify="center">
           <Button
-            as={Link}
+            as="a"
             href="https://www.instagram.com/auratext.app/"
             target="_blank"
+            rel="noopener noreferrer"
             leftIcon={<LuInstagram />}
             variant="outline"
             borderColor={AuraTextColors.white}
@@ -126,14 +128,16 @@ const Footer = () => {
             px={{ base: 4, md: 6 }}
             py={3}
             size={{ base: "sm", md: "md" }}
+            cursor="pointer"
           >
             Instagram
           </Button>
           
           <Button
-            as={Link}
+            as="a"
             href="https://x.com/auratext"
             target="_blank"
+            rel="noopener noreferrer"
             leftIcon={<LuTwitter />}
             variant="outline"
             borderColor={AuraTextColors.white}
@@ -149,8 +153,59 @@ const Footer = () => {
             px={{ base: 4, md: 6 }}
             py={3}
             size={{ base: "sm", md: "md" }}
+            cursor="pointer"
           >
             X (Twitter)
+          </Button>
+          
+          <Button
+            as="a"
+            href="https://www.linkedin.com/company/auratext"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<FaLinkedin />}
+            variant="outline"
+            borderColor={AuraTextColors.white}
+            color={AuraTextColors.white}
+            _hover={{ 
+              bg: "rgba(255, 255, 255, 0.1)", 
+              color: AuraTextColors.white,
+              borderColor: AuraTextColors.white 
+            }}
+            fontFamily="'Space Mono', monospace"
+            fontWeight={400}
+            borderRadius="8px"
+            px={{ base: 4, md: 6 }}
+            py={3}
+            size={{ base: "sm", md: "md" }}
+            cursor="pointer"
+          >
+            LinkedIn
+          </Button>
+          
+          <Button
+            as="a"
+            href="https://www.reddit.com/r/AuraText/"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<FaReddit />}
+            variant="outline"
+            borderColor={AuraTextColors.white}
+            color={AuraTextColors.white}
+            _hover={{ 
+              bg: "rgba(255, 255, 255, 0.1)", 
+              color: AuraTextColors.white,
+              borderColor: AuraTextColors.white 
+            }}
+            fontFamily="'Space Mono', monospace"
+            fontWeight={400}
+            borderRadius="8px"
+            px={{ base: 4, md: 6 }}
+            py={3}
+            size={{ base: "sm", md: "md" }}
+            cursor="pointer"
+          >
+            Reddit
           </Button>
           
           <Button
