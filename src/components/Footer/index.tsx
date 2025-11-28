@@ -8,6 +8,8 @@ import { LuArrowRight, LuInstagram, LuMail, LuTwitter, LuCopy, LuCheck } from "r
 import { FaLinkedin, FaReddit, FaDiscord } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+import AiHero from "../AiHero";
+
 const Footer = () => {
   const [emailCopied, setEmailCopied] = useState(false);
   const toast = useToast();
@@ -47,52 +49,8 @@ const Footer = () => {
     >
       <FooterTopSVG />
       <FooterBg />
-      <Flex mt={16} direction={"column"} align={"center"} px={2}>
-        <Flex bg={"#ffffff50"} pr={4} rounded={"full"} mb={5}>
-          <Text color={AuraTextColors.white} fontSize={"xs"}>
-            <Text
-              as="span"
-              fontWeight={600}
-              bg={"#ffffff50"}
-              px={2}
-              rounded={"full"}
-              mr={1}
-            >
-              AuraText
-            </Text>{" "}
-            The AI text assistant for Windows
-          </Text>
-        </Flex>
-        <Heading
-          fontSize={{
-            base: 72,
-            md: 96,
-          }}
-          textAlign={"center"}
-          color="transparent"
-          maxW={500}
-          fontWeight={800}
-          style={{
-            backgroundImage: "linear-gradient(315deg, #ffffff 60%, #000000)",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-          }}
-        >
-          Download AuraText
-        </Heading>
-
-        <Button
-          rightIcon={<LuArrowRight />}
-          as={motion.a}
-          href="/#download"
-          whileHover={{ scale: 1.1 }}
-          size={"lg"}
-          mt={5}
-          gap={2}
-          cursor={"pointer"}
-        >
-          Download Now
-        </Button>
+      <Flex mt={16} direction={"column"} align={"center"} px={2} w="full">
+        <AiHero />
       </Flex>
 
       {/* Social Media Links */}

@@ -10,12 +10,15 @@ import HowItWorks from "../components/HowItWorks";
 import FAQ from "../components/FAQ";
 import BrowserExtension from "../components/BrowserExtension";
 
+
+
 export default function Home() {
   return (
     <main>
       <section aria-label="Hero section">
         <Header />
       </section>
+
       <section id="features" aria-label="Features">
         <Features />
       </section>
@@ -42,6 +45,7 @@ export default function Home() {
       <section id="releases" aria-label="Releases">
         <GitHubReleases />
       </section>
+
     </main>
   );
 }
