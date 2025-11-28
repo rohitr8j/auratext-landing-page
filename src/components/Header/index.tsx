@@ -1,5 +1,5 @@
 "use client";
-import { Button, Flex, Heading, Text, keyframes, useToast, Box } from "@chakra-ui/react";
+import { Button, Flex, Heading, Text, keyframes, useToast, Box, Link as ChakraLink } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import HeroBottomSVG from "./HeroBottomSVG";
@@ -7,10 +7,14 @@ import { AuraTextColors } from "#/src/utils/Colors";
 import { LuDownload, LuPlay, LuInstagram, LuTwitter, LuMail, LuZap, LuCheck } from "react-icons/lu";
 import { FaLinkedin, FaReddit, FaWindows } from "react-icons/fa";
 import Link from "next/link";
+import { useDisclosure } from "@chakra-ui/react";
+import VideoModal from "../VideoModal";
+import UserCounter from "../UserCounter";
 
 const Header = () => {
   const [emailCopied, setEmailCopied] = useState(false);
   const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const emailAddress = "auratext.app@gmail.com";
 
   const copyEmailToClipboard = async () => {
@@ -62,19 +66,19 @@ const Header = () => {
       px={8}
       pt={{ base: 20, md: 24 }}
     >
-      <Flex 
-        bg={AuraTextColors.lightBg} 
-        px={{ base: 4, sm: 6 }} 
-        py={2} 
-        rounded={"full"} 
+      <Flex
+        bg={AuraTextColors.lightBg}
+        px={{ base: 4, sm: 6 }}
+        py={2}
+        rounded={"full"}
         mb={8}
         maxW={{ base: "90%", sm: "auto" }}
         mx="auto"
       >
-        <Text 
-          color={AuraTextColors.textLight} 
-          fontSize={{ base: "xs", sm: "sm" }} 
-          fontFamily="'Space Mono', monospace" 
+        <Text
+          color={AuraTextColors.textLight}
+          fontSize={{ base: "xs", sm: "sm" }}
+          fontFamily="'Space Mono', monospace"
           fontWeight={400}
           textAlign="center"
           whiteSpace="nowrap"
@@ -82,10 +86,10 @@ const Header = () => {
           AI-Powered Text Assistant for Windows
         </Text>
       </Flex>
-      
+
       <Flex align="center" justify="center" gap={6} mb={4}>
-        <LuZap 
-          size={64} 
+        <LuZap
+          size={64}
           color={AuraTextColors.text}
           className="zap-icon"
         />
@@ -104,21 +108,20 @@ const Header = () => {
           AuraText
         </Heading>
       </Flex>
-      
-      <Text 
-        color={AuraTextColors.textLight} 
-        maxW={600} 
-        textAlign={"center"} 
-        fontSize="lg"
-        fontFamily="'Space Mono', monospace"
+
+      <Text
+        color={AuraTextColors.textLight}
+        maxW={600}
+        textAlign={"center"}
+        fontSize={{ base: "lg", md: "xl" }}
         fontWeight={400}
         mb={12}
         lineHeight={1.6}
+        fontFamily="'Space Mono', monospace"
       >
-        Generate, edit, and insert AI text seamlessly into any application with intelligent cursor locking. 
-        Works with Windows 10/11.
+        Your AI writing copilot for Windows. <Box as="span" color={AuraTextColors.primary} fontWeight={600}>Generate, edit, and insert text</Box> seamlessly into any app with intelligent cursor locking.
       </Text>
-      
+
       <Flex gap={4} direction={{ base: "column", md: "row" }} align="center">
         <Button
           leftIcon={<FaWindows size={20} />}
@@ -129,171 +132,82 @@ const Header = () => {
           size={"lg"}
           bg={AuraTextColors.primary}
           color={AuraTextColors.white}
-          _hover={{ 
+          _hover={{
             bg: AuraTextColors.secondary,
             transform: "translateY(-2px)",
-            boxShadow: `0 8px 20px ${AuraTextColors.primary}40`
+            boxShadow: `0 0 30px ${AuraTextColors.primary}60`
           }}
-          fontFamily="'Space Mono', monospace"
-          fontWeight={500}
+          fontWeight={600}
           px={8}
           py={6}
           borderRadius="12px"
           transition="all 0.3s ease"
-          boxShadow={`0 4px 12px ${AuraTextColors.primary}30`}
+          boxShadow={`0 0 20px ${AuraTextColors.primary}40`}
         >
           Download for Windows
         </Button>
-        
+
         <Button
           leftIcon={<LuPlay />}
-          as={motion.a}
-          href={"https://youtu.be/Fh1bW8Kcnlc"}
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={onOpen}
+          as={motion.button}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           size={"lg"}
           variant="outline"
           borderColor={AuraTextColors.primary}
           color={AuraTextColors.primary}
-          _hover={{ bg: AuraTextColors.lightBg }}
-          fontFamily="'Space Mono', monospace"
-          fontWeight={400}
+          _hover={{ bg: "rgba(59, 130, 246, 0.1)" }}
+          fontWeight={500}
           px={8}
           py={6}
-          borderRadius="8px"
+          borderRadius="12px"
+          backdropFilter="blur(10px)"
         >
           Watch Demo
         </Button>
       </Flex>
-      
+
+      <Box mt={8}>
+        <UserCounter />
+      </Box>
+
       {/* Product Hunt Badge */}
       <Box mt={6}>
-        <a 
-          href="https://www.producthunt.com/products/auratext?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-auratext" 
+        <a
+          href="https://www.producthunt.com/products/auratext?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-auratext"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img 
-            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029350&theme=neutral&t=1761329769298" 
-            alt="AuraText - ✍️&#0032;Your&#0032;AI&#0032;writing&#0032;copilot&#0032;—&#0032;anywhere&#0032;you&#0032;type | Product Hunt" 
-            style={{ width: '250px', height: '54px' }} 
-            width="250" 
-            height="54" 
+          <img
+            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1029350&theme=neutral&t=1761329769298"
+            alt="AuraText - ✍️&#0032;Your&#0032;AI&#0032;writing&#0032;copilot&#0032;—&#0032;anywhere&#0032;you&#0032;type | Product Hunt"
+            style={{ width: '250px', height: '54px' }}
+            width="250"
+            height="54"
           />
         </a>
       </Box>
-      
-      <Text
+
+      <ChakraLink
         mt={8}
-        as={Link}
-        href={"#features"}
+        href="#features"
         color={AuraTextColors.textLight}
         opacity={0.8}
         transition={"all .25s ease"}
-        _hover={{ opacity: 1 }}
+        _hover={{ opacity: 1, textDecoration: "none" }}
         fontFamily="'Space Mono', monospace"
         fontWeight={400}
         fontSize="sm"
       >
         Learn More ↓
-      </Text>
-      
-      {/* Social Media Links */}
-      <Flex gap={4} mt={8} align="center">
-        <Text 
-          fontSize="sm" 
-          color={AuraTextColors.textLight}
-          fontFamily="'Space Mono', monospace"
-          fontWeight={400}
-        >
-          Follow us:
-        </Text>
-        <Flex gap={3}>
-          <Button
-            as="a"
-            href="https://www.instagram.com/auratext.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            size="sm"
-            variant="ghost"
-            color={AuraTextColors.textLight}
-            _hover={{ color: AuraTextColors.primary }}
-            p={2}
-            minW="auto"
-            cursor="pointer"
-            title="Instagram"
-          >
-            <LuInstagram size={20} />
-          </Button>
-          <Button
-            as="a"
-            href="https://x.com/auratext"
-            target="_blank"
-            rel="noopener noreferrer"
-            size="sm"
-            variant="ghost"
-            color={AuraTextColors.textLight}
-            _hover={{ color: AuraTextColors.primary }}
-            p={2}
-            minW="auto"
-            cursor="pointer"
-            title="X (Twitter)"
-          >
-            <LuTwitter size={20} />
-          </Button>
-          <Button
-            as="a"
-            href="https://www.linkedin.com/company/auratext"
-            target="_blank"
-            rel="noopener noreferrer"
-            size="sm"
-            variant="ghost"
-            color={AuraTextColors.textLight}
-            _hover={{ color: AuraTextColors.primary }}
-            p={2}
-            minW="auto"
-            cursor="pointer"
-            title="LinkedIn"
-          >
-            <FaLinkedin size={20} />
-          </Button>
-          <Button
-            as="a"
-            href="https://www.reddit.com/r/AuraText/"
-            target="_blank"
-            rel="noopener noreferrer"
-            size="sm"
-            variant="ghost"
-            color={AuraTextColors.textLight}
-            _hover={{ color: AuraTextColors.primary }}
-            p={2}
-            minW="auto"
-            cursor="pointer"
-            title="Reddit"
-          >
-            <FaReddit size={20} />
-          </Button>
-          <Button
-            onClick={copyEmailToClipboard}
-            size="sm"
-            variant="ghost"
-            color={emailCopied ? AuraTextColors.primary : AuraTextColors.textLight}
-            _hover={{ color: AuraTextColors.primary }}
-            p={2}
-            minW="auto"
-            cursor="pointer"
-            transition="all 0.2s"
-            title={emailCopied ? "Copied!" : "Click to copy email"}
-          >
-            {emailCopied ? <LuCheck size={20} /> : <LuMail size={20} />}
-          </Button>
-        </Flex>
-      </Flex>
-      
+      </ChakraLink>
+
+
+
       <HeroBottomSVG />
-    </Flex>
+      <VideoModal isOpen={isOpen} onClose={onClose} videoUrl="https://youtu.be/Fh1bW8Kcnlc" />
+    </Flex >
   );
 };
 

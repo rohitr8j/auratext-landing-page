@@ -6,6 +6,9 @@ import Pricing from "../components/Pricing";
 import Download from "../components/Download";
 import GitHubReleases from "../components/GitHubReleases";
 import ProductHuntStats from "../components/ProductHuntStats";
+import HowItWorks from "../components/HowItWorks";
+import FAQ from "../components/FAQ";
+import BrowserExtension from "../components/BrowserExtension";
 
 export default function Home() {
   return (
@@ -16,15 +19,22 @@ export default function Home() {
       <section id="features" aria-label="Features">
         <Features />
       </section>
+      <section id="how-it-works" aria-label="How It Works">
+        <HowItWorks />
+      </section>
+      <section id="faq" aria-label="Frequently Asked Questions">
+        <FAQ />
+        <BrowserExtension />
+      </section>
       <section id="audience" aria-label="Target Audience">
         <Audience />
       </section>
       <section id="product" aria-label="Product Showcase">
         <Product />
       </section>
-      <section id="pricing" aria-label="Pricing">
+      {/* <section id="pricing" aria-label="Pricing">
         <Pricing />
-      </section>
+      </section> */}
       <section id="download" aria-label="Download Section">
         <Download />
       </section>

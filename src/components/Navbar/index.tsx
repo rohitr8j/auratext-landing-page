@@ -11,15 +11,17 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { LuMenu, LuX, LuZap } from "react-icons/lu";
+import { LuMenu, LuX } from "react-icons/lu";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { AuraTextColors } from "#/src/utils/Colors";
 import useBannerVisibility from "#/src/utils/BannerVisibility";
 
 const NavItems = [
   { name: "Features", href: "/#features" },
-  { name: "Pricing", href: "/#pricing" },
+  // { name: "Pricing", href: "/#pricing" },
   { name: "Download", href: "/#download" },
+  { name: "FAQ", href: "/#faq" },
   { name: "Releases", href: "/#releases" },
   { name: "Support", href: "/#footer" },
 ];
@@ -85,11 +87,14 @@ const Navbar: FC = () => {
           justify="space-between"
         >
           <Flex align="center" gap={3}>
-            <LuZap 
-              size={32} 
-              color={AuraTextColors.text}
-              className="zap-icon"
-            />
+            <Box position="relative" w={8} h={8} className="zap-icon">
+              <Image
+                src="/images/logo.png"
+                alt="AuraText Logo"
+                fill
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
             <Text
               as={Link}
               href="/"
@@ -132,7 +137,7 @@ const Navbar: FC = () => {
             <Button
               as={motion.a}
               whileHover={{ scale: 1.05 }}
-              href="#download"
+              href="/#download"
               rounded="8px"
               background={AuraTextColors.primary}
               color={AuraTextColors.white}
@@ -180,7 +185,7 @@ const Navbar: FC = () => {
               <Button
                 as={motion.a}
                 whileHover={{ scale: 1.05 }}
-                href="#download"
+                href="/#download"
                 rounded="8px"
                 background={AuraTextColors.primary}
                 color={AuraTextColors.white}

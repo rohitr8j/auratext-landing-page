@@ -7,8 +7,9 @@ const inter = Inter({
 
 export const customTheme = extendTheme({
   fonts: {
-    heading: inter.style.fontFamily,
-    body: inter.style.fontFamily,
+    heading: "'Space Mono', monospace",
+    body: "'Inter', sans-serif",
+    mono: "'Space Mono', monospace",
   },
   config: {
     initialColorMode: "light",

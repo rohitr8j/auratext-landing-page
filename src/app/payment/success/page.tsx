@@ -21,46 +21,133 @@ export default function PaymentSuccess() {
   const toast = useToast();
   const [sessionData, setSessionData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
-  const sessionId = searchParams.get("session_id");
+  const provider = searchParams.get("provider") || "razorpay";
+  const orderId = searchParams.get("order_id");
+  const paymentId = searchParams.get("payment_id");
+  const token = searchParams.get("token");
+  const payerId = searchParams.get("PayerID");
 
   useEffect(() => {
-    if (!sessionId) {
-      toast({
-        title: "Invalid Session",
-        description: "No session ID found. Redirecting...",
-        status: "error",
-        duration: 3000,
-      });
-      setTimeout(() => router.push("/"), 3000);
-      return;
-    }
-
-    // Verify the session
-    const verifySession = async () => {
+    const fetchOrderDetails = async () => {
       try {
-        const response = await fetch(`/api/checkout-session?session_id=${sessionId}`);
-        const data = await response.json();
+        if (provider === "paypal") {
+          // Handle PayPal callback
+          // PayPal returns token (which is the order ID) and PayerID
+          if (token && payerId) {
+            // Token is actually the order ID in PayPal
+            const orderIdToUse = token;
+            
+            // Capture PayPal payment
+            const captureResponse = await fetch("/api/paypal-capture", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ orderId: orderIdToUse }),
+            });
 
-        if (response.ok && data.session) {
-          setSessionData(data.session);
+            const captureData = await captureResponse.json();
+
+            if (captureData.verified) {
+              // Fetch order details
+              const orderResponse = await fetch(`/api/paypal-checkout?order_id=${captureData.orderId}`);
+              const orderData = await orderResponse.json();
+
+              if (orderData.order) {
+                const purchaseUnit = orderData.order.purchase_units?.[0];
+                setSessionData({
+                  id: orderData.order.id,
+                  metadata: { 
+                    planName: purchaseUnit?.custom_id?.split('_')[0] || "Unknown", 
+                    billing: purchaseUnit?.custom_id?.split('_')[1] || "Unknown" 
+                  },
+                  amount_total: parseFloat(purchaseUnit?.amount?.value || "0") * 100,
+                  payment_id: captureData.paymentId,
+                  currency: captureData.currency || "USD",
+                });
+              }
+            } else {
+              throw new Error("Payment verification failed");
+            }
+          } else if (orderId && paymentId) {
+            // Alternative: if we have orderId and paymentId directly (already captured)
+            const orderResponse = await fetch(`/api/paypal-checkout?order_id=${orderId}`);
+            const orderData = await orderResponse.json();
+
+            if (orderData.order) {
+              const purchaseUnit = orderData.order.purchase_units?.[0];
+              setSessionData({
+                id: orderData.order.id,
+                metadata: { 
+                  planName: purchaseUnit?.custom_id?.split('_')[0] || "Unknown", 
+                  billing: purchaseUnit?.custom_id?.split('_')[1] || "Unknown" 
+                },
+                amount_total: parseFloat(purchaseUnit?.amount?.value || "0") * 100,
+                payment_id: paymentId,
+                currency: "USD",
+              });
+            }
+          } else {
+            toast({
+              title: "Invalid Payment",
+              description: "No payment information found. Redirecting...",
+              status: "error",
+              duration: 3000,
+            });
+            setTimeout(() => router.push("/"), 3000);
+            return;
+          }
         } else {
-          throw new Error("Failed to verify session");
+          // Handle Razorpay
+          if (!orderId || !paymentId) {
+            throw new Error("Missing payment information");
+          }
+
+          const response = await fetch(`/api/razorpay-checkout?order_id=${orderId}`);
+          
+          if (!response.ok) {
+            if (response.status === 503) {
+              setSessionData({ 
+                id: orderId,
+                metadata: { planName: "Unknown", billing: "Unknown" },
+                amount_total: 0
+              });
+              setLoading(false);
+              return;
+            }
+            throw new Error("Failed to fetch order details");
+          }
+          
+          const data = await response.json();
+
+          if (data.order) {
+            setSessionData({
+              id: data.order.id,
+              metadata: data.order.notes || { planName: "Unknown", billing: "Unknown" },
+              amount_total: data.order.amount,
+              payment_id: paymentId,
+              currency: "INR",
+            });
+          } else {
+            throw new Error("Failed to fetch order details");
+          }
         }
       } catch (error) {
-        console.error("Session verification error:", error);
+        console.error("Order fetch error:", error);
         toast({
-          title: "Verification Failed",
-          description: "Could not verify payment session.",
+          title: "Payment Verification Failed",
+          description: "Could not verify payment. Please contact support if payment was deducted.",
           status: "error",
           duration: 5000,
         });
+        setSessionData(null);
       } finally {
         setLoading(false);
       }
     };
 
-    verifySession();
-  }, [sessionId, router, toast]);
+    fetchOrderDetails();
+  }, [provider, orderId, paymentId, token, payerId, router, toast]);
 
   if (loading) {
     return (
@@ -134,7 +221,12 @@ export default function PaymentSuccess() {
               </Text>
               {sessionData.amount_total && (
                 <Text color={AuraTextColors.textLight} fontSize="sm">
-                  Amount: ${(sessionData.amount_total / 100).toFixed(2)}
+                  Amount: {sessionData.currency === "USD" ? "$" : "₹"}{(sessionData.amount_total / 100).toFixed(2)}
+                </Text>
+              )}
+              {sessionData.payment_id && (
+                <Text color={AuraTextColors.textLight} fontSize="xs">
+                  Payment ID: {sessionData.payment_id.substring(0, 20)}...
                 </Text>
               )}
             </VStack>

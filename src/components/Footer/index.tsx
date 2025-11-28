@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 const Footer = () => {
   const [emailCopied, setEmailCopied] = useState(false);
   const toast = useToast();
-  const emailAddress = "auratext.app@gmail.com";
+  const emailAddress = "support@auratext.com";
 
   const copyEmailToClipboard = async () => {
     try {
@@ -28,7 +28,7 @@ const Footer = () => {
     } catch (err) {
       toast({
         title: "Copy failed",
-        description: "Please copy the email manually: auratext.app@gmail.com",
+        description: "Please copy the email manually: support@auratext.com",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -84,7 +84,7 @@ const Footer = () => {
         <Button
           rightIcon={<LuArrowRight />}
           as={motion.a}
-          href={"#download"}
+          href="/#download"
           whileHover={{ scale: 1.1 }}
           size={"lg"}
           mt={5}
@@ -97,8 +97,8 @@ const Footer = () => {
 
       {/* Social Media Links */}
       <VStack spacing={6} mt={16} align="center">
-        <Text 
-          color={AuraTextColors.white} 
+        <Text
+          color={AuraTextColors.white}
           fontSize="lg"
           fontFamily="'Space Mono', monospace"
           fontWeight={400}
@@ -106,7 +106,7 @@ const Footer = () => {
         >
           Follow us for updates and support
         </Text>
-        
+
         <HStack spacing={{ base: 3, md: 6 }} wrap="wrap" justify="center">
           <Button
             as="a"
@@ -117,10 +117,10 @@ const Footer = () => {
             variant="outline"
             borderColor={AuraTextColors.white}
             color={AuraTextColors.white}
-            _hover={{ 
-              bg: "rgba(255, 255, 255, 0.1)", 
+            _hover={{
+              bg: "rgba(255, 255, 255, 0.1)",
               color: AuraTextColors.white,
-              borderColor: AuraTextColors.white 
+              borderColor: AuraTextColors.white
             }}
             fontFamily="'Space Mono', monospace"
             fontWeight={400}
@@ -132,7 +132,7 @@ const Footer = () => {
           >
             Instagram
           </Button>
-          
+
           <Button
             as="a"
             href="https://x.com/auratext"
@@ -142,10 +142,10 @@ const Footer = () => {
             variant="outline"
             borderColor={AuraTextColors.white}
             color={AuraTextColors.white}
-            _hover={{ 
-              bg: "rgba(255, 255, 255, 0.1)", 
+            _hover={{
+              bg: "rgba(255, 255, 255, 0.1)",
               color: AuraTextColors.white,
-              borderColor: AuraTextColors.white 
+              borderColor: AuraTextColors.white
             }}
             fontFamily="'Space Mono', monospace"
             fontWeight={400}
@@ -157,7 +157,7 @@ const Footer = () => {
           >
             X (Twitter)
           </Button>
-          
+
           <Button
             as="a"
             href="https://www.linkedin.com/company/auratext"
@@ -167,10 +167,10 @@ const Footer = () => {
             variant="outline"
             borderColor={AuraTextColors.white}
             color={AuraTextColors.white}
-            _hover={{ 
-              bg: "rgba(255, 255, 255, 0.1)", 
+            _hover={{
+              bg: "rgba(255, 255, 255, 0.1)",
               color: AuraTextColors.white,
-              borderColor: AuraTextColors.white 
+              borderColor: AuraTextColors.white
             }}
             fontFamily="'Space Mono', monospace"
             fontWeight={400}
@@ -182,7 +182,7 @@ const Footer = () => {
           >
             LinkedIn
           </Button>
-          
+
           <Button
             as="a"
             href="https://www.reddit.com/r/AuraText/"
@@ -192,10 +192,10 @@ const Footer = () => {
             variant="outline"
             borderColor={AuraTextColors.white}
             color={AuraTextColors.white}
-            _hover={{ 
-              bg: "rgba(255, 255, 255, 0.1)", 
+            _hover={{
+              bg: "rgba(255, 255, 255, 0.1)",
               color: AuraTextColors.white,
-              borderColor: AuraTextColors.white 
+              borderColor: AuraTextColors.white
             }}
             fontFamily="'Space Mono', monospace"
             fontWeight={400}
@@ -207,17 +207,17 @@ const Footer = () => {
           >
             Reddit
           </Button>
-          
+
           <Button
             onClick={copyEmailToClipboard}
             leftIcon={emailCopied ? <LuCheck /> : <LuMail />}
             variant="outline"
             borderColor={AuraTextColors.white}
             color={AuraTextColors.white}
-            _hover={{ 
-              bg: "rgba(255, 255, 255, 0.1)", 
+            _hover={{
+              bg: "rgba(255, 255, 255, 0.1)",
               color: AuraTextColors.white,
-              borderColor: AuraTextColors.white 
+              borderColor: AuraTextColors.white
             }}
             fontFamily="'Space Mono', monospace"
             fontWeight={400}
@@ -233,11 +233,16 @@ const Footer = () => {
         </HStack>
       </VStack>
 
-      <Flex mt={32}>
-        <Text color={AuraTextColors.white}>
-          © 2025 AuraText. All rights reserved.
+      <VStack mt={32} spacing={4}>
+        <HStack spacing={8} color={AuraTextColors.textLight} fontSize="sm">
+          <Link href="/privacy" _hover={{ color: AuraTextColors.primary }}>Privacy Policy</Link>
+          <Link href="/terms" _hover={{ color: AuraTextColors.primary }}>Terms of Service</Link>
+          <Link href="/eula" _hover={{ color: AuraTextColors.primary }}>EULA</Link>
+        </HStack>
+        <Text color={AuraTextColors.textLight} fontSize="sm">
+          © {new Date().getFullYear()} AuraText. All rights reserved.
         </Text>
-      </Flex>
+      </VStack>
     </Flex>
   );
 };

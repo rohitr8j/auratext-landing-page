@@ -10,11 +10,21 @@ import {
   LuMonitor,
   LuShield,
   LuDownload,
+  LuWand,
+  LuLayoutTemplate,
+  LuGlobe,
 } from "react-icons/lu";
+
+import { motion } from "framer-motion";
 
 const Features = () => {
   return (
     <Flex
+      as={motion.div}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+
       id="features"
       direction={"column"}
       justify={"center"}
@@ -23,7 +33,7 @@ const Features = () => {
       px={2}
       maxW={1200}
       mx={"auto"}
-      bg="#000000"
+      bg="transparent"
     >
       <Heading
         fontSize={{
@@ -31,12 +41,21 @@ const Features = () => {
           md: 48,
         }}
         textAlign={"center"}
-        fontFamily="'Space Mono', monospace"
-        fontWeight={400}
+        fontWeight={700}
         color={AuraTextColors.text}
+        mb={4}
       >
-        Key Features
+        Power Features
       </Heading>
+      <Text
+        color={AuraTextColors.textLight}
+        textAlign="center"
+        fontSize="lg"
+        maxW={600}
+        mb={12}
+      >
+        Everything you need to write faster and better.
+      </Text>
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -63,29 +82,37 @@ interface CardProps {
 }
 
 const Card = ({ icon, title, children }: CardProps) => (
-  <Flex maxW={350} role="group" p={6} borderRadius={12} bg={AuraTextColors.lightBg} border={`1px solid ${AuraTextColors.lightGrey}`} transition={"all 0.25s ease"} _hover={{ borderColor: AuraTextColors.primary, shadow: "lg" }}>
-    <Icon
-      as={icon}
-      fontSize={48}
-      mr={5}
-      p={2}
-      bg={AuraTextColors.lightBg}
-      rounded={"md"}
-      strokeWidth={1.5}
-      transition={"all 0.25s ease"}
+  <Flex
+    direction="column"
+    h="100%"
+    p={8}
+    borderRadius={24}
+    bg="rgba(255, 255, 255, 0.03)"
+    border="1px solid rgba(255, 255, 255, 0.05)"
+    backdropFilter="blur(10px)"
+    transition={"all 0.3s ease"}
+    _hover={{
+      borderColor: AuraTextColors.primary,
+      transform: "translateY(-5px)",
+      boxShadow: `0 10px 30px -10px ${AuraTextColors.primary}40`
+    }}
+  >
+    <Flex
+      align="center"
+      justify="center"
+      w={14}
+      h={14}
+      mb={6}
+      bg={`linear-gradient(135deg, ${AuraTextColors.primary}20, ${AuraTextColors.secondary}20)`}
+      rounded={"2xl"}
       color={AuraTextColors.primary}
-      _groupHover={{
-        bg: AuraTextColors.primary,
-        color: AuraTextColors.white,
-        transform: "scale(1.1)",
-      }}
-    />
-    <Flex direction={"column"} gap={2}>
-      <Heading fontSize={"xl"} fontFamily="'Space Mono', monospace" fontWeight={400} color={AuraTextColors.text}>{title}</Heading>
-      <Text fontSize={"sm"} color={AuraTextColors.textLight} fontFamily="'Space Mono', monospace" fontWeight={400} lineHeight={1.6}>
-        {children}
-      </Text>
+    >
+      <Icon as={icon} fontSize={28} />
     </Flex>
+    <Heading fontSize={"xl"} fontWeight={600} color={AuraTextColors.text} mb={3}>{title}</Heading>
+    <Text fontSize={"md"} color={AuraTextColors.textLight} lineHeight={1.6}>
+      {children}
+    </Text>
   </Flex>
 );
 
@@ -94,6 +121,16 @@ const Cards = [
     icon: LuLock,
     title: "Smart Cursor Lock",
     text: "First click locks to any application, subsequent clicks insert directly. No more clicking in target fields.",
+  },
+  {
+    icon: LuWand,
+    title: "Prompt Optimizer",
+    text: "Don't just write prompts, optimize them. Built-in tools to enhance your AI instructions for better results.",
+  },
+  {
+    icon: LuLayoutTemplate,
+    title: "Frameworks & Templates",
+    text: "Use industry-standard frameworks or create your own custom templates for consistent output.",
   },
   {
     icon: LuBot,
@@ -114,6 +151,11 @@ const Cards = [
     icon: LuShield,
     title: "Secure & Private",
     text: "All API keys stored locally, no data sent to our servers. Your privacy and security are our priority.",
+  },
+  {
+    icon: LuGlobe,
+    title: "Universal Compatibility",
+    text: "Works with all text structures and inputs across Windows applications and browsers.",
   },
   {
     icon: LuDownload,

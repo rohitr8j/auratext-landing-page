@@ -49,9 +49,9 @@ const Download = () => {
   React.useEffect(() => {
     if (latestRelease?.assets) {
       console.log('Latest release assets:', latestRelease.assets.map(asset => asset.name));
-      const extensionAsset = latestRelease.assets.find(asset => 
+      const extensionAsset = latestRelease.assets.find(asset =>
         asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
-        asset.name.toLowerCase().includes('.zip') || 
+        asset.name.toLowerCase().includes('.zip') ||
         asset.name.toLowerCase().includes('extension') ||
         asset.name.toLowerCase().includes('browser')
       );
@@ -66,21 +66,21 @@ const Download = () => {
     }
 
     // Find the main application asset - specifically look for AuraText-Setup-*.exe files
-    let mainAsset = latestRelease.assets.find(asset => 
-      asset.name.toLowerCase().includes('auratext-setup') && 
+    let mainAsset = latestRelease.assets.find(asset =>
+      asset.name.toLowerCase().includes('auratext-setup') &&
       asset.name.toLowerCase().endsWith('.exe')
     );
 
     // If no AuraText-Setup exe found, look for any .exe file
     if (!mainAsset) {
-      mainAsset = latestRelease.assets.find(asset => 
+      mainAsset = latestRelease.assets.find(asset =>
         asset.name.toLowerCase().endsWith('.exe')
       );
     }
 
     // If still no .exe found, look for setup/installer files
     if (!mainAsset) {
-      mainAsset = latestRelease.assets.find(asset => 
+      mainAsset = latestRelease.assets.find(asset =>
         asset.name.toLowerCase().includes('setup') ||
         asset.name.toLowerCase().includes('installer')
       );
@@ -110,7 +110,7 @@ const Download = () => {
           file_type: 'main_app'
         });
       }
-      
+
       // Fallback to GitHub releases page
       window.open('https://github.com/y4shr4j/auratext-releases/releases/latest', '_blank');
     }
@@ -123,9 +123,9 @@ const Download = () => {
     }
 
     // Find the extension asset (usually .zip file)
-    const extensionAsset = latestRelease.assets.find(asset => 
+    const extensionAsset = latestRelease.assets.find(asset =>
       asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
-      asset.name.toLowerCase().includes('.zip') || 
+      asset.name.toLowerCase().includes('.zip') ||
       asset.name.toLowerCase().includes('extension') ||
       asset.name.toLowerCase().includes('browser')
     );
@@ -154,7 +154,7 @@ const Download = () => {
           file_type: 'browser_extension'
         });
       }
-      
+
       // Fallback to GitHub releases page
       window.open('https://github.com/y4shr4j/auratext-releases/releases/latest', '_blank');
     }
@@ -162,6 +162,11 @@ const Download = () => {
 
   return (
     <Flex
+      as={motion.div}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+
       id="download"
       direction={"column"}
       justify={"center"}
@@ -176,11 +181,11 @@ const Download = () => {
         base: 2,
         xl: "auto",
       }}
-            bg="#000000"
+      bg="transparent"
     >
       <VStack spacing={8} align="center" maxW={800}>
-        <Heading 
-          textAlign={"center"} 
+        <Heading
+          textAlign={"center"}
           fontSize={{ base: "3xl", md: "4xl" }}
           fontFamily="'Space Mono', monospace"
           fontWeight={400}
@@ -188,9 +193,9 @@ const Download = () => {
         >
           Download AuraText
         </Heading>
-        
-        <Text 
-          textAlign={"center"} 
+
+        <Text
+          textAlign={"center"}
           fontSize="lg"
           color={AuraTextColors.textLight}
           fontFamily="'Space Mono', monospace"
@@ -205,7 +210,7 @@ const Download = () => {
           {/* Main App Download */}
           <Box
             as={motion.div}
-            whileHover={{ 
+            whileHover={{
               scale: 1.02,
               boxShadow: `0 20px 40px rgba(59, 130, 246, 0.15)`,
               borderColor: AuraTextColors.primary
@@ -221,7 +226,7 @@ const Download = () => {
           >
             <VStack spacing={6}>
               <Icon as={LuMonitor} boxSize={12} color={AuraTextColors.primary} />
-              
+
               <VStack spacing={2}>
                 <Heading fontSize={{ base: "lg", md: "xl" }} fontFamily="'Space Mono', monospace" fontWeight={400} color={AuraTextColors.text}>
                   Main Application
@@ -231,8 +236,8 @@ const Download = () => {
                 </Badge>
               </VStack>
 
-              <Text fontSize={{ base: "xs", md: "sm" }} color={AuraTextColors.textLight} fontFamily="'Space Mono', monospace">
-                Full-featured desktop application with overlay mode, cursor locking, and multi-AI provider support.
+              <Text fontSize={{ base: "xs", md: "sm" }} color={AuraTextColors.textLight} lineHeight={1.6}>
+                Full-featured desktop application. <Box as="span" color={AuraTextColors.primary}>Recommended for power users.</Box>
               </Text>
 
               <VStack spacing={2} align="start" w="full">
@@ -260,7 +265,7 @@ const Download = () => {
                 size={{ base: "md", md: "lg" }}
                 bg={AuraTextColors.primary}
                 color={AuraTextColors.white}
-                _hover={{ 
+                _hover={{
                   bg: AuraTextColors.secondary,
                   transform: "translateY(-2px)",
                   boxShadow: "0 10px 20px rgba(59, 130, 246, 0.3)"
@@ -281,7 +286,7 @@ const Download = () => {
           {/* Extension Download - Mobile */}
           <Box
             as={motion.div}
-            whileHover={{ 
+            whileHover={{
               scale: 1.02,
               boxShadow: `0 20px 40px rgba(34, 197, 94, 0.15)`,
               borderColor: AuraTextColors.primary
@@ -297,7 +302,7 @@ const Download = () => {
           >
             <VStack spacing={6}>
               <Icon as={LuGlobe} boxSize={12} color={AuraTextColors.primary} />
-              
+
               <VStack spacing={2}>
                 <Heading fontSize={{ base: "lg", md: "xl" }} fontFamily="'Space Mono', monospace" fontWeight={400} color={AuraTextColors.text}>
                   Browser Extension
@@ -307,8 +312,8 @@ const Download = () => {
                 </Badge>
               </VStack>
 
-              <Text fontSize={{ base: "xs", md: "sm" }} color={AuraTextColors.textLight} fontFamily="'Space Mono', monospace">
-                Lightweight browser extension for quick AI text generation directly in your web browser.
+              <Text fontSize={{ base: "xs", md: "sm" }} color={AuraTextColors.textLight} lineHeight={1.6}>
+                Lightweight extension for Chrome, Edge, & Firefox. <Box as="span" color={AuraTextColors.primary}>Perfect for quick tasks.</Box>
               </Text>
 
               <VStack spacing={2} align="start" w="full">
@@ -337,7 +342,7 @@ const Download = () => {
                 variant="outline"
                 borderColor={AuraTextColors.primary}
                 color={AuraTextColors.primary}
-                _hover={{ 
+                _hover={{
                   bg: AuraTextColors.lightBg,
                   transform: "translateY(-2px)",
                   boxShadow: "0 10px 20px rgba(34, 197, 94, 0.3)",
@@ -351,12 +356,12 @@ const Download = () => {
                 isLoading={loading}
                 loadingText="Loading..."
               >
-                {latestRelease?.assets?.find(asset => 
+                {latestRelease?.assets?.find(asset =>
                   asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
-                  asset.name.toLowerCase().includes('.zip') || 
+                  asset.name.toLowerCase().includes('.zip') ||
                   asset.name.toLowerCase().includes('extension') ||
                   asset.name.toLowerCase().includes('browser')
-                ) ? 
+                ) ?
                   'Download Extension' : 'Coming Soon'}
               </Button>
             </VStack>
@@ -368,7 +373,7 @@ const Download = () => {
           {/* Main App Download - Desktop */}
           <Box
             as={motion.div}
-            whileHover={{ 
+            whileHover={{
               scale: 1.02,
               boxShadow: `0 20px 40px rgba(59, 130, 246, 0.15)`,
               borderColor: AuraTextColors.primary
@@ -385,7 +390,7 @@ const Download = () => {
           >
             <VStack spacing={6}>
               <Icon as={LuMonitor} boxSize={12} color={AuraTextColors.primary} />
-              
+
               <VStack spacing={2}>
                 <Heading fontSize="xl" fontFamily="'Space Mono', monospace" fontWeight={400} color={AuraTextColors.text}>
                   Main Application
@@ -395,8 +400,8 @@ const Download = () => {
                 </Badge>
               </VStack>
 
-              <Text fontSize="sm" color={AuraTextColors.textLight} fontFamily="'Space Mono', monospace">
-                Full-featured desktop application with overlay mode, cursor locking, and multi-AI provider support.
+              <Text fontSize="sm" color={AuraTextColors.textLight} lineHeight={1.6}>
+                Full-featured desktop application. <Box as="span" color={AuraTextColors.primary}>Recommended for power users.</Box>
               </Text>
 
               <VStack spacing={2} align="start" w="full">
@@ -440,7 +445,7 @@ const Download = () => {
           {/* Extension Download - Desktop */}
           <Box
             as={motion.div}
-            whileHover={{ 
+            whileHover={{
               scale: 1.02,
               boxShadow: `0 20px 40px rgba(34, 197, 94, 0.15)`,
               borderColor: AuraTextColors.primary
@@ -457,7 +462,7 @@ const Download = () => {
           >
             <VStack spacing={6}>
               <Icon as={LuGlobe} boxSize={12} color={AuraTextColors.primary} />
-              
+
               <VStack spacing={2}>
                 <Heading fontSize="xl" fontFamily="'Space Mono', monospace" fontWeight={400} color={AuraTextColors.text}>
                   Browser Extension
@@ -467,8 +472,8 @@ const Download = () => {
                 </Badge>
               </VStack>
 
-              <Text fontSize="sm" color={AuraTextColors.textLight} fontFamily="'Space Mono', monospace">
-                Lightweight browser extension for quick AI text generation directly in your web browser.
+              <Text fontSize="sm" color={AuraTextColors.textLight} lineHeight={1.6}>
+                Lightweight extension for Chrome, Edge, & Firefox. <Box as="span" color={AuraTextColors.primary}>Perfect for quick tasks.</Box>
               </Text>
 
               <VStack spacing={2} align="start" w="full">
@@ -505,12 +510,12 @@ const Download = () => {
                 isLoading={loading}
                 loadingText="Loading..."
               >
-                {latestRelease?.assets?.find(asset => 
+                {latestRelease?.assets?.find(asset =>
                   asset.name.toLowerCase().includes('auratext-browser-bridge.zip') ||
-                  asset.name.toLowerCase().includes('.zip') || 
+                  asset.name.toLowerCase().includes('.zip') ||
                   asset.name.toLowerCase().includes('extension') ||
                   asset.name.toLowerCase().includes('browser')
-                ) ? 
+                ) ?
                   'Download Extension' : 'Coming Soon'}
               </Button>
             </VStack>

@@ -14,40 +14,90 @@ import {
   useToast,
   Spinner,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { LuCheck } from "react-icons/lu";
 
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
+
 const Pricing = () => {
   const [currentBilling, setCurrentBilling] = useState("monthly");
+  const [paymentMethod, setPaymentMethod] = useState<"razorpay" | "paypal">("razorpay");
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [razorpayLoaded, setRazorpayLoaded] = useState(false);
   const toast = useToast();
 
-  // Stripe Price IDs - Replace these with your actual Stripe Price IDs from your Stripe Dashboard
-  // You can find/create these in: Stripe Dashboard > Products > [Your Product] > Pricing
-  const getPriceId = (planName: string, billing: string): string | null => {
-    // These are placeholder price IDs - you need to replace them with actual Stripe Price IDs
-    const priceMap: Record<string, Record<string, string>> = {
-      Basic: {
-        monthly: process.env.NEXT_PUBLIC_STRIPE_PRICE_BASIC_MONTHLY || "",
-        annual: process.env.NEXT_PUBLIC_STRIPE_PRICE_BASIC_ANNUAL || "",
-      },
-      Pro: {
-        monthly: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_MONTHLY || "",
-        annual: process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_ANNUAL || "",
-      },
-      Enterprise: {
-        monthly: process.env.NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE_MONTHLY || "",
-        annual: process.env.NEXT_PUBLIC_STRIPE_PRICE_ENTERPRISE_ANNUAL || "",
-      },
-    };
-    return priceMap[planName]?.[billing] || null;
+  // Load Razorpay script
+  useEffect(() => {
+    if (typeof window !== 'undefined' && !window.Razorpay) {
+      const script = document.createElement('script');
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      script.onload = () => setRazorpayLoaded(true);
+      document.body.appendChild(script);
+    } else if (window.Razorpay) {
+      setRazorpayLoaded(true);
+    }
+  }, []);
+
+  // Get price amount based on payment method
+  const getPriceAmount = (planName: string, billing: string, method: "razorpay" | "paypal"): number => {
+    if (method === "razorpay") {
+      // INR prices
+      const priceMap: Record<string, Record<string, number>> = {
+        Basic: {
+          monthly: 750, // ₹750/month
+          annual: 7500, // ₹7,500/year
+        },
+        Pro: {
+          monthly: 1600, // ₹1,600/month
+          annual: 16000, // ₹16,000/year
+        },
+        Enterprise: {
+          monthly: 8250, // ₹8,250/month
+          annual: 82500, // ₹82,500/year
+        },
+      };
+      return priceMap[planName]?.[billing] || 0;
+    } else {
+      // USD prices for PayPal
+      const priceMap: Record<string, Record<string, number>> = {
+        Basic: {
+          monthly: 9, // $9/month
+          annual: 90, // $90/year
+        },
+        Pro: {
+          monthly: 19, // $19/month
+          annual: 190, // $190/year
+        },
+        Enterprise: {
+          monthly: 99, // $99/month
+          annual: 990, // $990/year
+        },
+      };
+      return priceMap[planName]?.[billing] || 0;
+    }
   };
 
   const handleCheckout = async (planName: string) => {
-    const priceId = getPriceId(planName, currentBilling);
+    if (paymentMethod === "razorpay" && !razorpayLoaded) {
+      toast({
+        title: "Loading Payment",
+        description: "Please wait while payment system loads...",
+        status: "info",
+        duration: 2000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    const amount = getPriceAmount(planName, currentBilling, paymentMethod);
     
-    if (!priceId) {
+    if (!amount) {
       toast({
         title: "Configuration Error",
         description: "Payment is not configured. Please contact support.",
@@ -61,29 +111,109 @@ const Pricing = () => {
     setLoadingPlan(planName);
 
     try {
-      const response = await fetch("/api/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          priceId,
-          planName,
-          billing: currentBilling,
-        }),
-      });
+      if (paymentMethod === "razorpay") {
+        // Razorpay checkout
+        const response = await fetch("/api/razorpay-checkout", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount,
+            planName,
+            billing: currentBilling,
+            currency: "INR",
+          }),
+        });
 
-      const data = await response.json();
+        const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to create checkout session");
-      }
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to create payment order");
+        }
 
-      // Redirect to Stripe Checkout
-      if (data.url) {
-        window.location.href = data.url;
+        // Open Razorpay checkout
+        const options = {
+          key: data.keyId,
+          amount: data.amount,
+          currency: data.currency,
+          name: "AuraText",
+          description: `${planName} Plan - ${currentBilling === "monthly" ? "Monthly" : "Annual"} Subscription`,
+          order_id: data.orderId,
+          handler: async function (response: any) {
+            // Verify payment on server
+            const verifyResponse = await fetch("/api/razorpay-verify", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              }),
+            });
+
+            const verifyData = await verifyResponse.json();
+
+            if (verifyData.verified) {
+              // Redirect to success page
+              window.location.href = `/payment/success?provider=razorpay&order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}`;
+            } else {
+              toast({
+                title: "Payment Verification Failed",
+                description: "Please contact support if payment was deducted.",
+                status: "error",
+                duration: 5000,
+                isClosable: true,
+              });
+              setLoadingPlan(null);
+            }
+          },
+          prefill: {
+            name: "",
+            email: "",
+            contact: "",
+          },
+          theme: {
+            color: AuraTextColors.primary,
+          },
+          modal: {
+            ondismiss: function() {
+              setLoadingPlan(null);
+            },
+          },
+        };
+
+        const razorpay = new window.Razorpay(options);
+        razorpay.open();
       } else {
-        throw new Error("No checkout URL received");
+        // PayPal checkout
+        const response = await fetch("/api/paypal-checkout", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            amount,
+            planName,
+            billing: currentBilling,
+            currency: "USD",
+          }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to create payment order");
+        }
+
+        // Redirect to PayPal
+        if (data.approvalUrl) {
+          window.location.href = data.approvalUrl;
+        } else {
+          throw new Error("No approval URL received");
+        }
       }
     } catch (error: any) {
       console.error("Checkout error:", error);
@@ -101,7 +231,9 @@ const Pricing = () => {
   const plans = [
     {
       name: "Basic",
-      price: currentBilling === "monthly" ? "$9" : "$90",
+      price: paymentMethod === "razorpay" 
+        ? (currentBilling === "monthly" ? "₹750" : "₹7,500")
+        : (currentBilling === "monthly" ? "$9" : "$90"),
       features: [
         "AI Generator: Optimize with advanced AI technology",
         "Dashboard: User-friendly performance monitoring",
@@ -113,7 +245,9 @@ const Pricing = () => {
     },
     {
       name: "Pro",
-      price: currentBilling === "monthly" ? "$19" : "$190",
+      price: paymentMethod === "razorpay"
+        ? (currentBilling === "monthly" ? "₹1,600" : "₹16,000")
+        : (currentBilling === "monthly" ? "$19" : "$190"),
       features: [
         "AI Generator: Enhanced AI capabilities",
         "Dashboard: Advanced analytics and insights",
@@ -125,7 +259,9 @@ const Pricing = () => {
     },
     {
       name: "Enterprise",
-      price: currentBilling === "monthly" ? "$99" : "$990",
+      price: paymentMethod === "razorpay"
+        ? (currentBilling === "monthly" ? "₹8,250" : "₹82,500")
+        : (currentBilling === "monthly" ? "$99" : "$990"),
       features: [
         "AI Generator: Customizable AI solutions",
         "Dashboard: Full-featured command center",
@@ -164,16 +300,61 @@ const Pricing = () => {
       <Heading textAlign={"center"} px={2} color={AuraTextColors.text}>
         Pricing
       </Heading>
-      <Text
-        textAlign={"center"}
-        color={AuraTextColors.textLight}
-        fontSize="sm"
-        mt={2}
-        mb={-2}
-        fontStyle="italic"
+      
+      {/* Payment Method Selector */}
+      <Flex
+        mt={6}
+        gap={2}
+        p={2}
+        borderRadius={16}
+        border={`1px solid ${AuraTextColors.lightBg}`}
+        justify="center"
+        align="center"
+        flexWrap="wrap"
       >
-        Payment options will be available soon
-      </Text>
+        <Text fontSize="sm" color={AuraTextColors.textLight} mr={2}>
+          Payment:
+        </Text>
+        <Flex
+          cursor={"pointer"}
+          onClick={() => setPaymentMethod("razorpay")}
+          px={4}
+          py={2}
+          borderRadius={12}
+          transition={"all 0.25s ease"}
+          {...(paymentMethod === "razorpay" && {
+            bgColor: AuraTextColors.primary,
+            color: AuraTextColors.white,
+          })}
+          {...(paymentMethod !== "razorpay" && {
+            color: AuraTextColors.grey,
+          })}
+        >
+          <Text fontWeight={"bold"} fontSize={"sm"}>
+            Razorpay (₹)
+          </Text>
+        </Flex>
+        <Flex
+          cursor={"pointer"}
+          onClick={() => setPaymentMethod("paypal")}
+          px={4}
+          py={2}
+          borderRadius={12}
+          transition={"all 0.25s ease"}
+          {...(paymentMethod === "paypal" && {
+            bgColor: AuraTextColors.primary,
+            color: AuraTextColors.white,
+          })}
+          {...(paymentMethod !== "paypal" && {
+            color: AuraTextColors.grey,
+          })}
+        >
+          <Text fontWeight={"bold"} fontSize={"sm"}>
+            PayPal ($)
+          </Text>
+        </Flex>
+      </Flex>
+      
       <Flex
         mt={6}
         gap={2}
@@ -323,12 +504,10 @@ const Pricing = () => {
                 mt={"auto"}
                 w="full"
                 onClick={() => handleCheckout(plan.name)}
-                isLoading={loadingPlan === plan.name}
-                loadingText="Processing..."
+                isLoading={loadingPlan === plan.name || !razorpayLoaded}
+                loadingText={!razorpayLoaded ? "Loading..." : "Processing..."}
                 spinner={<Spinner size="sm" />}
-                disabled={true}
-                opacity={0.6}
-                cursor="not-allowed"
+                disabled={loadingPlan !== null || !razorpayLoaded}
                 {...(plan.name === "Enterprise"
                   ? {
                       bg: AuraTextColors.primary,
@@ -336,12 +515,12 @@ const Pricing = () => {
                       _hover: {
                         bg: AuraTextColors.primary,
                         color: AuraTextColors.white,
-                        opacity: 0.6,
+                        opacity: 0.8,
                       },
                     }
                   : {})}
               >
-                Payment Coming Soon
+                {loadingPlan === plan.name ? "Processing..." : `Choose ${plan.name}`}
               </Button>
             </Flex>
           ))}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="#1a1a2e"/>
+  <circle cx="256" cy="256" r="240" fill="url(#gradient)" opacity="0.8"/>
+  
+  <!-- Lightning bolt -->
+  <path d="M280 80L160 280H240L220 432L360 232H280L280 80Z" fill="url(#lightning-gradient)" stroke="#FFD700" stroke-width="8" stroke-linejoin="round"/>
+  
+  <!-- Glow effect -->
+  <path d="M280 80L160 280H240L220 432L360 232H280L280 80Z" fill="none" stroke="#FFD700" stroke-width="4" stroke-linejoin="round" opacity="0.6" filter="url(#glow)"/>
+  
+  <!-- Gradient definitions -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a90e2"/>
+      <stop offset="100%" stop-color="#357abd"/>
+    </linearGradient>
+    
+    <linearGradient id="lightning-gradient" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFE44D"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FFA500"/>
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+</svg>
