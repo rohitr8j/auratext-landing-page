@@ -37,9 +37,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Create PayPal order
-    const request = new paypal.orders.OrdersCreateRequest();
-    request.prefer("return=representation");
-    request.requestBody({
+    const orderRequest = new paypal.orders.OrdersCreateRequest();
+    orderRequest.prefer("return=representation");
+    orderRequest.requestBody({
       intent: 'CAPTURE',
       purchase_units: [
         {
@@ -60,7 +60,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const order = await client.execute(request);
+    const order = await client.execute(orderRequest);
 
     if (order.statusCode === 201 && order.result) {
       // Find approval URL
@@ -106,8 +106,8 @@ export async function GET(request: NextRequest) {
     }
 
     const client = getPayPalClient();
-    const request = new paypal.orders.OrdersGetRequest(orderId);
-    const order = await client.execute(request);
+    const getOrderRequest = new paypal.orders.OrdersGetRequest(orderId);
+    const order = await client.execute(getOrderRequest);
 
     if (order.statusCode === 200 && order.result) {
       return NextResponse.json({ order: order.result });
