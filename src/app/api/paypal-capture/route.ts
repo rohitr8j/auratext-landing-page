@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import paypal from '@paypal/paypal-server-sdk';
+import paypal from '@paypal/checkout-server-sdk';
 
 const getPayPalClient = () => {
   const clientId = process.env.PAYPAL_CLIENT_ID;
@@ -10,7 +10,7 @@ const getPayPalClient = () => {
     throw new Error('PayPal credentials are not set in environment variables');
   }
 
-  const environmentConfig = environment === 'production' 
+  const environmentConfig = environment === 'production'
     ? new paypal.core.LiveEnvironment(clientId, clientSecret)
     : new paypal.core.SandboxEnvironment(clientId, clientSecret);
 
@@ -36,11 +36,11 @@ export async function POST(request: NextRequest) {
     }
 
     const client = getPayPalClient();
-    
+
     // Capture the order
     const captureRequest = new paypal.orders.OrdersCaptureRequest(orderId);
     captureRequest.requestBody({});
-    
+
     const capture = await client.execute(captureRequest);
 
     if (capture.statusCode === 201 && capture.result) {
