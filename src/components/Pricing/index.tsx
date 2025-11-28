@@ -56,7 +56,7 @@ const Pricing = () => {
   const plans = [
     {
       name: "Basic",
-      price: "$29",
+      price: "$19",
       period: "one-time",
       features: [
         "AI Generator: Optimize with advanced AI technology",
