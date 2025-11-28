@@ -5,13 +5,13 @@ import React, { useState } from "react";
 import FooterTopSVG from "./FooterTopSVG";
 import FooterBg from "./FooterBg";
 import { LuArrowRight, LuInstagram, LuMail, LuTwitter, LuCopy, LuCheck } from "react-icons/lu";
-import { FaLinkedin, FaReddit } from "react-icons/fa";
+import { FaLinkedin, FaReddit, FaDiscord } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Footer = () => {
   const [emailCopied, setEmailCopied] = useState(false);
   const toast = useToast();
-  const emailAddress = "support@auratext.com";
+  const emailAddress = "auratext.app@gmail.com";
 
   const copyEmailToClipboard = async () => {
     try {
@@ -28,7 +28,7 @@ const Footer = () => {
     } catch (err) {
       toast({
         title: "Copy failed",
-        description: "Please copy the email manually: support@auratext.com",
+        description: "Please copy the email manually: auratext.app@gmail.com",
         status: "error",
         duration: 3000,
         isClosable: true,
@@ -108,6 +108,31 @@ const Footer = () => {
         </Text>
 
         <HStack spacing={{ base: 3, md: 6 }} wrap="wrap" justify="center">
+          <Button
+            as="a"
+            href="https://discord.gg/EcusQjcWDJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<FaDiscord />}
+            variant="outline"
+            borderColor={AuraTextColors.white}
+            color={AuraTextColors.white}
+            _hover={{
+              bg: "rgba(255, 255, 255, 0.1)",
+              color: AuraTextColors.white,
+              borderColor: AuraTextColors.white
+            }}
+            fontFamily="'Space Mono', monospace"
+            fontWeight={400}
+            borderRadius="8px"
+            px={{ base: 4, md: 6 }}
+            py={3}
+            size={{ base: "sm", md: "md" }}
+            cursor="pointer"
+          >
+            Discord
+          </Button>
+
           <Button
             as="a"
             href="https://www.instagram.com/auratext.app/"

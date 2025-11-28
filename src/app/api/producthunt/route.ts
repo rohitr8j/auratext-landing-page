@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
 
     // Check if we have a valid API token
     const apiToken = process.env.PRODUCT_HUNT_API_TOKEN;
-    
+
     // Fallback data structure
     const createFallbackData = (totalVotes: number = 0) => ({
       id: 'auratxt-aggregated',
@@ -74,7 +74,7 @@ export async function GET(request: NextRequest) {
     for (const slug of slugs) {
       try {
         console.log(`Fetching Product Hunt data for slug: ${slug.trim()}`);
-        
+
         const response = await fetch('https://api.producthunt.com/v2/api/graphql', {
           method: 'POST',
           headers: {
@@ -93,11 +93,8 @@ export async function GET(request: NextRequest) {
                   commentsCount
                   website
                   createdAt
-                  updatedAt
+                  createdAt
                   thumbnail {
-                    url
-                  }
-                  gallery {
                     url
                   }
                   user {
@@ -121,7 +118,7 @@ export async function GET(request: NextRequest) {
 
         if (response.ok) {
           const data = await response.json();
-          
+
           if (data.errors) {
             console.error(`Product Hunt GraphQL errors for ${slug}:`, data.errors);
             continue; // Skip this slug and try next
@@ -129,19 +126,19 @@ export async function GET(request: NextRequest) {
 
           if (data.data && data.data.post) {
             const post = data.data.post;
-            
+
             // Only count each unique product once (avoid double-counting if same slug returns same product)
             if (!seenProductIds.has(post.id)) {
               seenProductIds.add(post.id);
               products.push(post);
               totalVotes += post.votesCount || 0;
               totalComments += post.commentsCount || 0;
-              
+
               // Use the first successful product as the base for aggregated data
               if (!aggregatedProduct) {
                 aggregatedProduct = post;
               }
-              
+
               console.log(`✓ Successfully fetched ${slug}: ${post.votesCount} votes (ID: ${post.id})`);
             } else {
               console.log(`⚠ Product ${slug} (ID: ${post.id}) already counted, skipping duplicate`);
@@ -166,17 +163,17 @@ export async function GET(request: NextRequest) {
       const expectedLaunches = slugs.length;
       const foundLaunches = products.length;
       const manualTotal = 19; // Your known total: 9 + 10 = 19
-      
+
       let finalVotes = totalVotes;
-      
+
       // If we expect multiple launches but only found one, use manual total
       if (expectedLaunches > 1 && foundLaunches === 1) {
         console.log(`⚠ Expected ${expectedLaunches} launches but only found ${foundLaunches}. Using manual total: ${manualTotal}`);
         finalVotes = manualTotal;
       }
-      
+
       console.log(`✓ Aggregated ${foundLaunches}/${expectedLaunches} Product Hunt launches: ${finalVotes} total votes`);
-      
+
       return NextResponse.json({
         success: true,
         product: {
@@ -209,7 +206,7 @@ export async function GET(request: NextRequest) {
 
   } catch (error) {
     console.error('Product Hunt API Error:', error);
-    
+
     // Return fallback data with aggregated votes
     return NextResponse.json({
       success: true,

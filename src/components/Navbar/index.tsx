@@ -11,16 +11,15 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
-import { LuMenu, LuX } from "react-icons/lu";
-import Image from "next/image";
+import { LuMenu, LuX, LuZap } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { AuraTextColors } from "#/src/utils/Colors";
 import useBannerVisibility from "#/src/utils/BannerVisibility";
 
 const NavItems = [
   { name: "Features", href: "/#features" },
-  // { name: "Pricing", href: "/#pricing" },
-  { name: "Download", href: "/#download" },
+  { name: "Pricing", href: "/#pricing" },
+
   { name: "FAQ", href: "/#faq" },
   { name: "Releases", href: "/#releases" },
   { name: "Support", href: "/#footer" },
@@ -87,14 +86,11 @@ const Navbar: FC = () => {
           justify="space-between"
         >
           <Flex align="center" gap={3}>
-            <Box position="relative" w={8} h={8} className="zap-icon">
-              <Image
-                src="/images/logo.png"
-                alt="AuraText Logo"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </Box>
+            <LuZap
+              size={32}
+              color={AuraTextColors.text}
+              className="zap-icon"
+            />
             <Text
               as={Link}
               href="/"

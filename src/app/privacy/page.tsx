@@ -150,7 +150,7 @@ const PrivacyPolicy = () => {
                             For privacy questions or concerns:
                         </Text>
                         <UnorderedList color={AuraTextColors.textLight} spacing={2} pl={4}>
-                            <ListItem>Email: <Link href="mailto:support@auratext.com" color={AuraTextColors.primary}>support@auratext.com</Link></ListItem>
+                            <ListItem>Email: <Link href="mailto:auratext.app@gmail.com" color={AuraTextColors.primary}>auratext.app@gmail.com</Link></ListItem>
                             <ListItem>GitHub Issues: <Link href="https://github.com/AuraTxt/auratext-releases/issues" isExternal color={AuraTextColors.primary}>Create an issue</Link></ListItem>
                         </UnorderedList>
                     </Box>

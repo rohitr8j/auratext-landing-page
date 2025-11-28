@@ -32,15 +32,13 @@ export default function Home() {
       <section id="product" aria-label="Product Showcase">
         <Product />
       </section>
-      {/* <section id="pricing" aria-label="Pricing">
+      <section id="pricing" aria-label="Pricing">
         <Pricing />
-      </section> */}
+      </section>
       <section id="download" aria-label="Download Section">
         <Download />
       </section>
-      <section id="social-proof" aria-label="Social Proof">
-        <ProductHuntStats />
-      </section>
+
       <section id="releases" aria-label="Releases">
         <GitHubReleases />
       </section>
