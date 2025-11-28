@@ -113,7 +113,7 @@ const BrowserExtension = () => {
                                         transform: "translateY(-5px)",
                                         borderColor: AuraTextColors.primary
                                     }}
-                                    transition="all 0.3s ease"
+                                    sx={{ transition: "all 0.3s ease" }}
                                 >
                                     <Icon as={feature.icon} w={8} h={8} color={AuraTextColors.primary} mb={4} />
                                     <Heading size="md" color={AuraTextColors.text} mb={2} fontFamily="'Space Mono', monospace">
