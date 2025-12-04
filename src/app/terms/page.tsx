@@ -3,11 +3,11 @@ import { AuraTextColors } from "#/src/utils/Colors";
 import { Box, Container, Heading, Text, VStack, UnorderedList, ListItem } from "@chakra-ui/react";
 import React from "react";
 import Navbar from "#/src/components/Navbar";
-import Footer from "#/src/components/Footer";
+
 
 const TermsOfService = () => {
     return (
-        <Box bg={AuraTextColors.darkBg} minH="100vh">
+        <Box bg={AuraTextColors.black} minH="100vh">
             <Navbar />
             <Container maxW="container.lg" pt={32} pb={20}>
                 <VStack spacing={8} align="start">
@@ -79,7 +79,6 @@ const TermsOfService = () => {
                     </Box>
                 </VStack>
             </Container>
-            <Footer />
         </Box>
     );
 };

@@ -3,11 +3,11 @@ import { AuraTextColors } from "#/src/utils/Colors";
 import { Box, Container, Heading, Text, VStack, UnorderedList, ListItem, Link } from "@chakra-ui/react";
 import React from "react";
 import Navbar from "#/src/components/Navbar";
-import Footer from "#/src/components/Footer";
+
 
 const PrivacyPolicy = () => {
     return (
-        <Box bg={AuraTextColors.darkBg} minH="100vh">
+        <Box bg={AuraTextColors.black} minH="100vh">
             <Navbar />
             <Container maxW="container.lg" pt={32} pb={20}>
                 <VStack spacing={8} align="start">
@@ -151,12 +151,11 @@ const PrivacyPolicy = () => {
                         </Text>
                         <UnorderedList color={AuraTextColors.textLight} spacing={2} pl={4}>
                             <ListItem>Email: <Link href="mailto:auratext.app@gmail.com" color={AuraTextColors.primary}>auratext.app@gmail.com</Link></ListItem>
-                            <ListItem>GitHub Issues: <Link href="https://github.com/AuraTxt/auratext-releases/issues" isExternal color={AuraTextColors.primary}>Create an issue</Link></ListItem>
+                            <ListItem>GitHub Issues: <Link href="https://github.com/Y4shr4j/auratext-releases/issues" isExternal color={AuraTextColors.primary}>Create an issue</Link></ListItem>
                         </UnorderedList>
                     </Box>
                 </VStack>
             </Container>
-            <Footer />
         </Box>
     );
 };

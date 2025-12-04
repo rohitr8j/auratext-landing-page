@@ -9,6 +9,7 @@ import ProductHuntStats from "../components/ProductHuntStats";
 import HowItWorks from "../components/HowItWorks";
 import FAQ from "../components/FAQ";
 import BrowserExtension from "../components/BrowserExtension";
+import AIIntegrations from "../components/AIIntegrations";
 
 
 
@@ -21,6 +22,9 @@ export default function Home() {
 
       <section id="features" aria-label="Features">
         <Features />
+      </section>
+      <section id="ai-integrations" aria-label="AI Integrations">
+        <AIIntegrations />
       </section>
       <section id="how-it-works" aria-label="How It Works">
         <HowItWorks />

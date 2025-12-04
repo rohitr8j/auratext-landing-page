@@ -19,9 +19,9 @@ const ARE_PAYMENTS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_PAYMENTS === 'true';
 
 // Dodo Payment Links (One-Time / Lifetime Deals)
 const DODO_LINKS: Record<string, string> = {
-  Basic: "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
-  Pro: "https://checkout.dodopayments.com/buy/PLACEHOLDER_PRO_ID",             // REPLACE ME
-  Enterprise: "https://checkout.dodopayments.com/buy/PLACEHOLDER_ENT_ID",      // REPLACE ME
+  Basic: process.env.NEXT_PUBLIC_DODO_PAYMENT_LINK_BASIC || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
+  Pro: process.env.NEXT_PUBLIC_DODO_PAYMENT_LINK_PRO || "",
+  Enterprise: process.env.NEXT_PUBLIC_DODO_PAYMENT_LINK_ENTERPRISE || "",
 };
 
 const Pricing = () => {

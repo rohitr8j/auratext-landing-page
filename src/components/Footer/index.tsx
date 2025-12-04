@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import FooterTopSVG from "./FooterTopSVG";
 import FooterBg from "./FooterBg";
 import { LuArrowRight, LuInstagram, LuMail, LuTwitter, LuCopy, LuCheck } from "react-icons/lu";
-import { FaLinkedin, FaReddit, FaDiscord } from "react-icons/fa";
+import { FaLinkedin, FaReddit, FaDiscord, FaGithub } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import AiHero from "../AiHero";
@@ -68,7 +68,7 @@ const Footer = () => {
         <HStack spacing={{ base: 3, md: 6 }} wrap="wrap" justify="center">
           <Button
             as="a"
-            href="https://discord.gg/EcusQjcWDJ"
+            href="https://discord.com/invite/NamyGv3ecs"
             target="_blank"
             rel="noopener noreferrer"
             leftIcon={<FaDiscord />}
@@ -138,7 +138,7 @@ const Footer = () => {
             size={{ base: "sm", md: "md" }}
             cursor="pointer"
           >
-            X (Twitter)
+            Twitter
           </Button>
 
           <Button
@@ -192,6 +192,31 @@ const Footer = () => {
           </Button>
 
           <Button
+            as="a"
+            href="https://github.com/Y4shr4j"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<FaGithub />}
+            variant="outline"
+            borderColor={AuraTextColors.white}
+            color={AuraTextColors.white}
+            _hover={{
+              bg: "rgba(255, 255, 255, 0.1)",
+              color: AuraTextColors.white,
+              borderColor: AuraTextColors.white
+            }}
+            fontFamily="'Space Mono', monospace"
+            fontWeight={400}
+            borderRadius="8px"
+            px={{ base: 4, md: 6 }}
+            py={3}
+            size={{ base: "sm", md: "md" }}
+            cursor="pointer"
+          >
+            GitHub
+          </Button>
+
+          <Button
             onClick={copyEmailToClipboard}
             leftIcon={emailCopied ? <LuCheck /> : <LuMail />}
             variant="outline"
@@ -211,7 +236,7 @@ const Footer = () => {
             cursor="pointer"
             transition="all 0.2s"
           >
-            {emailCopied ? "Copied!" : emailAddress}
+            {emailCopied ? "Copied!" : "mail"}
           </Button>
         </HStack>
       </VStack>
