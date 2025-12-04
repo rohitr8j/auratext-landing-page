@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import FooterTopSVG from "./FooterTopSVG";
 import FooterBg from "./FooterBg";
 import { LuArrowRight, LuInstagram, LuMail, LuTwitter, LuCopy, LuCheck } from "react-icons/lu";
-import { FaLinkedin, FaReddit, FaDiscord, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaReddit, FaDiscord, FaGithub, FaYoutube } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import AiHero from "../AiHero";
@@ -189,6 +189,31 @@ const Footer = () => {
             cursor="pointer"
           >
             Reddit
+          </Button>
+
+          <Button
+            as="a"
+            href="https://youtube.com/@auratext_ai_app?si=9h4rgfD50HJblqAe"
+            target="_blank"
+            rel="noopener noreferrer"
+            leftIcon={<FaYoutube />}
+            variant="outline"
+            borderColor={AuraTextColors.white}
+            color={AuraTextColors.white}
+            _hover={{
+              bg: "rgba(255, 255, 255, 0.1)",
+              color: AuraTextColors.white,
+              borderColor: AuraTextColors.white
+            }}
+            fontFamily="'Space Mono', monospace"
+            fontWeight={400}
+            borderRadius="8px"
+            px={{ base: 4, md: 6 }}
+            py={3}
+            size={{ base: "sm", md: "md" }}
+            cursor="pointer"
+          >
+            YouTube
           </Button>
 
           <Button
