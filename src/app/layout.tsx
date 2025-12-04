@@ -127,7 +127,7 @@ export default function RootLayout({ children }: LayoutProps) {
       "@type": "Organization",
       name: "AuraText",
     },
-    screenshot: "https://auratxt.com/images/summary_large_image.png",
+    screenshot: "https://auratxt.com/opengraph-image",
     softwareVersion: "1.0",
     releaseNotes: "AI-powered text assistant for Windows with intelligent cursor locking and seamless text insertion.",
   };
