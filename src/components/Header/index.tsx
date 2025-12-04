@@ -1,5 +1,5 @@
 "use client";
-import { Button, Flex, Heading, Text, keyframes, useToast, Box, Link as ChakraLink } from "@chakra-ui/react";
+import { Button, Flex, Heading, Text, useToast, Box, Link as ChakraLink } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import HeroBottomSVG from "./HeroBottomSVG";
