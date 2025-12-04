@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Providers } from "#/src/components/Providers";
 import favicon from "#/public/images/favicon.png";
-import SummaryLargeImage from "#/public/images/summary_large_image.png";
 import Cookie from "../components/Cookie";
 import Banner from "../components/Banner";
 import Navbar from "../components/Navbar";
@@ -78,14 +77,6 @@ export const metadata: Metadata = {
     url: "https://auratxt.com/",
     type: "website",
     locale: "en_US",
-    images: [
-      {
-        url: SummaryLargeImage.src,
-        width: SummaryLargeImage.width,
-        height: SummaryLargeImage.height,
-        alt: "AuraText | AI-Powered Text Assistant for Windows",
-      },
-    ],
   },
   twitter: {
     title: "AuraText | AI-Powered Text Assistant for Windows",
@@ -94,14 +85,6 @@ export const metadata: Metadata = {
     description:
       "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
     card: "summary_large_image",
-    images: [
-      {
-        url: SummaryLargeImage.src,
-        width: SummaryLargeImage.width,
-        height: SummaryLargeImage.height,
-        alt: "AuraText | AI-Powered Text Assistant for Windows",
-      },
-    ],
   },
   alternates: {
     canonical: "https://auratxt.com/",
