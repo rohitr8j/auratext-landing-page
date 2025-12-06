@@ -29,10 +29,7 @@ export default function Home() {
       <section id="how-it-works" aria-label="How It Works">
         <HowItWorks />
       </section>
-      <section id="faq" aria-label="Frequently Asked Questions">
-        <FAQ />
-        <BrowserExtension />
-      </section>
+
       <section id="audience" aria-label="Target Audience">
         <Audience />
       </section>
@@ -41,6 +38,10 @@ export default function Home() {
       </section>
       <section id="pricing" aria-label="Pricing">
         <Pricing />
+      </section>
+      <section id="faq" aria-label="Frequently Asked Questions">
+        <FAQ />
+        <BrowserExtension />
       </section>
       <section id="download" aria-label="Download Section">
         <Download />
