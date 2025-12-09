@@ -17,11 +17,10 @@ import { LuCheck } from "react-icons/lu";
 // In .env.local: NEXT_PUBLIC_ENABLE_PAYMENTS="true"
 const ARE_PAYMENTS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_PAYMENTS === 'true';
 
-// Dodo Payment Links (One-Time / Lifetime Deals)
-const DODO_LINKS: Record<string, string> = {
-  Basic: process.env.NEXT_PUBLIC_DODO_PAYMENT_LINK_BASIC || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
-  Pro: process.env.NEXT_PUBLIC_DODO_PAYMENT_LINK_PRO || "",
-  Enterprise: process.env.NEXT_PUBLIC_DODO_PAYMENT_LINK_ENTERPRISE || "",
+// Payment Links for Support Model
+const PAYMENT_LINKS: Record<string, string> = {
+  Supporter: process.env.NEXT_PUBLIC_SUPPORTER_PAYMENT_LINK || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
+  Tip: process.env.NEXT_PUBLIC_TIP_PAYMENT_LINK || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
 };
 
 const Pricing = () => {
@@ -31,7 +30,7 @@ const Pricing = () => {
     if (!ARE_PAYMENTS_ENABLED) {
       toast({
         title: "Coming Soon!",
-        description: "We are currently in private beta. Join the waitlist!",
+        description: "Payment integration is being set up. Check back soon!",
         status: "info",
         duration: 3000,
         isClosable: true,
@@ -39,7 +38,7 @@ const Pricing = () => {
       return;
     }
 
-    const link = DODO_LINKS[planName];
+    const link = PAYMENT_LINKS[planName];
     if (link) {
       window.open(link, "_blank");
     } else {
@@ -55,43 +54,46 @@ const Pricing = () => {
 
   const plans = [
     {
-      name: "Basic",
-      price: "$19",
-      period: "one-time",
+      name: "Free Beta",
+      price: "$0",
+      period: "during beta",
       features: [
-        "Prompt Optimizer with 5+ frameworks",
-        "Basic prompt quality analysis",
-        "Single AI provider testing",
-        "50 ready-to-use prompt templates",
+        "Full prompt optimizer with 5+ frameworks",
+        "Multi-AI provider support (Gemini, OpenAI, Perplexity)",
         "Smart cursor lock & overlay mode",
-        "Standard support",
+        "50+ prompt templates",
+        "Community support via Discord",
+        "Early access to all features",
       ],
+      isFree: true,
     },
     {
-      name: "Pro",
-      price: "$49",
-      period: "one-time",
+      name: "Supporter",
+      price: "$9",
+      period: "per month",
       features: [
-        "Advanced Prompt Optimizer with 15+ frameworks",
-        "Real-time prompt quality scoring",
-        "Multi-model testing (compare 3+ AI providers)",
-        "200+ prompt templates library",
-        "Custom framework creation",
-        "Priority support",
+        "Everything in Free, plus:",
+        "Early access to new frameworks (15+ total)",
+        "Priority bug fixes & feature requests",
+        "200+ premium prompt templates",
+        "Direct support from developer",
+        "Behind-the-scenes updates",
       ],
+      isSupporter: true,
     },
     {
-      name: "Enterprise",
-      price: "$199",
+      name: "One-Time Tip",
+      price: "Pay What You Want",
       period: "one-time",
       features: [
-        "Full Prompt Optimizer suite (25+ frameworks)",
-        "Advanced analytics & performance tracking",
-        "Unlimited multi-model testing",
-        "Exclusive prompt library (500+ templates)",
-        "Team collaboration & prompt sharing",
-        "24/7 premium support",
+        "☕ $9 - Buy me a coffee",
+        "🍜 $19 - Support development",
+        "🚀 $49 - Fund a month of hosting",
+        "💙 Custom amount - You decide",
+        "Support a student developer",
+        "Help build AuraText full-time",
       ],
+      isTip: true,
     },
   ];
 
@@ -120,10 +122,10 @@ const Pricing = () => {
       borderRadius={24}
     >
       <Heading textAlign={"center"} px={2} color={AuraTextColors.text}>
-        Pricing
+        Support AuraText
       </Heading>
-      <Text mt={4} color={AuraTextColors.grey} fontSize="lg">
-        Simple, transparent lifetime pricing. Pay once, use forever.
+      <Text mt={4} color={AuraTextColors.grey} fontSize="lg" textAlign="center" maxW={600}>
+        Free during beta. Support early development and get lifetime benefits.
       </Text>
 
       <Stack
@@ -200,31 +202,31 @@ const Pricing = () => {
                 mt={"auto"}
                 w="full"
                 onClick={() => {
-                  if (plan.name === "Basic") {
-                    handleCheckout(plan.name);
-                  } else {
-                    toast({
-                      title: "Coming Soon!",
-                      description: `${plan.name} plan is currently in private beta.`,
-                      status: "info",
-                      duration: 3000,
-                      isClosable: true,
-                    });
+                  if (plan.isFree) {
+                    // Free tier - redirect to download
+                    window.location.href = "#download";
+                  } else if (plan.isSupporter) {
+                    // Supporter tier - handle payment
+                    handleCheckout("Supporter");
+                  } else if (plan.isTip) {
+                    // Tip tier - handle payment
+                    handleCheckout("Tip");
                   }
                 }}
-                {...(plan.name === "Enterprise"
-                  ? {
-                    bg: AuraTextColors.primary,
-                    color: AuraTextColors.white,
-                    _hover: {
-                      bg: AuraTextColors.primary,
-                      color: AuraTextColors.white,
-                      opacity: 0.8,
-                    },
-                  }
-                  : {})}
+                bg={plan.isSupporter ? AuraTextColors.primary : "transparent"}
+                color={plan.isSupporter ? AuraTextColors.white : AuraTextColors.primary}
+                border={!plan.isSupporter ? `1px solid ${AuraTextColors.primary}` : "none"}
+                _hover={{
+                  bg: plan.isSupporter ? AuraTextColors.secondary : `${AuraTextColors.primary}20`,
+                  opacity: plan.isSupporter ? 1 : 0.8,
+                }}
               >
-                {ARE_PAYMENTS_ENABLED && plan.name === "Basic" ? `Get ${plan.name}` : "Join Waitlist"}
+                {plan.isFree
+                  ? "Download Free"
+                  : plan.isSupporter
+                    ? (ARE_PAYMENTS_ENABLED ? "Become a Supporter" : "Coming Soon")
+                    : (ARE_PAYMENTS_ENABLED ? "Send a Tip" : "Coming Soon")
+                }
               </Button>
             </Flex>
           ))}

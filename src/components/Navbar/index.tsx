@@ -103,6 +103,23 @@ const Navbar: FC = () => {
             >
               AuraText
             </Text>
+            <Box
+              display={{ base: "none", md: "block" }}
+              px={3}
+              py={1}
+              bg={`${AuraTextColors.primary}20`}
+              borderRadius="md"
+              border={`1px solid ${AuraTextColors.primary}40`}
+            >
+              <Text
+                color={AuraTextColors.primary}
+                fontSize="xs"
+                fontWeight={600}
+                textTransform="uppercase"
+              >
+                Free Beta
+              </Text>
+            </Box>
           </Flex>
           <Flex
             gap={5}
