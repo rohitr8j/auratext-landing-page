@@ -10,6 +10,7 @@ import HowItWorks from "../components/HowItWorks";
 import FAQ from "../components/FAQ";
 import BrowserExtension from "../components/BrowserExtension";
 import AIIntegrations from "../components/AIIntegrations";
+import PromptOptimizer from "../components/PromptOptimizer";
 
 
 
@@ -23,6 +24,11 @@ export default function Home() {
       <section id="features" aria-label="Features">
         <Features />
       </section>
+
+      <section id="prompt-optimizer" aria-label="Prompt Optimizer Showcase">
+        <PromptOptimizer />
+      </section>
+
       <section id="ai-integrations" aria-label="AI Integrations">
         <AIIntegrations />
       </section>

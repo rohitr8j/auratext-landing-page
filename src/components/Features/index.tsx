@@ -45,7 +45,7 @@ const Features = () => {
         color={AuraTextColors.text}
         mb={4}
       >
-        Power Features
+        Prompt Optimization Powerhouse
       </Heading>
       <Text
         color={AuraTextColors.textLight}
@@ -54,7 +54,7 @@ const Features = () => {
         maxW={600}
         mb={12}
       >
-        Everything you need to write faster and better.
+        Everything you need to craft, optimize, and deploy better AI prompts.
       </Text>
       <Grid
         templateColumns={{
@@ -118,49 +118,49 @@ const Card = ({ icon, title, children }: CardProps) => (
 
 const Cards = [
   {
-    icon: LuLock,
-    title: "Smart Cursor Lock",
-    text: "First click locks to any application, subsequent clicks insert directly. No more clicking in target fields.",
-  },
-  {
     icon: LuWand,
-    title: "Prompt Optimizer",
-    text: "Don't just write prompts, optimize them. Built-in tools to enhance your AI instructions for better results.",
+    title: "AI-Powered Prompt Optimizer",
+    text: "Transform basic prompts into optimized AI instructions. Leverage advanced algorithms to enhance clarity, specificity, and effectiveness for superior results.",
   },
   {
     icon: LuLayoutTemplate,
-    title: "Frameworks & Templates",
-    text: "Use industry-standard frameworks or create your own custom templates for consistent output.",
+    title: "Proven Frameworks & Templates",
+    text: "Access industry-standard frameworks (RISEN, RTF, COSTAR, RACE) and 500+ ready-to-use templates. Create custom frameworks for your unique needs.",
   },
   {
     icon: LuBot,
-    title: "Multi-AI Provider Support",
-    text: "Choose from Gemini, Perplexity, OpenAI, or bring your own API key. No vendor lock-in.",
+    title: "Multi-Model Testing",
+    text: "Test your prompts across Gemini, OpenAI, Perplexity, and more. Compare outputs side-by-side to find the perfect AI provider for each task.",
   },
   {
     icon: LuZap,
-    title: "Real-time Text Analysis",
-    text: "AI analyzes your text as you type and provides intelligent suggestions for improved writing quality.",
+    title: "Real-time Quality Analysis",
+    text: "Get instant feedback on prompt quality with AI-powered scoring. Identify weaknesses and get suggestions for improvement as you type.",
+  },
+  {
+    icon: LuLock,
+    title: "Smart Cursor Lock",
+    text: "First click locks to any application, subsequent clicks insert optimized text directly. Seamless workflow integration without disruption.",
   },
   {
     icon: LuMonitor,
-    title: "Overlay Mode",
-    text: "Floating button stays on top of any application for instant access without interfering with your workflow.",
+    title: "Universal Windows Integration",
+    text: "Floating overlay stays on top of any application. Optimize prompts in Word, Slack, browsers, IDEs—anywhere you type on Windows.",
   },
   {
     icon: LuShield,
     title: "Secure & Private",
-    text: "All API keys stored locally, no data sent to our servers. Your privacy and security are our priority.",
+    text: "All API keys and prompts stored locally. Zero data sent to our servers. Your intellectual property stays yours.",
   },
   {
     icon: LuGlobe,
-    title: "Universal Compatibility",
-    text: "Works with all text structures and inputs across Windows applications and browsers.",
+    title: "Cross-Platform Compatibility",
+    text: "Works with all text structures and inputs across Windows applications and browsers. No setup required.",
   },
   {
     icon: LuDownload,
-    title: "Easy Installation",
-    text: "One-click installer with no additional dependencies. Works seamlessly with Windows 10/11.",
+    title: "One-Click Installation",
+    text: "Professional installer with no dependencies. Up and running in under 60 seconds on Windows 10/11.",
   },
 ];
 

@@ -83,7 +83,7 @@ const Header = () => {
           textAlign="center"
           whiteSpace="nowrap"
         >
-          AI-Powered Text Assistant for Windows
+          The Prompt Optimizer for Windows
         </Text>
       </Flex>
 
@@ -111,7 +111,7 @@ const Header = () => {
 
       <Text
         color={AuraTextColors.textLight}
-        maxW={600}
+        maxW={700}
         textAlign={"center"}
         fontSize={{ base: "lg", md: "xl" }}
         fontWeight={400}
@@ -119,7 +119,7 @@ const Header = () => {
         lineHeight={1.6}
         fontFamily="'Space Mono', monospace"
       >
-        Your AI writing copilot for Windows. <Box as="span" color={AuraTextColors.primary} fontWeight={600}>Generate, edit, and insert text</Box> seamlessly into any app with intelligent cursor locking.
+        Transform mediocre prompts into <Box as="span" color={AuraTextColors.primary} fontWeight={600}>powerful AI instructions</Box>. Optimize with proven frameworks, test across multiple AI models, and deploy better prompts—anywhere you type on Windows.
       </Text>
 
       <Flex gap={4} direction={{ base: "column", md: "row" }} align="center">

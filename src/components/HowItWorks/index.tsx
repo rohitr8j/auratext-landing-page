@@ -104,22 +104,22 @@ const steps = [
     {
         icon: LuDownload,
         title: "Download & Install",
-        description: "Get the Windows App or Browser Extension. Both work seamlessly together.",
+        description: "Get AuraText for Windows in under 60 seconds. One-click installer, no dependencies required.",
     },
     {
         icon: LuKey,
-        title: "Connect AI",
-        description: "Add your API keys for OpenAI, Gemini, or Perplexity in the Settings.",
+        title: "Write Your Prompt",
+        description: "Start with any prompt, anywhere on Windows. AuraText works in every application you use.",
     },
     {
         icon: LuKeyboard,
-        title: "Type Anywhere",
-        description: "Start typing in any application or text field. AuraText is always ready.",
+        title: "Optimize Instantly",
+        description: "Choose a proven framework (RISEN, RTF, COSTAR) or let AI enhance your prompt automatically.",
     },
     {
         icon: LuSparkles,
-        title: "Refine & Replace",
-        description: "Let AuraText optimize your text and replace it instantly with a click.",
+        title: "Test & Deploy",
+        description: "Compare results across multiple AI models, then insert the optimized output with one click.",
     },
 ];
 

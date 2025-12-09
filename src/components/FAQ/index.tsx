@@ -17,24 +17,40 @@ import { motion } from "framer-motion";
 
 const faqs = [
     {
+        question: "What is prompt optimization and why do I need it?",
+        answer: "Prompt optimization transforms basic AI instructions into well-structured, effective prompts that produce better results. Using proven frameworks like RISEN, RTF, and COSTAR, AuraText helps you get more accurate, relevant, and useful outputs from AI models.",
+    },
+    {
+        question: "How does AuraText's prompt optimizer work?",
+        answer: "AuraText analyzes your prompt in real-time, applies industry-standard frameworks, and suggests improvements for clarity, specificity, and effectiveness. You can choose from 5-25+ frameworks depending on your plan, or let AI automatically enhance your prompt.",
+    },
+    {
+        question: "What frameworks are included?",
+        answer: "AuraText includes proven frameworks like RISEN (Role, Instructions, Steps, End goal, Narrowing), RTF (Role, Task, Format), COSTAR (Context, Objective, Style, Tone, Audience, Response), RACE, and many more. Higher tiers unlock additional specialized frameworks.",
+    },
+    {
+        question: "Can I test prompts across different AI models?",
+        answer: "Yes! Pro and Enterprise plans include multi-model testing. Compare your optimized prompts across OpenAI, Gemini, Perplexity, and other providers side-by-side to find the best AI for each task.",
+    },
+    {
+        question: "Is my data secure?",
+        answer: "Absolutely. AuraText uses a BYOK (Bring Your Own Key) model. Your API keys, prompts, and data are stored locally and sent directly to your chosen AI provider. We never proxy, access, or store your sensitive information.",
+    },
+    {
+        question: "Does it work with my text editor?",
+        answer: "Yes! AuraText works as an overlay on top of any Windows application—Notepad, Word, VS Code, Slack, browsers, and more. Optimize prompts anywhere you type.",
+    },
+    {
         question: "App not appearing?",
-        answer: "Check the overlay toggle, ensure you have granted necessary permissions, and check 'Always on top' in Settings.",
+        answer: "Check the overlay toggle, ensure you have granted necessary permissions, and verify 'Always on top' is enabled in Settings.",
     },
     {
         question: "Provider errors?",
-        answer: "Verify your BYOK (Bring Your Own Key) API keys in Settings and check the status of your AI provider (OpenAI, Gemini, etc.).",
+        answer: "Verify your API keys in Settings and check the status of your AI provider (OpenAI, Gemini, etc.). Make sure your API key has sufficient credits and proper permissions.",
     },
     {
         question: "How do updates work?",
         answer: "Use Help → Check for updates in the app, or wait for the automatic prompt. Some updates may be mandatory for security or stability.",
-    },
-    {
-        question: "Is my data secure?",
-        answer: "Yes. AuraText uses a BYOK model. Your API keys and text data are stored locally and sent directly to your chosen AI provider. We do not proxy or store your sensitive data.",
-    },
-    {
-        question: "Does it work with my text editor?",
-        answer: "AuraText works as an overlay on top of any application, including Notepad, Word, VS Code, and browsers, allowing you to refine text anywhere.",
     },
 ];
 

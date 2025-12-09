@@ -23,23 +23,26 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "AuraText | %s",
-    default: "AuraText | AI-Powered Text Assistant for Windows",
+    default: "AuraText | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
   },
   description:
-    "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
+    "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
   keywords: [
     "AuraText",
-    "AI text assistant",
-    "Windows text assistant",
+    "prompt optimizer",
+    "prompt engineering",
+    "AI prompt tool",
+    "prompt frameworks",
+    "RISEN framework",
+    "RTF framework",
+    "COSTAR framework",
+    "Windows AI tool",
+    "multi-model testing",
     "AI writing tool",
-    "text generator",
     "Windows 10",
     "Windows 11",
-    "AI copilot",
-    "writing assistant",
-    "text editor AI",
-    "productivity tool",
-    "AI writing software",
+    "prompt quality",
+    "AI optimization",
   ],
   authors: [{ name: "AuraText Team" }],
   creator: "AuraText",
@@ -70,20 +73,20 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   metadataBase: new URL("https://auratxt.com/"),
   openGraph: {
-    title: "AuraText | AI-Powered Text Assistant for Windows",
+    title: "AuraText | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
     siteName: "AuraText",
     description:
-      "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
+      "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
     url: "https://auratxt.com/",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    title: "AuraText | AI-Powered Text Assistant for Windows",
+    title: "AuraText | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
     creator: "@auratext",
     site: "@auratext",
     description:
-      "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
+      "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
     card: "summary_large_image",
   },
   alternates: {
@@ -117,7 +120,7 @@ export default function RootLayout({ children }: LayoutProps) {
       ratingCount: "19",
     },
     description:
-      "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
+      "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
     url: "https://auratxt.com/",
     author: {
       "@type": "Organization",
@@ -129,7 +132,7 @@ export default function RootLayout({ children }: LayoutProps) {
     },
     screenshot: "https://auratxt.com/opengraph-image",
     softwareVersion: "1.0",
-    releaseNotes: "AI-powered text assistant for Windows with intelligent cursor locking and seamless text insertion.",
+    releaseNotes: "AI prompt optimizer for Windows with proven frameworks, multi-model testing, and intelligent text insertion.",
   };
 
   const organizationData = {
@@ -144,7 +147,7 @@ export default function RootLayout({ children }: LayoutProps) {
       height: 192,
     },
     description:
-      "AuraText - Free AI-powered text assistant for Windows. Generate, edit, and insert AI text with intelligent cursor locking. Supports Gemini, OpenAI, Perplexity. Download for Windows 10/11.",
+      "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
     sameAs: [
       "https://twitter.com/auratext",
       "https://www.producthunt.com/posts/auratxt",
