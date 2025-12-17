@@ -23,12 +23,14 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "AuraText | %s",
-    default: "AuraText | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
+    default: "AuraText (Auratext) | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
   },
   description:
-    "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
+    "AuraText (also known as Auratext) is an AI prompt optimizer for Windows built by Yash Raj. Transform your AI prompts with powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type.",
   keywords: [
     "AuraText",
+    "Auratext",
+    "auratext",
     "prompt optimizer",
     "prompt engineering",
     "AI prompt tool",
@@ -43,9 +45,10 @@ export const metadata: Metadata = {
     "Windows 11",
     "prompt quality",
     "AI optimization",
+    "Yash Raj",
   ],
-  authors: [{ name: "AuraText Team" }],
-  creator: "AuraText",
+  authors: [{ name: "Yash Raj" }, { name: "AuraText Team" }],
+  creator: "Yash Raj",
   publisher: "AuraText",
   robots: {
     index: true,
@@ -73,7 +76,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   metadataBase: new URL("https://auratxt.com/"),
   openGraph: {
-    title: "AuraText | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
+    title: "AuraText (Auratext) | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
     siteName: "AuraText",
     description:
       "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
@@ -82,11 +85,11 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: {
-    title: "AuraText | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
+    title: "AuraText (Auratext) | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
     creator: "@auratext",
     site: "@auratext",
     description:
-      "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
+      "AuraText (also known as Auratext) is an AI prompt optimizer for Windows built by Yash Raj. Transform your AI prompts with powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type.",
     card: "summary_large_image",
   },
   alternates: {
@@ -107,6 +110,7 @@ export default function RootLayout({ children }: LayoutProps) {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "AuraText",
+    alternateName: "Auratext",
     applicationCategory: "ProductivityApplication",
     operatingSystem: "Windows",
     offers: {
@@ -120,11 +124,15 @@ export default function RootLayout({ children }: LayoutProps) {
       ratingCount: "19",
     },
     description:
-      "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
+      "AuraText (also known as Auratext) is an AI prompt optimizer for Windows built by Yash Raj. Transform your AI prompts with powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type.",
     url: "https://auratxt.com/",
+    creator: {
+      "@type": "Person",
+      name: "Yash Raj",
+    },
     author: {
-      "@type": "Organization",
-      name: "AuraText",
+      "@type": "Person",
+      name: "Yash Raj",
     },
     publisher: {
       "@type": "Organization",
@@ -139,6 +147,7 @@ export default function RootLayout({ children }: LayoutProps) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "AuraText",
+    alternateName: "Auratext",
     url: "https://auratxt.com/",
     logo: {
       "@type": "ImageObject",
@@ -147,10 +156,21 @@ export default function RootLayout({ children }: LayoutProps) {
       height: 192,
     },
     description:
-      "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
+      "AuraText (also known as Auratext) is an AI prompt optimizer for Windows built by Yash Raj. Transform your AI prompts with powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type.",
+    founder: {
+      "@type": "Person",
+      name: "Yash Raj",
+    },
     sameAs: [
       "https://twitter.com/auratext",
+      "https://x.com/auratext",
       "https://www.producthunt.com/posts/auratxt",
+      "https://github.com/Y4shr4j",
+      "https://www.reddit.com/r/AuraText/",
+      "https://www.linkedin.com/company/auratext",
+      "https://www.instagram.com/auratext.app/",
+      "https://youtube.com/@auratext_ai_app",
+      "https://discord.com/invite/NamyGv3ecs",
     ],
   };
 

@@ -104,6 +104,7 @@ const Header = () => {
           textAlign={"center"}
           fontFamily="'Space Mono', monospace"
           fontWeight={400}
+          aria-label="AuraText (Auratext) - AI Prompt Optimizer"
         >
           AuraText
         </Heading>
