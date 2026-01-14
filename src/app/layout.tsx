@@ -23,28 +23,30 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "AuraText | %s",
-    default: "AuraText (Auratext) | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
+    default: "AuraText (Auratext) | Universal AI Overlay for Windows | Use Any AI Model Anywhere",
   },
   description:
-    "AuraText (also known as Auratext) is an AI prompt optimizer for Windows built by Yash Raj. Transform your AI prompts with powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type.",
+    "AuraText (also known as Auratext) is a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with true AI freedom and BYOK (Bring Your Own Key).",
   keywords: [
     "AuraText",
     "Auratext",
     "auratext",
-    "prompt optimizer",
-    "prompt engineering",
-    "AI prompt tool",
-    "prompt frameworks",
-    "RISEN framework",
-    "RTF framework",
-    "COSTAR framework",
+    "AI overlay",
+    "universal AI",
+    "Claude for Windows",
+    "Gemini for Windows",
+    "Ollama Windows",
+    "AI model agnostic",
+    "BYOK AI",
+    "bring your own key",
     "Windows AI tool",
-    "multi-model testing",
-    "AI writing tool",
+    "AI freedom",
+    "local LLM",
+    "privacy AI",
     "Windows 10",
     "Windows 11",
-    "prompt quality",
-    "AI optimization",
+    "multi-model AI",
+    "AI writing tool",
     "Yash Raj",
   ],
   authors: [{ name: "Yash Raj" }, { name: "AuraText Team" }],
@@ -76,20 +78,20 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   metadataBase: new URL("https://auratxt.com/"),
   openGraph: {
-    title: "AuraText (Auratext) | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
+    title: "AuraText (Auratext) | Universal AI Overlay for Windows | Use Any AI Model Anywhere",
     siteName: "AuraText",
     description:
-      "Transform your AI prompts with AuraText's powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type on Windows.",
+      "Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with AuraText's universal AI overlay. BYOK (Bring Your Own Key) support.",
     url: "https://auratxt.com/",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    title: "AuraText (Auratext) | AI Prompt Optimizer for Windows | Better Prompts, Better Results",
+    title: "AuraText (Auratext) | Universal AI Overlay for Windows | Use Any AI Model Anywhere",
     creator: "@auratext",
     site: "@auratext",
     description:
-      "AuraText (also known as Auratext) is an AI prompt optimizer for Windows built by Yash Raj. Transform your AI prompts with powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type.",
+      "AuraText (also known as Auratext) is a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with true AI freedom and BYOK (Bring Your Own Key).",
     card: "summary_large_image",
   },
   alternates: {
@@ -124,7 +126,7 @@ export default function RootLayout({ children }: LayoutProps) {
       ratingCount: "19",
     },
     description:
-      "AuraText (also known as Auratext) is an AI prompt optimizer for Windows built by Yash Raj. Transform your AI prompts with powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type.",
+      "AuraText (also known as Auratext) is a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with true AI freedom and BYOK (Bring Your Own Key).",
     url: "https://auratxt.com/",
     creator: {
       "@type": "Person",
@@ -140,7 +142,7 @@ export default function RootLayout({ children }: LayoutProps) {
     },
     screenshot: "https://auratxt.com/opengraph-image",
     softwareVersion: "1.0",
-    releaseNotes: "AI prompt optimizer for Windows with proven frameworks, multi-model testing, and intelligent text insertion.",
+    releaseNotes: "Universal AI overlay for Windows with model agnosticism, local Ollama support, BYOK, and intelligent text insertion.",
   };
 
   const organizationData = {
@@ -156,7 +158,7 @@ export default function RootLayout({ children }: LayoutProps) {
       height: 192,
     },
     description:
-      "AuraText (also known as Auratext) is an AI prompt optimizer for Windows built by Yash Raj. Transform your AI prompts with powerful optimization engine. Use proven frameworks (RISEN, RTF, COSTAR), test across multiple AI models, and get better results—anywhere you type.",
+      "AuraText (also known as Auratext) is a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with true AI freedom and BYOK (Bring Your Own Key).",
     founder: {
       "@type": "Person",
       name: "Yash Raj",

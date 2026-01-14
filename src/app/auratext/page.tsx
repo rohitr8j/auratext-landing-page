@@ -8,15 +8,17 @@ import Link from "next/link";
 export const metadata: Metadata = {
     title: "Auratext – What It Is, Who Built It, and the Official Download",
     description:
-        "Auratext is the informal spelling of AuraText, an AI prompt optimizer for Windows built by Yash Raj. Official site: auratxt.com. Download the official app and learn more.",
+        "Auratext is the informal spelling of AuraText, a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, or Ollama anywhere. Official site: auratxt.com.",
     keywords: [
         "Auratext",
         "auratext",
         "AuraText",
         "Yash Raj",
-        "AI prompt optimizer",
+        "universal AI overlay",
         "Windows AI tool",
-        "prompt engineering",
+        "Claude for Windows",
+        "Gemini for Windows",
+        "Ollama Windows",
         "official download",
     ],
     authors: [{ name: "Yash Raj" }],
@@ -26,16 +28,16 @@ export const metadata: Metadata = {
         canonical: "https://auratxt.com/auratext",
     },
     openGraph: {
-        title: "Auratext – Official AI Prompt Optimizer by Yash Raj",
+        title: "Auratext – Official Universal AI Overlay by Yash Raj",
         description:
-            "Auratext is the informal spelling of AuraText, an AI prompt optimizer for Windows built by Yash Raj. Official site: auratxt.com.",
+            "Auratext is the informal spelling of AuraText, a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, or Ollama anywhere. Official site: auratxt.com.",
         url: "https://auratxt.com/auratext",
         type: "website",
     },
     twitter: {
-        title: "Auratext – Official AI Prompt Optimizer by Yash Raj",
+        title: "Auratext – Official Universal AI Overlay by Yash Raj",
         description:
-            "Auratext is the informal spelling of AuraText, an AI prompt optimizer for Windows built by Yash Raj. Official site: auratxt.com.",
+            "Auratext is the informal spelling of AuraText, a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, or Ollama anywhere. Official site: auratxt.com.",
         card: "summary_large_image",
     },
 };
@@ -46,7 +48,7 @@ export default function AuratextPage() {
         "@type": "WebPage",
         name: "Auratext – Official Information",
         description:
-            "Auratext is the informal spelling of AuraText, an AI prompt optimizer for Windows built by Yash Raj.",
+            "Auratext is the informal spelling of AuraText, a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, or Ollama in any Windows app.",
         url: "https://auratxt.com/auratext",
         mainEntity: {
             "@type": "SoftwareApplication",
@@ -93,7 +95,7 @@ export default function AuratextPage() {
                         fontWeight={700}
                         lineHeight={1.2}
                     >
-                        Auratext – The Official AI Prompt Optimizer
+                        Auratext – The Official Universal AI Overlay
                     </Heading>
 
                     {/* Subheading */}
@@ -135,8 +137,8 @@ export default function AuratextPage() {
                             </Text>
 
                             <Text color={AuraTextColors.textLight} fontSize="md" lineHeight={1.8}>
-                                <Box as="span" fontWeight={600}>AuraText</Box> is an AI prompt optimizer for Windows built by{" "}
-                                <Box as="span" color={AuraTextColors.primary} fontWeight={600}>Yash Raj</Box>.
+                                <Box as="span" fontWeight={600}>AuraText</Box> is a universal AI overlay for Windows built by{" "}
+                                <Box as="span" color={AuraTextColors.primary} fontWeight={600}>Yash Raj</Box>. Use Claude, Gemini, Perplexity, or Ollama in any Windows app.
                             </Text>
 
                             <Text color={AuraTextColors.textLight} fontSize="md" lineHeight={1.8}>
@@ -166,16 +168,19 @@ export default function AuratextPage() {
 
                         <VStack spacing={3} align="start" pl={4}>
                             <Text color={AuraTextColors.textLight} fontSize="md">
-                                ✨ Optimizes AI prompts with proven frameworks (RISEN, RTF, COSTAR)
+                                🌐 Use Claude, Gemini, Perplexity, or Ollama in any Windows app
                             </Text>
                             <Text color={AuraTextColors.textLight} fontSize="md">
-                                🔄 Tests prompts across multiple AI models
+                                🔒 Run AI locally with Ollama - zero data leaves your device
                             </Text>
                             <Text color={AuraTextColors.textLight} fontSize="md">
-                                ⚡ Works anywhere you type on Windows
+                                🔑 Bring Your Own API Keys (BYOK) - full cost control
                             </Text>
                             <Text color={AuraTextColors.textLight} fontSize="md">
-                                🎯 Transforms mediocre prompts into powerful AI instructions
+                                ⚡ Works anywhere you type on Windows - no Alt-Tab required
+                            </Text>
+                            <Text color={AuraTextColors.textLight} fontSize="md">
+                                🎯 Break free from Microsoft Copilot lock-in
                             </Text>
                         </VStack>
                     </VStack>

@@ -83,7 +83,7 @@ const Header = () => {
           textAlign="center"
           whiteSpace="nowrap"
         >
-          The Prompt Optimizer for Windows
+          The Universal AI Overlay for Windows
         </Text>
       </Flex>
 
@@ -104,7 +104,7 @@ const Header = () => {
           textAlign={"center"}
           fontFamily="'Space Mono', monospace"
           fontWeight={400}
-          aria-label="AuraText (Auratext) - AI Prompt Optimizer"
+          aria-label="AuraText (Auratext) - Universal AI Overlay for Windows"
         >
           AuraText
         </Heading>
@@ -120,7 +120,7 @@ const Header = () => {
         lineHeight={1.6}
         fontFamily="'Space Mono', monospace"
       >
-        Transform mediocre prompts into <Box as="span" color={AuraTextColors.primary} fontWeight={600}>powerful AI instructions</Box>. Optimize with proven frameworks, test across multiple AI models, and deploy better prompts—anywhere you type on Windows.
+        Use <Box as="span" color={AuraTextColors.primary} fontWeight={600}>Claude, Gemini, or Ollama</Box> in Word, Slack, Notion—anywhere you type. Break free from Microsoft Copilot lock-in with <Box as="span" color={AuraTextColors.secondary} fontWeight={600}>true AI freedom</Box>.
       </Text>
 
       <Flex gap={4} direction={{ base: "column", md: "row" }} align="center">

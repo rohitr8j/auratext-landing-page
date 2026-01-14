@@ -58,7 +58,7 @@ const UserCounter = () => {
                     fontFamily="'Space Mono', monospace"
                     fontWeight={400}
                 >
-                    Trusted by <Text as="span" color={AuraTextColors.white} fontWeight={700}>{count ? count.toLocaleString() : "1,000"}+</Text> users
+                    Join the <Text as="span" color={AuraTextColors.white} fontWeight={700}>Beta Community</Text>
                 </Text>
             </Skeleton>
         </Flex>

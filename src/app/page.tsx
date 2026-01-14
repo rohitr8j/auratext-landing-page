@@ -21,6 +21,10 @@ export default function Home() {
         <Header />
       </section>
 
+      <section id="download" aria-label="Download Section">
+        <Download />
+      </section>
+
       <section id="features" aria-label="Features">
         <Features />
       </section>
@@ -45,12 +49,10 @@ export default function Home() {
       <section id="pricing" aria-label="Pricing">
         <Pricing />
       </section>
+
       <section id="faq" aria-label="Frequently Asked Questions">
         <FAQ />
         <BrowserExtension />
-      </section>
-      <section id="download" aria-label="Download Section">
-        <Download />
       </section>
 
       <section id="releases" aria-label="Releases">

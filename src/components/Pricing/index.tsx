@@ -20,7 +20,7 @@ const ARE_PAYMENTS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_PAYMENTS === 'true';
 // Payment Links for Support Model
 const PAYMENT_LINKS: Record<string, string> = {
   Supporter: process.env.NEXT_PUBLIC_SUPPORTER_PAYMENT_LINK || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
-  Tip: process.env.NEXT_PUBLIC_TIP_PAYMENT_LINK || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
+  OneTime: process.env.NEXT_PUBLIC_ONETIME_PAYMENT_LINK || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
 };
 
 const Pricing = () => {
@@ -82,18 +82,18 @@ const Pricing = () => {
       isSupporter: true,
     },
     {
-      name: "One-Time Tip",
-      price: "Pay What You Want",
+      name: "One-Time Support",
+      price: "$49",
       period: "one-time",
       features: [
-        "☕ $9 - Buy me a coffee",
-        "🍜 $19 - Support development",
-        "🚀 $49 - Fund a month of hosting",
-        "💙 Custom amount - You decide",
-        "Support a student developer",
-        "Help build AuraText full-time",
+        "Everything in Free, forever",
+        "Support indie development",
+        "No recurring charges",
+        "Lifetime updates during beta",
+        "Early access to new features",
+        "Priority bug fixes",
       ],
-      isTip: true,
+      isOneTime: true,
     },
   ];
 
@@ -122,10 +122,10 @@ const Pricing = () => {
       borderRadius={24}
     >
       <Heading textAlign={"center"} px={2} color={AuraTextColors.text}>
-        Support AuraText
+        Pricing
       </Heading>
       <Text mt={4} color={AuraTextColors.grey} fontSize="lg" textAlign="center" maxW={600}>
-        Free during beta. Support early development and get lifetime benefits.
+        Free during beta. Optional supporter tier for early access and priority support.
       </Text>
 
       <Stack
@@ -208,9 +208,9 @@ const Pricing = () => {
                   } else if (plan.isSupporter) {
                     // Supporter tier - handle payment
                     handleCheckout("Supporter");
-                  } else if (plan.isTip) {
-                    // Tip tier - handle payment
-                    handleCheckout("Tip");
+                  } else if (plan.isOneTime) {
+                    // One-time support - handle payment
+                    handleCheckout("OneTime");
                   }
                 }}
                 bg={plan.isSupporter ? AuraTextColors.primary : "transparent"}
@@ -225,7 +225,7 @@ const Pricing = () => {
                   ? "Download Free"
                   : plan.isSupporter
                     ? (ARE_PAYMENTS_ENABLED ? "Become a Supporter" : "Coming Soon")
-                    : (ARE_PAYMENTS_ENABLED ? "Send a Tip" : "Coming Soon")
+                    : (ARE_PAYMENTS_ENABLED ? "One-Time Purchase" : "Coming Soon")
                 }
               </Button>
             </Flex>

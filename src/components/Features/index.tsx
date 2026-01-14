@@ -45,7 +45,7 @@ const Features = () => {
         color={AuraTextColors.text}
         mb={4}
       >
-        Prompt Optimization Powerhouse
+        Your AI, Your Way, Anywhere
       </Heading>
       <Text
         color={AuraTextColors.textLight}
@@ -54,7 +54,7 @@ const Features = () => {
         maxW={600}
         mb={12}
       >
-        Everything you need to craft, optimize, and deploy better AI prompts.
+        Use any AI model in any application. No vendor lock-in. No context switching.
       </Text>
       <Grid
         templateColumns={{
@@ -118,24 +118,24 @@ const Card = ({ icon, title, children }: CardProps) => (
 
 const Cards = [
   {
-    icon: LuWand,
-    title: "AI-Powered Prompt Optimizer",
-    text: "Transform basic prompts into optimized AI instructions. Leverage advanced algorithms to enhance clarity, specificity, and effectiveness for superior results.",
+    icon: LuGlobe,
+    title: "Use Any AI Model, Anywhere",
+    text: "Break free from Microsoft Copilot. Use Claude, Gemini, Perplexity, or local Ollama models in Word, Slack, Notion, VS Code—any Windows app. True AI freedom.",
   },
   {
-    icon: LuLayoutTemplate,
-    title: "Proven Frameworks & Templates",
-    text: "Access industry-standard frameworks (RISEN, RTF, COSTAR, RACE) and 500+ ready-to-use templates. Create custom frameworks for your unique needs.",
+    icon: LuShield,
+    title: "Run AI Locally with Ollama",
+    text: "Zero data leaves your device. Run powerful local LLMs with Ollama integration. Perfect for enterprises handling sensitive data or developers who value privacy.",
   },
   {
     icon: LuBot,
-    title: "Multi-Model Testing",
-    text: "Test your prompts across Gemini, OpenAI, Perplexity, and more. Compare outputs side-by-side to find the perfect AI provider for each task.",
+    title: "Bring Your Own API Keys",
+    text: "No subscription fatigue. Use your own OpenAI, Anthropic, Google, or Perplexity API keys. Pay only for what you use. Full control over your AI spend.",
   },
   {
-    icon: LuZap,
-    title: "Real-time Quality Analysis",
-    text: "Get instant feedback on prompt quality with AI-powered scoring. Identify weaknesses and get suggestions for improvement as you type.",
+    icon: LuMonitor,
+    title: "Universal Windows Integration",
+    text: "Floating overlay stays on top of any application. Work seamlessly in Word, Slack, browsers, IDEs—anywhere you type on Windows. No Alt-Tab required.",
   },
   {
     icon: LuLock,
@@ -143,19 +143,19 @@ const Cards = [
     text: "First click locks to any application, subsequent clicks insert optimized text directly. Seamless workflow integration without disruption.",
   },
   {
-    icon: LuMonitor,
-    title: "Universal Windows Integration",
-    text: "Floating overlay stays on top of any application. Optimize prompts in Word, Slack, browsers, IDEs—anywhere you type on Windows.",
+    icon: LuWand,
+    title: "AI-Powered Prompt Enhancement",
+    text: "Transform basic prompts into optimized AI instructions. Leverage advanced algorithms to enhance clarity, specificity, and effectiveness for superior results.",
   },
   {
-    icon: LuShield,
-    title: "Secure & Private",
-    text: "All API keys and prompts stored locally. Zero data sent to our servers. Your intellectual property stays yours.",
+    icon: LuLayoutTemplate,
+    title: "Proven Frameworks & Templates",
+    text: "Access industry-standard prompt frameworks and 500+ ready-to-use templates. Create custom frameworks for your unique needs.",
   },
   {
-    icon: LuGlobe,
-    title: "Cross-Platform Compatibility",
-    text: "Works with all text structures and inputs across Windows applications and browsers. No setup required.",
+    icon: LuZap,
+    title: "Multi-Model Testing",
+    text: "Test your prompts across multiple AI providers side-by-side. Compare outputs to find the perfect model for each task.",
   },
   {
     icon: LuDownload,
