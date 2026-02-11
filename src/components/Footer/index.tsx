@@ -272,8 +272,11 @@ const Footer = () => {
           <Link href="/terms" _hover={{ color: AuraTextColors.primary }}>Terms of Service</Link>
           <Link href="/eula" _hover={{ color: AuraTextColors.primary }}>EULA</Link>
         </HStack>
-        <Text color={AuraTextColors.textLight} fontSize="sm">
+        <Text color={AuraTextColors.textLight} fontSize="sm" textAlign="center" maxW={600}>
           © {new Date().getFullYear()} AuraText — also known as Auratext. All rights reserved.
+        </Text>
+        <Text color={AuraTextColors.grey} fontSize="xs" textAlign="center" maxW={600} mt={2}>
+          Master AI without losing yourself. Stop vibe creating. Start intentional creating.
         </Text>
       </VStack>
     </Flex>

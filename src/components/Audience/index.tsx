@@ -26,7 +26,7 @@ const Audience = () => {
         fontFamily="'Space Mono', monospace"
         fontWeight={400}
       >
-        We recommend AuraText for
+        Perfect for
       </Heading>
       <Grid
         templateColumns={{
@@ -107,27 +107,27 @@ const Card = ({ color, children }: CardProps) => {
 
 const Cards = [
   {
-    title: "Digital Agencies",
-    color: "#2D3748",
-  },
-  {
-    title: "Designers",
-    color: "#2D3748",
-  },
-  {
-    title: "Entrepreneurs",
-    color: "#2D3748",
+    title: "Students",
+    color: AuraTextColors.primary,
   },
   {
     title: "Developers",
+    color: AuraTextColors.primary,
+  },
+  {
+    title: "Professionals",
+    color: AuraTextColors.secondary,
+  },
+  {
+    title: "Content Creators",
+    color: AuraTextColors.secondary,
+  },
+  {
+    title: "Writers",
     color: "#2D3748",
   },
   {
-    title: "Students",
-    color: "#2D3748",
-  },
-  {
-    title: "Startups",
+    title: "Teams",
     color: "#2D3748",
   },
 ];

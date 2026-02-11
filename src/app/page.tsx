@@ -11,7 +11,7 @@ import FAQ from "../components/FAQ";
 import BrowserExtension from "../components/BrowserExtension";
 import AIIntegrations from "../components/AIIntegrations";
 import PromptOptimizer from "../components/PromptOptimizer";
-
+import ProblemSection from "../components/ProblemSection";
 
 
 export default function Home() {
@@ -23,6 +23,10 @@ export default function Home() {
 
       <section id="download" aria-label="Download Section">
         <Download />
+      </section>
+
+      <section id="problem" aria-label="Problem Section">
+        <ProblemSection />
       </section>
 
       <section id="features" aria-label="Features">

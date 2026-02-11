@@ -83,44 +83,42 @@ const Header = () => {
           textAlign="center"
           whiteSpace="nowrap"
         >
-          The Universal AI Overlay for Windows
+          AI Literacy Platform for Windows
         </Text>
       </Flex>
 
-      <Flex align="center" justify="center" gap={6} mb={4}>
-        <LuZap
-          size={64}
-          color={AuraTextColors.text}
-          className="zap-icon"
-        />
-        <Heading
-          fontSize={{
-            base: 48,
-            md: 64,
-            lg: 84,
-          }}
-          color={AuraTextColors.text}
-          lineHeight={1.1}
-          textAlign={"center"}
-          fontFamily="'Space Mono', monospace"
-          fontWeight={400}
-          aria-label="AuraText (Auratext) - Universal AI Overlay for Windows"
-        >
-          AuraText
-        </Heading>
-      </Flex>
+      <Heading
+        fontSize={{
+          base: 36,
+          md: 56,
+          lg: 72,
+        }}
+        color={AuraTextColors.text}
+        lineHeight={1.1}
+        textAlign={"center"}
+        fontFamily="'Space Mono', monospace"
+        fontWeight={600}
+        mb={6}
+        px={4}
+      >
+        Use AI Smarter.
+        <br />
+        Build Real Skills.
+      </Heading>
 
       <Text
         color={AuraTextColors.textLight}
-        maxW={700}
+        maxW={800}
         textAlign={"center"}
         fontSize={{ base: "lg", md: "xl" }}
         fontWeight={400}
         mb={12}
         lineHeight={1.6}
         fontFamily="'Space Mono', monospace"
+        px={4}
       >
-        Use <Box as="span" color={AuraTextColors.primary} fontWeight={600}>Claude, Gemini, or Ollama</Box> in Word, Slack, Notion—anywhere you type. Break free from Microsoft Copilot lock-in with <Box as="span" color={AuraTextColors.secondary} fontWeight={600}>true AI freedom</Box>.
+        Access <Box as="span" color={AuraTextColors.primary} fontWeight={600}>any AI model</Box> in any Windows app.
+        Learn to use AI effectively while <Box as="span" color={AuraTextColors.secondary} fontWeight={600}>building real expertise</Box>.
       </Text>
 
       <Flex gap={4} direction={{ base: "column", md: "row" }} align="center">

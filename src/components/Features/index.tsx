@@ -45,7 +45,7 @@ const Features = () => {
         color={AuraTextColors.text}
         mb={4}
       >
-        Your AI, Your Way, Anywhere
+        Powerful Features
       </Heading>
       <Text
         color={AuraTextColors.textLight}
@@ -54,7 +54,7 @@ const Features = () => {
         maxW={600}
         mb={12}
       >
-        Use any AI model in any application. No vendor lock-in. No context switching.
+        Everything you need to use AI effectively across all your Windows applications.
       </Text>
       <Grid
         templateColumns={{
@@ -118,14 +118,29 @@ const Card = ({ icon, title, children }: CardProps) => (
 
 const Cards = [
   {
-    icon: LuGlobe,
-    title: "Use Any AI Model, Anywhere",
-    text: "Break free from Microsoft Copilot. Use Claude, Gemini, Perplexity, or local Ollama models in Word, Slack, Notion, VS Code—any Windows app. True AI freedom.",
+    icon: LuWand,
+    title: "Learning Mode",
+    text: "Forces you to think before AI generates. Understand what you're building instead of blindly copy-pasting. Build real skills while using AI assistance.",
   },
   {
     icon: LuShield,
-    title: "Run AI Locally with Ollama",
-    text: "Zero data leaves your device. Run powerful local LLMs with Ollama integration. Perfect for enterprises handling sensitive data or developers who value privacy.",
+    title: "Trust Layer (Coming Soon)",
+    text: "Auto-verifies AI outputs for hallucinations and errors. Confidence scoring on every suggestion. Stop wasting hours manually checking AI responses.",
+  },
+  {
+    icon: LuZap,
+    title: "AI Router",
+    text: "Automatically picks the best AI for each task. Claude for analysis, GPT-4 for creative work, Gemini for research. Or choose manually—you're in control.",
+  },
+  {
+    icon: LuLayoutTemplate,
+    title: "Skill Dashboard (Coming Soon)",
+    text: "Track your prompt quality improvement over time. See how your AI mastery grows. Celebrate milestones as you become less dependent on us.",
+  },
+  {
+    icon: LuGlobe,
+    title: "Use Any AI Model, Anywhere",
+    text: "Break free from Microsoft Copilot. Use Claude, Gemini, Perplexity, or local Ollama models in Word, Slack, Notion, VS Code—any Windows app.",
   },
   {
     icon: LuBot,
@@ -143,24 +158,9 @@ const Cards = [
     text: "First click locks to any application, subsequent clicks insert optimized text directly. Seamless workflow integration without disruption.",
   },
   {
-    icon: LuWand,
-    title: "AI-Powered Prompt Enhancement",
-    text: "Transform basic prompts into optimized AI instructions. Leverage advanced algorithms to enhance clarity, specificity, and effectiveness for superior results.",
-  },
-  {
-    icon: LuLayoutTemplate,
-    title: "Proven Frameworks & Templates",
-    text: "Access industry-standard prompt frameworks and 500+ ready-to-use templates. Create custom frameworks for your unique needs.",
-  },
-  {
-    icon: LuZap,
-    title: "Multi-Model Testing",
-    text: "Test your prompts across multiple AI providers side-by-side. Compare outputs to find the perfect model for each task.",
-  },
-  {
     icon: LuDownload,
-    title: "One-Click Installation",
-    text: "Professional installer with no dependencies. Up and running in under 60 seconds on Windows 10/11.",
+    title: "Proven Frameworks & Templates",
+    text: "Access industry-standard prompt frameworks (RISEN, COSTAR, RTF) and 500+ ready-to-use templates. Learn the patterns that make AI work better.",
   },
 ];
 
