@@ -58,7 +58,7 @@ const UserCounter = () => {
                     fontFamily="'Space Mono', monospace"
                     fontWeight={400}
                 >
-                    Join the <Text as="span" color={AuraTextColors.white} fontWeight={700}>Beta Community</Text>
+                    <Text as="span" color={AuraTextColors.white} fontWeight={700}>{count !== null && count >= 1000 ? `${(Math.floor(count / 100) * 100).toLocaleString()}+` : '1,000+'}</Text> downloads
                 </Text>
             </Skeleton>
         </Flex>

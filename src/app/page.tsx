@@ -5,7 +5,6 @@ import Product from "../components/Product";
 import Pricing from "../components/Pricing";
 import Download from "../components/Download";
 import GitHubReleases from "../components/GitHubReleases";
-import ProductHuntStats from "../components/ProductHuntStats";
 import HowItWorks from "../components/HowItWorks";
 import FAQ from "../components/FAQ";
 import BrowserExtension from "../components/BrowserExtension";
