@@ -15,6 +15,7 @@ import { LuMenu, LuX, LuZap } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { AuraTextColors } from "#/src/utils/Colors";
 import useBannerVisibility from "#/src/utils/BannerVisibility";
+import WaitlistModal from "../WaitlistModal";
 
 const NavItems = [
   { name: "Features", href: "/#features" },
@@ -31,6 +32,7 @@ const Navbar: FC = () => {
   const [showBanner] = useBannerVisibility("auratext-banner");
   const [activeSection, setActiveSection] = useState("");
   const { isOpen, onToggle } = useDisclosure();
+  const { isOpen: isWaitlistOpen, onOpen: onWaitlistOpen, onClose: onWaitlistClose } = useDisclosure();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -147,7 +149,22 @@ const Navbar: FC = () => {
             ))}
           </Flex>
 
-          <Flex gap={4} display={{ base: "none", lg: "flex" }}>
+          <Flex gap={3} display={{ base: "none", lg: "flex" }}>
+            <Button
+              onClick={onWaitlistOpen}
+              as={motion.button}
+              whileHover={{ scale: 1.05 }}
+              rounded="8px"
+              variant="outline"
+              borderColor={AuraTextColors.primary}
+              color={AuraTextColors.primary}
+              _hover={{ bg: `${AuraTextColors.primary}15` }}
+              fontFamily="'Space Mono', monospace"
+              fontWeight={400}
+              size="sm"
+            >
+              Join Waitlist
+            </Button>
             <Button
               as={motion.a}
               whileHover={{ scale: 1.05 }}
@@ -158,6 +175,7 @@ const Navbar: FC = () => {
               _hover={{ bg: AuraTextColors.secondary }}
               fontFamily="'Space Mono', monospace"
               fontWeight={400}
+              size="sm"
             >
               Download
             </Button>
@@ -195,7 +213,19 @@ const Navbar: FC = () => {
                 <Text>{item.name}</Text>
               </Flex>
             ))}
-            <Flex gap={5} mt={5}>
+            <Flex gap={3} mt={5}>
+              <Button
+                onClick={onWaitlistOpen}
+                rounded="8px"
+                variant="outline"
+                borderColor={AuraTextColors.primary}
+                color={AuraTextColors.primary}
+                _hover={{ bg: `${AuraTextColors.primary}15` }}
+                fontFamily="'Space Mono', monospace"
+                fontWeight={400}
+              >
+                Join Waitlist
+              </Button>
               <Button
                 as={motion.a}
                 whileHover={{ scale: 1.05 }}
@@ -213,6 +243,7 @@ const Navbar: FC = () => {
           </Flex>
         </Collapse>
       </Flex>
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={onWaitlistClose} />
     </>
   );
 };

@@ -2,7 +2,7 @@
 import { AuraTextColors } from "#/src/utils/Colors";
 import { Box, Flex, Text, Skeleton } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { LuUsers } from "react-icons/lu";
+import { LuDownload } from "react-icons/lu";
 
 interface GitHubRelease {
     assets: Array<{
@@ -49,7 +49,7 @@ const UserCounter = () => {
             border="1px solid rgba(255, 255, 255, 0.1)"
         >
             <Box color={AuraTextColors.primary}>
-                <LuUsers size={16} />
+                <LuDownload size={16} />
             </Box>
             <Skeleton isLoaded={!loading} startColor="rgba(255,255,255,0.1)" endColor="rgba(255,255,255,0.2)">
                 <Text
@@ -58,7 +58,7 @@ const UserCounter = () => {
                     fontFamily="'Space Mono', monospace"
                     fontWeight={400}
                 >
-                    <Text as="span" color={AuraTextColors.white} fontWeight={700}>{count !== null && count >= 1000 ? `${(Math.floor(count / 100) * 100).toLocaleString()}+` : '1,000+'}</Text> downloads
+                    <Text as="span" color={AuraTextColors.white} fontWeight={700}>{count !== null ? count.toLocaleString() : '...'}</Text> downloads
                 </Text>
             </Skeleton>
         </Flex>
