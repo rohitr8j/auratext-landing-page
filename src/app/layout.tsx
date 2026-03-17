@@ -176,6 +176,24 @@ export default function RootLayout({ children }: LayoutProps) {
     ],
   };
 
+  // WebSite schema — the primary signal Google uses to show sitelinks in search results
+  const websiteData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "AuraText",
+    alternateName: "Auratext",
+    url: "https://auratxt.com",
+    description: "AuraText is a thinking layer for AI on Windows. It structures your input so you get better results on the first try.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://auratxt.com/?q={search_term_string}",
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
@@ -207,6 +225,12 @@ export default function RootLayout({ children }: LayoutProps) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteData),
           }}
         />
         {/* Google Analytics */}
