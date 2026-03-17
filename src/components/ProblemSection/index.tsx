@@ -113,6 +113,25 @@ const ProblemSection = () => {
                         It upgrades it.
                     </Box>
                 </Text>
+                <Box
+                    mt={6}
+                    pt={6}
+                    borderTop={`1px solid ${AuraTextColors.primary}20`}
+                >
+                    <Text
+                        textAlign="center"
+                        color={AuraTextColors.text}
+                        fontSize={{ base: "sm", md: "md" }}
+                        fontWeight={700}
+                        fontFamily="'Space Mono', monospace"
+                        letterSpacing="0.01em"
+                    >
+                        AuraText doesn&apos;t generate for you.{" "}
+                        <Box as="span" color={AuraTextColors.primary}>
+                            It thinks with you.
+                        </Box>
+                    </Text>
+                </Box>
             </Box>
         </Flex>
     );

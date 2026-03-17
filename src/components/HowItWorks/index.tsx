@@ -115,7 +115,7 @@ const steps = [
     {
         icon: LuSparkles,
         title: "Get a Better Output",
-        description: "A structured prompt goes to the AI of your choice. Better prompt = dramatically better result. Every single time.",
+        description: "A structured, clear input goes to the AI of your choice. Better thinking = better results. Every single time.",
     },
 ];
 

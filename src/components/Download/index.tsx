@@ -202,7 +202,7 @@ const Download = () => {
           fontWeight={400}
           maxW={600}
         >
-          Free to download. Works on Windows 10 and 11. Start in under 60 seconds.
+          Start thinking better with AI — in under 60 seconds.
         </Text>
 
         <VStack spacing={{ base: 6, md: 8 }} w="100%" display={{ base: "flex", md: "none" }}>

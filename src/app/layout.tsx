@@ -23,10 +23,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "AuraText | %s",
-    default: "AuraText (Auratext) | Universal AI Overlay for Windows | Use Any AI Model Anywhere",
+    default: "AuraText — The Thinking Layer for AI | Better Outputs Start With Better Thinking",
   },
   description:
-    "AuraText (also known as Auratext) is a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with true AI freedom and BYOK (Bring Your Own Key).",
+    "AuraText is a thinking layer for AI on Windows. It sits between you and AI, asks the right questions, and structures your input — so you get better results on the first try and actually improve over time.",
   keywords: [
     "AuraText",
     "Auratext",
@@ -78,20 +78,20 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   metadataBase: new URL("https://auratxt.com/"),
   openGraph: {
-    title: "AuraText (Auratext) | Universal AI Overlay for Windows | Use Any AI Model Anywhere",
+    title: "AuraText — The Thinking Layer for AI",
     siteName: "AuraText",
     description:
-      "Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with AuraText's universal AI overlay. BYOK (Bring Your Own Key) support.",
+      "AuraText helps you think before AI responds. It sits between you and AI, asks the right questions, and structures your input — so you get better outputs on the first try.",
     url: "https://auratxt.com/",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    title: "AuraText (Auratext) | Universal AI Overlay for Windows | Use Any AI Model Anywhere",
+    title: "AuraText — The Thinking Layer for AI",
     creator: "@auratext",
     site: "@auratext",
     description:
-      "AuraText (also known as Auratext) is a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with true AI freedom and BYOK (Bring Your Own Key).",
+      "AuraText helps you think before AI responds. Better thinking = better outputs. Download for Windows — free.",
     card: "summary_large_image",
   },
   alternates: {
