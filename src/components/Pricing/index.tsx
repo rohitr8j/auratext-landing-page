@@ -58,12 +58,11 @@ const Pricing = () => {
       price: "$0",
       period: "during beta",
       features: [
-        "Full prompt optimizer with 5+ frameworks",
-        "Multi-AI provider support (Gemini, OpenAI, Perplexity)",
-        "Smart cursor lock & overlay mode",
-        "50+ prompt templates",
-        "Community support via Discord",
-        "Early access to all features",
+        "Full guided prompt builder",
+        "Works with ChatGPT, Claude, Gemini & Perplexity",
+        "Works in any Windows app — no Alt-Tab",
+        "Bring your own API keys",
+        "Early access to all new features",
       ],
       isFree: true,
     },
@@ -122,10 +121,10 @@ const Pricing = () => {
       borderRadius={24}
     >
       <Heading textAlign={"center"} px={2} color={AuraTextColors.text}>
-        Pricing
+        Start Free. Support If It Helps.
       </Heading>
       <Text mt={4} color={AuraTextColors.grey} fontSize="lg" textAlign="center" maxW={600}>
-        Free during beta. Optional supporter tier for early access and priority support.
+        AuraText is completely free during beta. No credit card. No catch.
       </Text>
 
       <Stack

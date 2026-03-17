@@ -128,7 +128,7 @@ const AIIntegrations = () => {
                 color={AuraTextColors.text}
                 mb={4}
             >
-                11 AI Integrations
+                Works with Your Favorite AI Tools
             </Heading>
             <Text
                 color={AuraTextColors.textLight}
@@ -137,7 +137,7 @@ const AIIntegrations = () => {
                 maxW={700}
                 mb={12}
             >
-                Connect with your favorite AI providers. Configure all API keys in Settings → API Keys.
+                Use ChatGPT, Claude, Gemini, Perplexity, and more — with your own API keys. No lock-in.
             </Text>
 
             <Grid
@@ -243,43 +243,6 @@ const AIIntegrations = () => {
                         </Box>
                     );
                 })}
-            </Grid>
-
-            {/* Quick Summary */}
-            <Grid
-                templateColumns={{
-                    base: "repeat(1, 1fr)",
-                    md: "repeat(2, 1fr)",
-                    lg: "repeat(4, 1fr)",
-                }}
-                gap={6}
-                w="full"
-                maxW={1200}
-            >
-                <SummaryCard
-                    icon={LuZap}
-                    color={AuraTextColors.primary}
-                    title="Free to Start"
-                    items={["Gemini", "OpenAI Trial", "Cohere", "Ollama"]}
-                />
-                <SummaryCard
-                    icon={LuDollarSign}
-                    color="#10b981"
-                    title="Pay-as-you-go"
-                    items={["OpenAI", "Anthropic", "Perplexity", "Mistral"]}
-                />
-                <SummaryCard
-                    icon={LuServer}
-                    color="#8b5cf6"
-                    title="Aggregators"
-                    items={["OpenRouter", "AIML API"]}
-                />
-                <SummaryCard
-                    icon={LuBuilding}
-                    color="#f59e0b"
-                    title="Enterprise"
-                    items={["Azure OpenAI"]}
-                />
             </Grid>
         </Flex>
     );

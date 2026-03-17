@@ -3,18 +3,7 @@ import { AuraTextColors } from "#/src/utils/Colors";
 import { Flex, Grid, Heading, Icon, Text } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import { IconType } from "react-icons";
-import {
-  LuLock,
-  LuBot,
-  LuZap,
-  LuMonitor,
-  LuShield,
-  LuDownload,
-  LuWand,
-  LuLayoutTemplate,
-  LuGlobe,
-} from "react-icons/lu";
-
+import { LuBrain, LuZap, LuTrendingUp } from "react-icons/lu";
 import { motion } from "framer-motion";
 
 const Features = () => {
@@ -24,7 +13,6 @@ const Features = () => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-
       id="features"
       direction={"column"}
       justify={"center"}
@@ -37,33 +25,35 @@ const Features = () => {
     >
       <Heading
         fontSize={{
-          base: 32,
-          md: 48,
+          base: 28,
+          md: 42,
         }}
         textAlign={"center"}
         fontWeight={700}
         color={AuraTextColors.text}
         mb={4}
+        maxW={700}
+        lineHeight={1.25}
       >
-        Powerful Features
+        Three Things AuraText Does That AI Can&apos;t
       </Heading>
       <Text
         color={AuraTextColors.textLight}
         textAlign="center"
         fontSize="lg"
-        maxW={600}
+        maxW={500}
         mb={12}
       >
-        Everything you need to use AI effectively across all your Windows applications.
+        Most tools optimize for speed. AuraText optimizes for thinking.
       </Text>
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
-          md: "repeat(2, 1fr)",
-          xl: "repeat(3, 1fr)",
+          md: "repeat(3, 1fr)",
         }}
         gap={10}
         my={10}
+        w="full"
       >
         {Cards.map((card, index) => (
           <Card key={index} icon={card.icon} title={card.title}>
@@ -118,49 +108,19 @@ const Card = ({ icon, title, children }: CardProps) => (
 
 const Cards = [
   {
-    icon: LuWand,
-    title: "Learning Mode",
-    text: "Forces you to think before AI generates. Understand what you're building instead of blindly copy-pasting. Build real skills while using AI assistance.",
-  },
-  {
-    icon: LuShield,
-    title: "Trust Layer (Coming Soon)",
-    text: "Auto-verifies AI outputs for hallucinations and errors. Confidence scoring on every suggestion. Stop wasting hours manually checking AI responses.",
+    icon: LuBrain,
+    title: "Think Before You Send",
+    text: "AuraText interrupts before you prompt. It asks the right questions — intent, constraints, tone — to structure your thoughts in seconds.",
   },
   {
     icon: LuZap,
-    title: "AI Router",
-    text: "Automatically picks the best AI for each task. Claude for analysis, GPT-4 for creative work, Gemini for research. Or choose manually—you're in control.",
+    title: "Get Dramatically Better Outputs",
+    text: "A structured prompt gets dramatically better results than a vague one. See the difference on your first use. Works with ChatGPT, Claude, Gemini, and Perplexity.",
   },
   {
-    icon: LuLayoutTemplate,
-    title: "Skill Dashboard (Coming Soon)",
-    text: "Track your prompt quality improvement over time. See how your AI mastery grows. Celebrate milestones as you become less dependent on us.",
-  },
-  {
-    icon: LuGlobe,
-    title: "Use Any AI Model, Anywhere",
-    text: "Break free from Microsoft Copilot. Use Claude, Gemini, Perplexity, or local Ollama models in Word, Slack, Notion, VS Code—any Windows app.",
-  },
-  {
-    icon: LuBot,
-    title: "Bring Your Own API Keys",
-    text: "No subscription fatigue. Use your own OpenAI, Anthropic, Google, or Perplexity API keys. Pay only for what you use. Full control over your AI spend.",
-  },
-  {
-    icon: LuMonitor,
-    title: "Universal Windows Integration",
-    text: "Floating overlay stays on top of any application. Work seamlessly in Word, Slack, browsers, IDEs—anywhere you type on Windows. No Alt-Tab required.",
-  },
-  {
-    icon: LuLock,
-    title: "Smart Cursor Lock",
-    text: "First click locks to any application, subsequent clicks insert optimized text directly. Seamless workflow integration without disruption.",
-  },
-  {
-    icon: LuDownload,
-    title: "Proven Frameworks & Templates",
-    text: "Access industry-standard prompt frameworks (RISEN, COSTAR, RTF) and 500+ ready-to-use templates. Learn the patterns that make AI work better.",
+    icon: LuTrendingUp,
+    title: "Build Real Skills Over Time",
+    text: "You're not just getting better outputs. You're learning how to think. AuraText teaches through use — no tutorials needed.",
   },
 ];
 

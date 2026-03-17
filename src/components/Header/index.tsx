@@ -1,44 +1,15 @@
 "use client";
 import { Button, Flex, Heading, Text, useToast, Box, Link as ChakraLink } from "@chakra-ui/react";
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
 import HeroBottomSVG from "./HeroBottomSVG";
 import { AuraTextColors } from "#/src/utils/Colors";
-import { LuDownload, LuPlay, LuInstagram, LuTwitter, LuMail, LuZap, LuCheck } from "react-icons/lu";
-import { FaLinkedin, FaReddit, FaWindows } from "react-icons/fa";
-import Link from "next/link";
-import { useDisclosure } from "@chakra-ui/react";
-import VideoModal from "../VideoModal";
-import UserCounter from "../UserCounter";
+import { LuPlay } from "react-icons/lu";
 
 const Header = () => {
-  const [emailCopied, setEmailCopied] = useState(false);
-  const toast = useToast();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const emailAddress = "auratext.app@gmail.com";
+  const videoUrl = "https://youtu.be/Fh1bW8Kcnlc";
 
-  const copyEmailToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(emailAddress);
-      setEmailCopied(true);
-      toast({
-        title: "Email copied!",
-        description: `${emailAddress} copied to clipboard`,
-        status: "success",
-        duration: 2000,
-        isClosable: true,
-      });
-      setTimeout(() => setEmailCopied(false), 2000);
-    } catch (err) {
-      toast({
-        title: "Copy failed",
-        description: "Please copy the email manually: auratext.app@gmail.com",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
-    }
-  };
+
 
   return (
     <Flex
@@ -83,7 +54,7 @@ const Header = () => {
           textAlign="center"
           whiteSpace="nowrap"
         >
-          AI Literacy Platform for Windows
+          Thinking Layer for AI
         </Text>
       </Flex>
 
@@ -101,9 +72,9 @@ const Header = () => {
         mb={6}
         px={4}
       >
-        Use AI Smarter.
+        Stop Prompting Blindly.
         <br />
-        Build Real Skills.
+        Start Thinking First.
       </Heading>
 
       <Text
@@ -117,13 +88,11 @@ const Header = () => {
         fontFamily="'Space Mono', monospace"
         px={4}
       >
-        Access <Box as="span" color={AuraTextColors.primary} fontWeight={600}>any AI model</Box> in any Windows app.
-        Learn to use AI effectively while <Box as="span" color={AuraTextColors.secondary} fontWeight={600}>building real expertise</Box>.
+        AuraText sits between you and AI. It asks the right questions, structures your thinking, and helps you create prompts that actually work — so you get better outputs and stay sharp.
       </Text>
 
       <Flex gap={4} direction={{ base: "column", md: "row" }} align="center">
         <Button
-          leftIcon={<FaWindows size={20} />}
           as={motion.a}
           href={"#download"}
           whileHover={{ scale: 1.05 }}
@@ -143,13 +112,14 @@ const Header = () => {
           transition="all 0.3s ease"
           boxShadow={`0 0 20px ${AuraTextColors.primary}40`}
         >
-          Download for Windows
+          Download AuraText
         </Button>
 
         <Button
           leftIcon={<LuPlay />}
-          onClick={onOpen}
-          as={motion.button}
+          as={motion.a}
+          href={videoUrl}
+          target="_blank"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           size={"lg"}
@@ -167,9 +137,7 @@ const Header = () => {
         </Button>
       </Flex>
 
-      <Box mt={8}>
-        <UserCounter />
-      </Box>
+
 
 
 
@@ -190,8 +158,7 @@ const Header = () => {
 
 
       <HeroBottomSVG />
-      <VideoModal isOpen={isOpen} onClose={onClose} videoUrl="https://youtu.be/Fh1bW8Kcnlc" />
-    </Flex >
+    </Flex>
   );
 };
 

@@ -9,7 +9,6 @@ import {
     Box,
     Container,
     Heading,
-    Text,
     VStack,
 } from "@chakra-ui/react";
 import React from "react";
@@ -17,28 +16,28 @@ import { motion } from "framer-motion";
 
 const faqs = [
     {
-        question: "What makes AuraText different from other AI tools?",
-        answer: "AuraText works as a universal overlay on any Windows application. Instead of switching between ChatGPT tabs, you can use any AI model (Claude, Gemini, Perplexity, local Ollama) directly in Word, VS Code, Slack, or any app you're working in. Plus, you bring your own API keys—no subscriptions, just pay for what you use.",
+        question: "Is this just another prompt rewriter?",
+        answer: "No. Most tools rewrite your prompts after you write them. AuraText helps you think before you write them — by asking the right questions and structuring your intent.",
     },
     {
-        question: "How does prompt optimization work?",
-        answer: "AuraText analyzes your prompt in real-time and applies proven frameworks like RISEN, RTF, and COSTAR to make it more effective. You can choose from multiple frameworks or let AI automatically enhance your prompt for better results.",
+        question: "Will this slow me down?",
+        answer: "No. AuraText adds a few seconds of thinking — but saves minutes of rewriting and fixing bad outputs. Most people spend that time rewriting bad prompts anyway.",
     },
     {
-        question: "Is my data secure?",
-        answer: "Absolutely. AuraText uses a BYOK (Bring Your Own Key) model. Your API keys, prompts, and data are stored locally and sent directly to your chosen AI provider. We never proxy, access, or store your sensitive information.",
+        question: "Do I need to know prompt engineering?",
+        answer: "No. AuraText guides you in real time. You improve naturally as you use it — no courses, no frameworks to memorize.",
     },
     {
-        question: "Which AI models are supported?",
-        answer: "AuraText supports OpenAI (GPT-4, ChatGPT), Google Gemini, Anthropic Claude, Perplexity, and local Ollama models. You can switch between them instantly or test prompts across multiple models side-by-side.",
+        question: "Does it work with the AI tools I already use?",
+        answer: "Yes. AuraText works with ChatGPT, Claude, Gemini, and Perplexity — no switching required. Use the tools you already have, just with better inputs.",
     },
     {
-        question: "Does it work with my applications?",
-        answer: "Yes! AuraText works as an overlay on top of any Windows application—Word, VS Code, Slack, Notion, browsers, and more. If you can type in it, AuraText works with it.",
+        question: "Will this actually improve my results?",
+        answer: "Yes — and you'll see it immediately. AuraText shows you the difference between a vague prompt and a structured one, so you can see exactly why the output improves.",
     },
     {
-        question: "How do I get started?",
-        answer: "Download the Windows installer, add your API keys in Settings, and you're ready to go. The app installs in under 60 seconds with no dependencies required.",
+        question: "What if I'm already getting decent outputs?",
+        answer: "Decent is the trap. You settle for outputs that are \"good enough\" — but not precise, reliable, or fully aligned with what you want. AuraText helps you go from decent → intentional → high-quality.",
     },
 ];
 
@@ -56,7 +55,7 @@ const FAQ = () => {
                         size="2xl"
                         textAlign="center"
                     >
-                        Frequently Asked Questions
+                        Common Questions
                     </Heading>
 
                     <Accordion allowToggle w="full" maxW="800px">
@@ -82,7 +81,7 @@ const FAQ = () => {
                                         <AccordionIcon color={AuraTextColors.textLight} />
                                     </AccordionButton>
                                 </h2>
-                                <AccordionPanel pb={6} px={6} color={AuraTextColors.textLight}>
+                                <AccordionPanel pb={6} px={6} color={AuraTextColors.textLight} lineHeight={1.8}>
                                     {faq.answer}
                                 </AccordionPanel>
                             </AccordionItem>

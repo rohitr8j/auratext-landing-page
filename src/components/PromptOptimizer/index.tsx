@@ -3,7 +3,7 @@ import { AuraTextColors } from "#/src/utils/Colors";
 import { Box, Flex, Heading, Text, SimpleGrid, Icon, VStack, HStack } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
-import { LuArrowRight, LuSparkles, LuCheckCircle2 } from "react-icons/lu";
+import { LuArrowRight, LuSparkles } from "react-icons/lu";
 
 const PromptOptimizer = () => {
     return (
@@ -24,82 +24,32 @@ const PromptOptimizer = () => {
                 px={6}
             >
                 <Heading
-                    fontSize={{ base: 32, md: 48 }}
+                    fontSize={{ base: 28, md: 42 }}
                     fontWeight={700}
                     textAlign={"center"}
                     color={AuraTextColors.text}
                     mb={4}
+                    maxW={700}
+                    lineHeight={1.25}
                 >
-                    See Prompt Optimization in Action
+                    Same Input. Completely Different Result.
                 </Heading>
                 <Text
                     color={AuraTextColors.textLight}
                     textAlign="center"
                     fontSize="lg"
-                    maxW={700}
+                    maxW={600}
                     mb={16}
                 >
-                    Transform basic prompts into powerful AI instructions using proven frameworks and real-time quality analysis.
+                    The difference isn&apos;t the AI. It&apos;s how you think.
                 </Text>
 
                 {/* Before/After Examples */}
-                <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8} w="full" mb={16}>
+                <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8} w="full">
                     {examples.map((example, index) => (
                         <ExampleCard key={index} {...example} />
                     ))}
                 </SimpleGrid>
-
-                {/* Framework Showcase */}
-                <Box w="full" mb={16}>
-                    <Heading
-                        fontSize={{ base: 24, md: 32 }}
-                        fontWeight={600}
-                        textAlign={"center"}
-                        color={AuraTextColors.text}
-                        mb={8}
-                    >
-                        Proven Frameworks Included
-                    </Heading>
-                    <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} w="full">
-                        {frameworks.map((framework, index) => (
-                            <FrameworkCard key={index} {...framework} />
-                        ))}
-                    </SimpleGrid>
-                </Box>
-
-                {/* Benefits */}
-                <Box
-                    w="full"
-                    p={8}
-                    bg="rgba(59, 130, 246, 0.05)"
-                    border={`1px solid ${AuraTextColors.primary}40`}
-                    borderRadius={24}
-                >
-                    <Heading
-                        fontSize={{ base: 20, md: 24 }}
-                        fontWeight={600}
-                        color={AuraTextColors.text}
-                        mb={6}
-                        textAlign="center"
-                    >
-                        Why Optimize Your Prompts?
-                    </Heading>
-                    <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
-                        {benefits.map((benefit, index) => (
-                            <HStack key={index} align="flex-start" spacing={3}>
-                                <Icon as={LuCheckCircle2} color={AuraTextColors.primary} fontSize={24} mt={1} />
-                                <VStack align="flex-start" spacing={1}>
-                                    <Text color={AuraTextColors.text} fontWeight={600}>
-                                        {benefit.title}
-                                    </Text>
-                                    <Text color={AuraTextColors.textLight} fontSize="sm">
-                                        {benefit.description}
-                                    </Text>
-                                </VStack>
-                            </HStack>
-                        ))}
-                    </SimpleGrid>
-                </Box>
             </Flex>
         </Box>
     );
@@ -149,7 +99,7 @@ const ExampleCard = ({ title, before, after }: any) => (
         <VStack align="flex-start" spacing={2}>
             <HStack spacing={2}>
                 <Text color={AuraTextColors.grey} fontSize="xs" fontWeight={600} textTransform="uppercase">
-                    After Optimization
+                    After AuraText
                 </Text>
                 <Icon as={LuSparkles} color={AuraTextColors.primary} fontSize={14} />
             </HStack>
@@ -168,98 +118,16 @@ const ExampleCard = ({ title, before, after }: any) => (
     </Flex>
 );
 
-const FrameworkCard = ({ name, acronym, description }: any) => (
-    <Flex
-        direction="column"
-        p={6}
-        bg="rgba(255, 255, 255, 0.03)"
-        border="1px solid rgba(255, 255, 255, 0.05)"
-        borderRadius={16}
-        transition="all 0.3s ease"
-        _hover={{
-            borderColor: AuraTextColors.primary,
-            bg: "rgba(255, 255, 255, 0.05)",
-        }}
-    >
-        <HStack mb={3}>
-            <Box
-                px={3}
-                py={1}
-                bg={`${AuraTextColors.primary}20`}
-                borderRadius="md"
-            >
-                <Text color={AuraTextColors.primary} fontWeight={700} fontSize="sm">
-                    {acronym}
-                </Text>
-            </Box>
-        </HStack>
-        <Text color={AuraTextColors.text} fontWeight={600} mb={2}>
-            {name}
-        </Text>
-        <Text color={AuraTextColors.textLight} fontSize="sm">
-            {description}
-        </Text>
-    </Flex>
-);
-
 const examples = [
     {
-        title: "Email Writing",
-        before: "Write an email about the project delay",
-        after: "You are a professional project manager. Write a concise, empathetic email to stakeholders explaining a 2-week project delay. Include: (1) Clear reason for delay, (2) Revised timeline, (3) Mitigation steps taken, (4) Reassurance of commitment. Tone: Professional yet warm. Length: 150-200 words.",
+        title: "Messaging / Communication",
+        before: "reply to this message politely",
+        after: "You are a professional responding to a delayed client request. Write a clear and polite reply that: (1) Acknowledges the delay, (2) Explains the reason briefly without over-apologizing, (3) Sets a clear next step and timeline, (4) Maintains a confident and respectful tone.",
     },
     {
-        title: "Code Generation",
-        before: "Create a function to sort data",
-        after: "You are an expert Python developer. Create a function that: (1) Accepts a list of dictionaries, (2) Sorts by a specified key in ascending/descending order, (3) Handles missing keys gracefully, (4) Returns the sorted list. Include type hints, docstring, and error handling. Follow PEP 8 standards.",
-    },
-];
-
-const frameworks = [
-    {
-        name: "RISEN Framework",
-        acronym: "RISEN",
-        description: "Role, Instructions, Steps, End goal, Narrowing - Perfect for complex, multi-step tasks requiring detailed guidance.",
-    },
-    {
-        name: "RTF Framework",
-        acronym: "RTF",
-        description: "Role, Task, Format - Ideal for quick, straightforward requests with clear output requirements.",
-    },
-    {
-        name: "COSTAR Framework",
-        acronym: "COSTAR",
-        description: "Context, Objective, Style, Tone, Audience, Response - Best for content creation and communication tasks.",
-    },
-    {
-        name: "RACE Framework",
-        acronym: "RACE",
-        description: "Role, Action, Context, Expectation - Optimized for decision-making and analytical tasks.",
-    },
-    {
-        name: "CRAFT Framework",
-        acronym: "CRAFT",
-        description: "Context, Role, Action, Format, Target - Designed for creative and strategic planning prompts.",
-    },
-    {
-        name: "Custom Frameworks",
-        acronym: "CUSTOM",
-        description: "Create your own frameworks tailored to your specific use cases and workflows.",
-    },
-];
-
-const benefits = [
-    {
-        title: "Better Results",
-        description: "Get more accurate, relevant, and useful outputs from AI models",
-    },
-    {
-        title: "Save Time",
-        description: "Reduce back-and-forth iterations with optimized prompts from the start",
-    },
-    {
-        title: "Learn Best Practices",
-        description: "Understand what makes a great prompt through real-time feedback",
+        title: "Debugging / Problem Solving",
+        before: "fix this error in my code",
+        after: "You are an experienced developer. Analyze this error step-by-step: (1) Identify the root cause, (2) Explain why it\'s happening in simple terms, (3) Provide a corrected version of the code, (4) Suggest how to prevent this issue in the future.",
     },
 ];
 

@@ -2,7 +2,7 @@
 import { AuraTextColors } from "#/src/utils/Colors";
 import { Box, Flex, Heading, Text, SimpleGrid, Icon } from "@chakra-ui/react";
 import React from "react";
-import { LuDownload, LuKey, LuKeyboard, LuSparkles } from "react-icons/lu";
+import { LuPencil, LuMessageCircle, LuSparkles } from "react-icons/lu";
 import { motion } from "framer-motion";
 
 const HowItWorks = () => {
@@ -12,7 +12,6 @@ const HowItWorks = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-
             py={24}
             position="relative"
         >
@@ -24,25 +23,27 @@ const HowItWorks = () => {
                 px={6}
             >
                 <Heading
-                    fontSize={{ base: 32, md: 48 }}
+                    fontSize={{ base: 28, md: 42 }}
                     fontWeight={700}
                     textAlign={"center"}
                     color={AuraTextColors.text}
                     mb={4}
+                    maxW={700}
+                    lineHeight={1.25}
                 >
-                    How it Works
+                    From Messy Thought to Better Output in 3 Steps
                 </Heading>
                 <Text
                     color={AuraTextColors.textLight}
                     textAlign="center"
                     fontSize="lg"
-                    maxW={600}
+                    maxW={560}
                     mb={16}
                 >
-                    Get started with AuraText in minutes. No complex setup required.
+                    No setup. No learning curve. Just write and let AuraText guide your thinking.
                 </Text>
 
-                <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={8} w="full">
+                <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="full">
                     {steps.map((step, index) => (
                         <StepCard key={index} {...step} index={index + 1} />
                     ))}
@@ -102,24 +103,19 @@ const StepCard = ({ icon, title, description, index }: any) => (
 
 const steps = [
     {
-        icon: LuDownload,
-        title: "Download & Install",
-        description: "Get AuraText for Windows in under 60 seconds. One-click installer, no dependencies required.",
+        icon: LuPencil,
+        title: "Start Messy",
+        description: "Write whatever's in your head. Vague, incomplete, half-formed — it's fine. AuraText works with where you are.",
     },
     {
-        icon: LuKey,
-        title: "Write Your Prompt",
-        description: "Start with any prompt, anywhere on Windows. AuraText works in every application you use.",
-    },
-    {
-        icon: LuKeyboard,
-        title: "Optimize Instantly",
-        description: "Choose a proven framework (RISEN, RTF, COSTAR) or let AI enhance your prompt automatically.",
+        icon: LuMessageCircle,
+        title: "Get the Right Questions",
+        description: "AuraText asks a few targeted questions to clarify your intent, audience, and goal. No long forms. Fast and focused.",
     },
     {
         icon: LuSparkles,
-        title: "Test & Deploy",
-        description: "Compare results across multiple AI models, then insert the optimized output with one click.",
+        title: "Get a Better Output",
+        description: "A structured prompt goes to the AI of your choice. Better prompt = dramatically better result. Every single time.",
     },
 ];
 

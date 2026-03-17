@@ -202,7 +202,7 @@ const Download = () => {
           fontWeight={400}
           maxW={600}
         >
-          Choose your preferred version. Both are free and work seamlessly together.
+          Free to download. Works on Windows 10 and 11. Start in under 60 seconds.
         </Text>
 
         <VStack spacing={{ base: 6, md: 8 }} w="100%" display={{ base: "flex", md: "none" }}>
@@ -237,25 +237,25 @@ const Download = () => {
               </VStack>
 
               <Text fontSize={{ base: "xs", md: "sm" }} color={AuraTextColors.textLight} lineHeight={1.6}>
-                Full-featured desktop application. <Box as="span" color={AuraTextColors.primary}>Recommended for power users.</Box>
+                Full-featured desktop app. Works inside every application on Windows.
               </Text>
 
               <VStack spacing={2} align="start" w="full">
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Smart cursor locking</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Full guided prompt builder</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Multi-AI provider support</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Works in every Windows app</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Overlay mode</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>ChatGPT, Claude, Gemini, Perplexity</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Real-time text analysis</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Bring your own API keys</Text>
                 </HStack>
               </VStack>
 
@@ -401,25 +401,25 @@ const Download = () => {
               </VStack>
 
               <Text fontSize="sm" color={AuraTextColors.textLight} lineHeight={1.6}>
-                Full-featured desktop application. <Box as="span" color={AuraTextColors.primary}>Recommended for power users.</Box>
+                Full-featured desktop app. Works inside every application on Windows.
               </Text>
 
               <VStack spacing={2} align="start" w="full">
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Smart cursor locking</Text>
+                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Full guided prompt builder</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Multi-AI provider support</Text>
+                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Works in every Windows app</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Overlay mode</Text>
+                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>ChatGPT, Claude, Gemini, Perplexity</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Real-time text analysis</Text>
+                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Bring your own API keys</Text>
                 </HStack>
               </VStack>
 
