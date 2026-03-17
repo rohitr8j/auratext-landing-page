@@ -1,6 +1,6 @@
 "use client";
 import { AuraTextColors } from "#/src/utils/Colors";
-import { Button, Flex, Heading, Text, HStack, VStack, Link, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text, HStack, VStack, Link, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import FooterTopSVG from "./FooterTopSVG";
 import FooterBg from "./FooterBg";
@@ -8,7 +8,6 @@ import { LuArrowRight, LuInstagram, LuMail, LuTwitter, LuCopy, LuCheck } from "r
 import { FaLinkedin, FaReddit, FaDiscord, FaGithub, FaYoutube } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-import AiHero from "../AiHero";
 
 const Footer = () => {
   const [emailCopied, setEmailCopied] = useState(false);
@@ -49,8 +48,39 @@ const Footer = () => {
     >
       <FooterTopSVG />
       <FooterBg />
-      <Flex mt={16} direction={"column"} align={"center"} px={2} w="full">
-        <AiHero />
+      <Flex mt={16} direction={"column"} align={"center"} px={6} w="full" maxW={700} mx="auto" textAlign="center">
+        <Heading
+          fontSize={{ base: "2xl", md: "4xl" }}
+          fontWeight={700}
+          color={AuraTextColors.text}
+          lineHeight={1.2}
+          mb={4}
+          fontFamily="'Inter', 'Helvetica Neue', sans-serif"
+          letterSpacing="-0.02em"
+        >
+          Most people use AI to do more.
+          <br />
+          <Box as="span" color={AuraTextColors.primary}>
+            AuraText helps you do it better.
+          </Box>
+        </Heading>
+        <Button
+          as="a"
+          href="#download"
+          size="lg"
+          bg={AuraTextColors.primary}
+          color="black"
+          _hover={{ bg: AuraTextColors.secondary, transform: "translateY(-1px)", boxShadow: `0 8px 32px ${AuraTextColors.primary}55` }}
+          fontFamily="'Inter', 'Helvetica Neue', sans-serif"
+          fontWeight={600}
+          px={8}
+          py={6}
+          borderRadius="12px"
+          transition="all 0.2s ease"
+          mt={6}
+        >
+          Download AuraText
+        </Button>
       </Flex>
 
       {/* Social Media Links */}

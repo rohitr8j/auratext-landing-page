@@ -109,9 +109,7 @@ export default function Header() {
           lineHeight={1.65}
           mb={5}
         >
-          AuraText helps you think before AI responds. It asks the right
-          questions and structures your input — so you get better results on the
-          first try.
+          AuraText helps you think before AI responds — so you get better results on the first try.
         </Text>
 
         {/* ── Hook line ── */}

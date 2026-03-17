@@ -243,19 +243,19 @@ const Download = () => {
               <VStack spacing={2} align="start" w="full">
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Full guided prompt builder</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Think clearly before every prompt</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Works in every Windows app</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Get better results instantly</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>ChatGPT, Claude, Gemini, Perplexity</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Works wherever you use AI on Windows</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Bring your own API keys</Text>
+                  <Text fontSize={{ base: "xs", md: "sm" }} fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Start in under 60 seconds</Text>
                 </HStack>
               </VStack>
 
@@ -407,19 +407,19 @@ const Download = () => {
               <VStack spacing={2} align="start" w="full">
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Full guided prompt builder</Text>
+                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Think clearly before every prompt</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Works in every Windows app</Text>
+                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Get better results instantly</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>ChatGPT, Claude, Gemini, Perplexity</Text>
+                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Works wherever you use AI on Windows</Text>
                 </HStack>
                 <HStack spacing={2}>
                   <Icon as={LuCheck} boxSize={4} color={AuraTextColors.primary} />
-                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Bring your own API keys</Text>
+                  <Text fontSize="sm" fontFamily="'Space Mono', monospace" color={AuraTextColors.text}>Start in under 60 seconds</Text>
                 </HStack>
               </VStack>
 

@@ -35,7 +35,7 @@ const Features = () => {
         maxW={700}
         lineHeight={1.25}
       >
-        Three Things AuraText Does That AI Can&apos;t
+        What Changes When You Think Before Using AI
       </Heading>
       <Text
         color={AuraTextColors.textLight}
