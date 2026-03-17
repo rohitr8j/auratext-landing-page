@@ -16,7 +16,7 @@ const Header = () => {
       as={motion.div}
       initial="initial"
       animate="animate"
-      minH="100svh"
+      minH="85svh"
       bg={{
         base: `
         radial-gradient(circle at 100% 140%, ${AuraTextColors.primary},${AuraTextColors.secondary}75, transparent, transparent, transparent), 
@@ -35,14 +35,15 @@ const Header = () => {
       justify={"center"}
       direction={"column"}
       px={8}
-      pt={{ base: 20, md: 24 }}
+      pt={{ base: 16, md: 20 }}
+      pb={{ base: 10, md: 12 }}
     >
       <Flex
         bg={AuraTextColors.lightBg}
         px={{ base: 4, sm: 6 }}
         py={2}
         rounded={"full"}
-        mb={8}
+        mb={5}
         maxW={{ base: "90%", sm: "auto" }}
         mx="auto"
       >
@@ -60,16 +61,16 @@ const Header = () => {
 
       <Heading
         fontSize={{
-          base: 36,
-          md: 56,
-          lg: 72,
+          base: 28,
+          md: 44,
+          lg: 52,
         }}
         color={AuraTextColors.text}
         lineHeight={1.1}
         textAlign={"center"}
         fontFamily="'Space Mono', monospace"
         fontWeight={600}
-        mb={6}
+        mb={4}
         px={4}
       >
         Stop Prompting Blindly.
@@ -79,11 +80,11 @@ const Header = () => {
 
       <Text
         color={AuraTextColors.textLight}
-        maxW={800}
+        maxW={560}
         textAlign={"center"}
-        fontSize={{ base: "lg", md: "xl" }}
+        fontSize={{ base: "md", md: "lg" }}
         fontWeight={400}
-        mb={12}
+        mb={8}
         lineHeight={1.6}
         fontFamily="'Space Mono', monospace"
         px={4}
