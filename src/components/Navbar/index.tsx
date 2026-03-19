@@ -15,6 +15,7 @@ import { LuMenu, LuX, LuZap } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { AuraTextColors } from "#/src/utils/Colors";
 import useBannerVisibility from "#/src/utils/BannerVisibility";
+import UserCounter from "#/src/components/UserCounter";
 
 const NavItems = [
   { name: "Features", href: "/#features" },
@@ -128,7 +129,8 @@ const Navbar: FC = () => {
             ))}
           </Flex>
 
-          <Flex gap={3} display={{ base: "none", lg: "flex" }}>
+          <Flex gap={3} align="center" display={{ base: "none", lg: "flex" }}>
+            <UserCounter />
             <Button
               as={motion.a}
               whileHover={{ scale: 1.05 }}
