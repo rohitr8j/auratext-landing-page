@@ -12,7 +12,7 @@ import { motion } from "framer-motion";
 const Footer = () => {
   const [emailCopied, setEmailCopied] = useState(false);
   const toast = useToast();
-  const emailAddress = "auratext.app@gmail.com";
+  const emailAddress = "yash@auratxt.com";
 
   const copyEmailToClipboard = async () => {
     try {
@@ -29,7 +29,7 @@ const Footer = () => {
     } catch (err) {
       toast({
         title: "Copy failed",
-        description: "Please copy the email manually: auratext.app@gmail.com",
+        description: "Please copy the email manually: yash@auratxt.com",
         status: "error",
         duration: 3000,
         isClosable: true,

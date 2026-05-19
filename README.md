@@ -79,7 +79,7 @@ npm run export
 - **Releases**: [github.com/y4shr4j/auratext-releases](https://github.com/y4shr4j/auratext-releases)
 - **Instagram**: [@auratext.app](https://www.instagram.com/auratext.app/)
 - **X/Twitter**: [@auratext](https://x.com/auratext)
-- **Email**: auratext.app@gmail.com
+- **Email**: yash@auratxt.com
 
 ## 📄 License
 
