@@ -80,10 +80,9 @@ export default function Header() {
           </Text>
         </Box>
 
-        {/* ── Headline ── */}
+        {/* ── Headline ── LCP element: no JS animation, renders immediately via SSR */}
         <Heading
-          as={motion.h1}
-          variants={item}
+          as="h1"
           fontFamily="'Inter', 'Helvetica Neue', sans-serif"
           fontSize={{ base: "4xl", sm: "5xl", md: "6xl" }}
           fontWeight={600}

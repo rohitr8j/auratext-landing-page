@@ -1,13 +1,15 @@
+import dynamic from "next/dynamic";
 import Header from "../components/Header";
-import Features from "../components/Features";
-import Pricing from "../components/Pricing";
-import Download from "../components/Download";
-import GitHubReleases from "../components/GitHubReleases";
-import HowItWorks from "../components/HowItWorks";
-import FAQ from "../components/FAQ";
-import PromptOptimizer from "../components/PromptOptimizer";
-import ProblemSection from "../components/ProblemSection";
 
+// Below-fold sections: dynamically imported to split JS bundles and reduce TBT
+const ProblemSection  = dynamic(() => import("../components/ProblemSection"));
+const Features        = dynamic(() => import("../components/Features"));
+const HowItWorks      = dynamic(() => import("../components/HowItWorks"));
+const PromptOptimizer = dynamic(() => import("../components/PromptOptimizer"));
+const Download        = dynamic(() => import("../components/Download"));
+const Pricing         = dynamic(() => import("../components/Pricing"));
+const FAQ             = dynamic(() => import("../components/FAQ"));
+const GitHubReleases  = dynamic(() => import("../components/GitHubReleases"));
 
 export default function Home() {
   return (
@@ -50,4 +52,3 @@ export default function Home() {
     </main>
   );
 }
-
