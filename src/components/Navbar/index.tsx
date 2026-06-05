@@ -10,17 +10,27 @@ import {
   IconButton,
   Text,
   useDisclosure,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  useToast,
+  VStack,
 } from "@chakra-ui/react";
-import { LuMenu, LuX, LuZap } from "react-icons/lu";
+import { LuMenu, LuX, LuZap, LuUser, LuLogOut, LuChevronDown } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { AuraTextColors } from "#/src/utils/Colors";
 import useBannerVisibility from "#/src/utils/BannerVisibility";
-import UserCounter from "#/src/components/UserCounter";
+import { auth } from "#/src/utils/firebase";
+import { onAuthStateChanged, signOut, User } from "firebase/auth";
+import AuthModal from "#/src/components/AuthModal";
+
 
 const NavItems = [
   { name: "Features", href: "/#features" },
   { name: "How It Works", href: "/#how-it-works" },
   { name: "Pricing", href: "/#pricing" },
+  { name: "Founder", href: "/#founder" },
   { name: "FAQ", href: "/#faq" },
 ];
 
@@ -29,6 +39,49 @@ const Navbar: FC = () => {
   const [showBanner] = useBannerVisibility("auratext-banner");
   const [activeSection, setActiveSection] = useState("");
   const { isOpen, onToggle } = useDisclosure();
+
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authModalMode, setAuthModalMode] = useState<"signin" | "signup">("signin");
+  const toast = useToast();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const handleOpenAuth = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail?.mode) {
+        setAuthModalMode(customEvent.detail.mode);
+      }
+      setAuthModalOpen(true);
+    };
+    window.addEventListener("open-auth-modal", handleOpenAuth);
+    return () => window.removeEventListener("open-auth-modal", handleOpenAuth);
+  }, []);
+
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      toast({
+        title: "Signed out successfully",
+        status: "info",
+        duration: 2000,
+        isClosable: true,
+      });
+    } catch (error) {
+      toast({
+        title: "Sign out failed",
+        status: "error",
+        duration: 2000,
+        isClosable: true,
+      });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -130,7 +183,60 @@ const Navbar: FC = () => {
           </Flex>
 
           <Flex gap={3} align="center" display={{ base: "none", lg: "flex" }}>
-            <UserCounter />
+            {currentUser ? (
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rightIcon={<Icon as={LuChevronDown} />}
+                  variant="outline"
+                  borderColor="rgba(255, 255, 255, 0.15)"
+                  color={AuraTextColors.text}
+                  _hover={{ bg: AuraTextColors.lightBg, borderColor: AuraTextColors.primary }}
+                  _active={{ bg: AuraTextColors.lightBg }}
+                  fontFamily="'Space Mono', monospace"
+                  fontWeight={400}
+                  size="sm"
+                  leftIcon={<Icon as={LuUser} color={AuraTextColors.primary} />}
+                  borderRadius="8px"
+                >
+                  {currentUser.email?.split("@")[0]}
+                </MenuButton>
+                <MenuList
+                  bg={AuraTextColors.darkBg}
+                  borderColor="rgba(255, 255, 255, 0.1)"
+                  borderRadius="xl"
+                  p={2}
+                >
+                  <MenuItem
+                    icon={<Icon as={LuLogOut} />}
+                    onClick={handleSignOut}
+                    bg="transparent"
+                    color="red.400"
+                    _hover={{ bg: "rgba(239, 68, 68, 0.1)", borderRadius: "lg" }}
+                    fontFamily="'Space Mono', monospace"
+                    fontSize="sm"
+                  >
+                    Sign Out
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+            ) : (
+              <Button
+                variant="ghost"
+                onClick={() => {
+                  setAuthModalMode("signin");
+                  setAuthModalOpen(true);
+                }}
+                color={AuraTextColors.text}
+                _hover={{ bg: AuraTextColors.lightBg, color: AuraTextColors.primary }}
+                fontFamily="'Space Mono', monospace"
+                fontWeight={400}
+                size="sm"
+                borderRadius="8px"
+              >
+                Log In
+              </Button>
+            )}
             <Button
               as={motion.a}
               whileHover={{ scale: 1.05 }}
@@ -179,7 +285,51 @@ const Navbar: FC = () => {
                 <Text>{item.name}</Text>
               </Flex>
             ))}
-            <Box mt={5}>
+
+            {currentUser ? (
+              <VStack spacing={4} w="full" mt={2}>
+                <Flex align="center" gap={2} color={AuraTextColors.textLight}>
+                  <Icon as={LuUser} color={AuraTextColors.primary} />
+                  <Text fontFamily="'Space Mono', monospace" fontSize="sm">
+                    {currentUser.email}
+                  </Text>
+                </Flex>
+                <Button
+                  onClick={handleSignOut}
+                  variant="outline"
+                  colorScheme="red"
+                  fontFamily="'Space Mono', monospace"
+                  fontWeight={400}
+                  size="sm"
+                  w="140px"
+                  borderRadius="8px"
+                >
+                  Sign Out
+                </Button>
+              </VStack>
+            ) : (
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setAuthModalMode("signin");
+                  setAuthModalOpen(true);
+                  onToggle(); // Close mobile menu
+                }}
+                borderColor="rgba(255, 255, 255, 0.2)"
+                color={AuraTextColors.text}
+                _hover={{ bg: AuraTextColors.lightBg, color: AuraTextColors.primary }}
+                fontFamily="'Space Mono', monospace"
+                fontWeight={400}
+                size="sm"
+                w="140px"
+                borderRadius="8px"
+                mt={2}
+              >
+                Log In
+              </Button>
+            )}
+
+            <Box mt={2}>
               <Button
                 as={motion.a}
                 whileHover={{ scale: 1.05 }}
@@ -190,6 +340,7 @@ const Navbar: FC = () => {
                 _hover={{ bg: AuraTextColors.secondary }}
                 fontFamily="'Space Mono', monospace"
                 fontWeight={400}
+                onClick={onToggle} // Close mobile menu
               >
                 Download
               </Button>
@@ -197,6 +348,12 @@ const Navbar: FC = () => {
           </Flex>
         </Collapse>
       </Flex>
+
+      <AuthModal
+        isOpen={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        initialMode={authModalMode}
+      />
     </>
   );
 };

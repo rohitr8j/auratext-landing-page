@@ -9,6 +9,7 @@ const PromptOptimizer = dynamic(() => import("../components/PromptOptimizer"));
 const Download        = dynamic(() => import("../components/Download"));
 const Pricing         = dynamic(() => import("../components/Pricing"));
 const FAQ             = dynamic(() => import("../components/FAQ"));
+const Founder         = dynamic(() => import("../components/Founder"));
 const GitHubReleases  = dynamic(() => import("../components/GitHubReleases"));
 
 export default function Home() {
@@ -44,6 +45,10 @@ export default function Home() {
 
       <section id="faq" aria-label="Frequently Asked Questions">
         <FAQ />
+      </section>
+
+      <section id="founder" aria-label="Meet the Founder">
+        <Founder />
       </section>
 
       <section id="releases" aria-label="Releases">

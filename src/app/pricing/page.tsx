@@ -44,11 +44,11 @@ export default function PricingPage() {
             },
             {
                 "@type": "Offer",
-                name: "Supporter",
-                price: "9",
+                name: "One-Time Support",
+                price: "49",
                 priceCurrency: "USD",
                 description:
-                    "Everything in Free plus early access to frameworks, priority support, and direct developer access.",
+                    "Lifetime updates, priority support, indie developer support, and early access to new features.",
             },
         ],
     };

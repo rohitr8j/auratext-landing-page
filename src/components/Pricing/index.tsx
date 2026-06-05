@@ -12,14 +12,14 @@ import {
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { LuCheck } from "react-icons/lu";
+import { auth } from "#/src/utils/firebase";
 
 // Feature Flag: Check if payments are enabled
 // In .env.local: NEXT_PUBLIC_ENABLE_PAYMENTS="true"
-const ARE_PAYMENTS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_PAYMENTS === 'true';
+const ARE_PAYMENTS_ENABLED = true;
 
 // Payment Links for Support Model
 const PAYMENT_LINKS: Record<string, string> = {
-  Supporter: process.env.NEXT_PUBLIC_SUPPORTER_PAYMENT_LINK || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
   OneTime: process.env.NEXT_PUBLIC_ONETIME_PAYMENT_LINK || "https://checkout.dodopayments.com/buy/pdt_If7ZR9bfb7dolhcxA3iMb?quantity=1",
 };
 
@@ -27,6 +27,18 @@ const Pricing = () => {
   const toast = useToast();
 
   const handleCheckout = (planName: string) => {
+    if (!auth.currentUser) {
+      toast({
+        title: "Account required",
+        description: "Please create a free account or log in to support AuraText.",
+        status: "info",
+        duration: 4000,
+        isClosable: true,
+      });
+      window.dispatchEvent(new CustomEvent("open-auth-modal", { detail: { mode: "signup" } }));
+      return;
+    }
+
     if (!ARE_PAYMENTS_ENABLED) {
       toast({
         title: "Coming Soon!",
@@ -65,20 +77,6 @@ const Pricing = () => {
         "Early access to all new features",
       ],
       isFree: true,
-    },
-    {
-      name: "Supporter",
-      price: "$9",
-      period: "per month",
-      features: [
-        "Everything in Free, plus:",
-        "Early access to new frameworks (15+ total)",
-        "Priority bug fixes & feature requests",
-        "200+ premium prompt templates",
-        "Direct support from developer",
-        "Behind-the-scenes updates",
-      ],
-      isSupporter: true,
     },
     {
       name: "One-Time Support",
@@ -132,16 +130,19 @@ const Pricing = () => {
         spacing={6}
         w={"100%"}
         mt={12}
+        justify="center"
+        align="stretch"
       >
         <AnimatePresence mode="wait">
           {plans.map((plan) => (
             <Flex
               as={motion.div}
               key={plan.name}
-              p={4}
+              p={6}
               direction={"column"}
               w={"100%"}
-              border={`1px solid ${plan.isSupporter ? AuraTextColors.primary + "60" : AuraTextColors.lightBg}`}
+              maxW="400px"
+              border={`1px solid ${plan.isOneTime ? AuraTextColors.primary + "60" : AuraTextColors.lightBg}`}
               borderRadius={18}
               bg={AuraTextColors.darkBg}
               layout
@@ -203,25 +204,21 @@ const Pricing = () => {
                 onClick={() => {
                   if (plan.isFree) {
                     window.location.href = "#download";
-                  } else if (plan.isSupporter) {
-                    handleCheckout("Supporter");
                   } else if (plan.isOneTime) {
                     handleCheckout("OneTime");
                   }
                 }}
-                bg={plan.isSupporter ? AuraTextColors.primary : "transparent"}
-                color={plan.isSupporter ? AuraTextColors.white : AuraTextColors.primary}
-                border={!plan.isSupporter ? `1px solid ${AuraTextColors.primary}` : "none"}
+                bg={plan.isOneTime ? AuraTextColors.primary : "transparent"}
+                color={plan.isOneTime ? AuraTextColors.white : AuraTextColors.primary}
+                border={!plan.isOneTime ? `1px solid ${AuraTextColors.primary}` : "none"}
                 _hover={{
-                  bg: plan.isSupporter ? AuraTextColors.secondary : `${AuraTextColors.primary}20`,
-                  opacity: plan.isSupporter ? 1 : 0.8,
+                  bg: plan.isOneTime ? AuraTextColors.secondary : `${AuraTextColors.primary}20`,
+                  opacity: plan.isOneTime ? 1 : 0.8,
                 }}
               >
                 {plan.isFree
                   ? "Download Free"
-                  : plan.isSupporter
-                    ? (ARE_PAYMENTS_ENABLED ? "Become a Supporter" : "Coming Soon")
-                    : (ARE_PAYMENTS_ENABLED ? "One-Time Purchase" : "Coming Soon")
+                  : (ARE_PAYMENTS_ENABLED ? "One-Time Purchase" : "Coming Soon")
                 }
               </Button>
             </Flex>

@@ -11,13 +11,16 @@ import {
   Icon,
   Badge,
   Divider,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { motion } from "framer-motion";
 import { LuDownload, LuMonitor, LuGlobe, LuCheck } from "react-icons/lu";
 import { useLatestRelease } from "#/src/hooks/useGitHubReleases";
+import { auth } from "#/src/utils/firebase";
 
 const Download = () => {
+  const toast = useToast();
   const { latestRelease, loading, error } = useLatestRelease();
 
   // Function to track download with comprehensive analytics
@@ -60,6 +63,18 @@ const Download = () => {
   }, [latestRelease]);
 
   const downloadMainApp = async () => {
+    if (!auth.currentUser) {
+      toast({
+        title: "Account required",
+        description: "Please create a free account or log in to download AuraText.",
+        status: "info",
+        duration: 4000,
+        isClosable: true,
+      });
+      window.dispatchEvent(new CustomEvent("open-auth-modal", { detail: { mode: "signup" } }));
+      return;
+    }
+
     if (!latestRelease?.assets) {
       alert('No release data available. Please visit our GitHub repository for downloads.');
       return;
@@ -117,6 +132,18 @@ const Download = () => {
   };
 
   const downloadExtension = async () => {
+    if (!auth.currentUser) {
+      toast({
+        title: "Account required",
+        description: "Please create a free account or log in to download the extension.",
+        status: "info",
+        duration: 4000,
+        isClosable: true,
+      });
+      window.dispatchEvent(new CustomEvent("open-auth-modal", { detail: { mode: "signup" } }));
+      return;
+    }
+
     if (!latestRelease?.assets) {
       alert('No release data available. Please visit our GitHub repository for downloads.');
       return;
