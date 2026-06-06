@@ -4,6 +4,8 @@ import { Box, Flex, Text, Skeleton } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { LuUsers } from "react-icons/lu";
 
+import AnimatedCounter from "../AnimatedCounter";
+
 interface GitHubRelease {
     assets: Array<{
         download_count: number;
@@ -58,7 +60,9 @@ const UserCounter = () => {
                     fontFamily="'Space Mono', monospace"
                     fontWeight={400}
                 >
-                    <Text as="span" color={AuraTextColors.white} fontWeight={700}>{count !== null ? count.toLocaleString() : '...'}</Text> users
+                    <Text as="span" color={AuraTextColors.white} fontWeight={700}>
+                        {count !== null ? <AnimatedCounter target={count} /> : '...'}
+                    </Text> users
                 </Text>
             </Skeleton>
         </Flex>

@@ -18,6 +18,7 @@ import { motion } from "framer-motion";
 import { AuraTextColors } from "#/src/utils/Colors";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { LuUsers, LuBuilding, LuCpu, LuTwitter, LuInstagram, LuGlobe } from "react-icons/lu";
+import AnimatedCounter from "../AnimatedCounter";
 
 interface GitHubRelease {
   assets: Array<{
@@ -234,7 +235,7 @@ const Founder = () => {
                     <HStack spacing={2} align="center">
                       <Icon as={LuUsers} color={AuraTextColors.primary} />
                       <Text color={AuraTextColors.text} fontSize="xl" fontWeight="700" fontFamily="'Space Mono', monospace">
-                        {userCount !== null ? userCount.toLocaleString() : "..."}
+                        {userCount !== null ? <AnimatedCounter target={userCount} /> : "..."}
                       </Text>
                     </HStack>
                   </Skeleton>
