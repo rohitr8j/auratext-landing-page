@@ -76,7 +76,7 @@ export default function Header() {
             fontWeight={400}
             letterSpacing="0.02em"
           >
-            Thinking Layer for AI
+            AI Requirement Discovery
           </Text>
         </Box>
 
@@ -92,9 +92,9 @@ export default function Header() {
           mb={6}
           maxW="720px"
         >
-          Your AI Outputs
+          Don&apos;t Let
           <br />
-          Depend on Your Thinking
+          AI Guess.
         </Heading>
 
         {/* ── Subheadline ── */}
@@ -108,7 +108,7 @@ export default function Header() {
           lineHeight={1.65}
           mb={5}
         >
-          AuraText helps you think before AI responds — so you get better results on the first try.
+          AuraText asks the questions ChatGPT, Claude, Cursor, and Gemini never ask. Your first output becomes your best output.
         </Text>
 
         {/* ── Hook line ── */}
@@ -121,9 +121,9 @@ export default function Header() {
           lineHeight={1.6}
           mb={10}
         >
-          Most people use AI to avoid thinking.
+          AI generates based on what you give it.
           <br />
-          AuraText makes sure you don&apos;t.
+          AuraText finds what you&apos;re missing before you hit send.
         </Text>
 
         {/* ── CTAs ── */}

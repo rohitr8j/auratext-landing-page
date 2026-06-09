@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
 
-export const alt = 'AuraText - AI-Powered Text Assistant for Windows'
+export const alt = 'AuraText - AI Requirement Discovery for Windows'
 export const size = {
     width: 1200,
     height: 630,
@@ -99,7 +99,7 @@ export default async function Image() {
                             fontWeight: 400,
                         }}
                     >
-                        Your AI writing copilot for Windows.
+                        Don't let AI guess. Surface missing requirements first.
                     </div>
 
                     <div

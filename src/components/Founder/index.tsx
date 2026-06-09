@@ -68,14 +68,14 @@ const Founder = () => {
               size="2xl"
               fontFamily="'Space Mono', monospace"
             >
-              Our Team & Leadership
+              Built by One Founder.
             </Heading>
             <Text
               color={AuraTextColors.textLight}
               fontSize={{ base: "md", md: "lg" }}
               maxW="600px"
             >
-              AuraText is built and backed by digital-native creators focused on product excellence.
+              Started from a simple observation: AI answers questions. It doesn&apos;t tell you whether you&apos;re asking the right ones.
             </Text>
           </VStack>
 
@@ -132,7 +132,7 @@ const Founder = () => {
               </Text>
 
               <Text color={AuraTextColors.textLight} fontSize="sm" mb={6}>
-                Leads product architecture, core engineering, and operations.
+                Every week, users spend more time fixing AI outputs than they saved using AI. The problem isn&apos;t the AI. The problem is incomplete requests. I built AuraText to fix that.
               </Text>
 
               {/* Founder Social Links - Important for Google Cloud Verification */}
@@ -190,11 +190,11 @@ const Founder = () => {
                 <HStack spacing={3} color={AuraTextColors.primary}>
                   <Icon as={LuBuilding} boxSize={5} />
                   <Heading size="xs" fontFamily="'Space Mono', monospace" letterSpacing="0.05em">
-                    COMPANY & BUSINESS MODEL
+                    THE STORY
                   </Heading>
                 </HStack>
                 <Text color={AuraTextColors.textLight} fontSize="sm" lineHeight="1.6">
-                  AuraText is a software technology company building system-level AI workflows. We design native productivity tools to optimize human-AI interactions, operating on a digital-native, direct-to-user software license business model.
+                  AuraText started as a simple question: why do people get worse results from better AI? The answer was always the same. Incomplete requests. AuraText exists to surface what you&apos;re missing before AI generates anything.
                 </Text>
               </VStack>
 
@@ -214,7 +214,7 @@ const Founder = () => {
                   </Heading>
                 </HStack>
                 <Text color={AuraTextColors.textLight} fontSize="sm" lineHeight="1.6">
-                  AuraText is an AI thinking layer for Windows. It interrupts workflows before user input is processed, guiding users to structure prompts via proven engineering frameworks. The result is instant, high-quality AI outputs on the first run, without breaking desktop focus.
+                  AuraText sits between you and your AI tool. Before you hit send, it asks the questions a senior engineer, editor, or strategist would ask. The result is a complete, structured request that gets dramatically better outputs on the first try, in Cursor, Claude, ChatGPT, Gemini, or any AI tool you already use.
                 </Text>
               </VStack>
 
@@ -229,7 +229,7 @@ const Founder = () => {
               >
                 <VStack align="start" spacing={1} flex="1">
                   <Text color={AuraTextColors.textLight} fontSize="xs" fontWeight="500">
-                    TOTAL ACQUISITIONS
+                    TOTAL DOWNLOADS
                   </Text>
                   <Skeleton isLoaded={!loading} startColor="rgba(255,255,255,0.05)" endColor="rgba(255,255,255,0.15)">
                     <HStack spacing={2} align="center">
@@ -243,7 +243,7 @@ const Founder = () => {
 
                 <VStack align="start" spacing={1} flex="1">
                   <Text color={AuraTextColors.textLight} fontSize="xs" fontWeight="500">
-                    GEOGRAPHIC REACH
+                    COUNTRIES REACHED
                   </Text>
                   <Text color={AuraTextColors.text} fontSize="xl" fontWeight="700" fontFamily="'Space Mono', monospace">
                     13+ Countries

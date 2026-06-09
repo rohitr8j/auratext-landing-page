@@ -32,7 +32,9 @@ const PromptOptimizer = () => {
                     maxW={700}
                     lineHeight={1.25}
                 >
-                    Same Input. Completely Different Result.
+                    See What AuraText Asks
+                <br />
+                Before AI Generates Anything
                 </Heading>
                 <Text
                     color={AuraTextColors.textLight}
@@ -41,7 +43,7 @@ const PromptOptimizer = () => {
                     maxW={600}
                     mb={16}
                 >
-                    The difference isn&apos;t the AI. It&apos;s how you think.
+                    Not a rewriter. Not a template. A requirement discovery layer.
                 </Text>
 
                 {/* Before/After Examples */}
@@ -120,14 +122,14 @@ const ExampleCard = ({ title, before, after }: any) => (
 
 const examples = [
     {
-        title: "Messaging / Communication",
-        before: "reply to this message politely",
-        after: "You are a professional responding to a delayed client request. Write a clear and polite reply that: (1) Acknowledges the delay, (2) Explains the reason briefly without over-apologizing, (3) Sets a clear next step and timeline, (4) Maintains a confident and respectful tone.",
+        title: "App Development / Coding",
+        before: "Build a casino app",
+        after: "Who are the users?\nReal money or virtual chips?\nSingle player or multiplayer?\nWhich countries will this operate in?\nWhat regulations apply?\nWhat scale do you expect?\n\n→ Complete specification ready for Cursor.",
     },
     {
-        title: "Debugging / Problem Solving",
-        before: "fix this error in my code",
-        after: "You are an experienced developer. Analyze this error step-by-step: (1) Identify the root cause, (2) Explain why it\'s happening in simple terms, (3) Provide a corrected version of the code, (4) Suggest how to prevent this issue in the future.",
+        title: "Content / Marketing",
+        before: "Write a marketing email",
+        after: "Who is the audience?\nWhat product or offer are you promoting?\nGoal: signups, purchases, or clicks?\nTone: formal, conversational, or urgent?\nIs there a deadline or limited-time offer?\n\n→ Targeted email brief ready for Claude.",
     },
 ];
 

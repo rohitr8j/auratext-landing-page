@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import HowItWorks from "#/src/components/HowItWorks";
 
 export const metadata: Metadata = {
-    title: "How AuraText Works — From Messy Thought to Better Output in 3 Steps",
+    title: "How AuraText Works - Write Your Idea, Get the Questions, Send a Complete Request",
     description:
-        "Learn how AuraText works. Start messy, get the right guiding questions, and receive a structured prompt that produces dramatically better AI outputs. 3-step process.",
+        "Learn how AuraText works. Write your idea, AuraText asks the missing questions, and you send a complete structured request to Cursor, Claude, ChatGPT, or Gemini. Better input = better output.",
     keywords: [
         "how AuraText works",
         "AuraText process",
-        "AI prompt guide",
-        "structured prompting",
+        "AI requirement discovery steps",
         "how to use AuraText",
-        "AuraText steps",
+        "AuraText workflow",
+        "better AI requests",
     ],
     alternates: {
         canonical: "https://auratxt.com/how-it-works",
     },
     openGraph: {
-        title: "How AuraText Works — 3 Steps to Better AI Outputs",
+        title: "How AuraText Works - Write, Discover, Send",
         description:
-            "Start messy → get the right questions → get dramatically better AI outputs. See how AuraText works in 3 simple steps.",
+            "Write your idea, AuraText asks what's missing, you send a complete request to AI. Better input = better output. Every time.",
         url: "https://auratxt.com/how-it-works",
         type: "website",
     },
@@ -31,25 +31,25 @@ export default function HowItWorksPage() {
         "@type": "HowTo",
         name: "How to Use AuraText",
         description:
-            "AuraText guides you from a messy thought to a structured AI prompt in 3 simple steps.",
+            "AuraText guides you from a rough idea to a complete AI request in 3 steps. Write your idea, AuraText asks the missing questions, then send a structured request to your AI tool.",
         url: "https://auratxt.com/how-it-works",
         step: [
             {
                 "@type": "HowToStep",
-                name: "Start Messy",
-                text: "Write whatever's in your head. Vague, incomplete, half-formed — it's fine. AuraText works with where you are.",
+                name: "Write Your Idea",
+                text: "Type whatever's in your head. Vague, incomplete, half-formed. AuraText works with where you are, not where you think you should be.",
                 position: 1,
             },
             {
                 "@type": "HowToStep",
-                name: "Get the Right Questions",
-                text: "AuraText asks a few targeted questions to clarify your intent, audience, and goal. No long forms. Fast and focused.",
+                name: "AuraText Asks the Questions",
+                text: "AuraText asks targeted questions to surface missing requirements: goals, constraints, audience, scale, regulations. Fast and focused. No long forms.",
                 position: 2,
             },
             {
                 "@type": "HowToStep",
-                name: "Get a Better Output",
-                text: "A structured, clear input goes to the AI of your choice. Better thinking = better results. Every single time.",
+                name: "Send a Complete Request to AI",
+                text: "A structured, complete request goes to the AI tool of your choice: Cursor, Claude, ChatGPT, Gemini. Better input = better output. Every single time.",
                 position: 3,
             },
         ],

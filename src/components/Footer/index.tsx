@@ -61,7 +61,7 @@ const Footer = () => {
           Most people use AI to do more.
           <br />
           <Box as="span" color={AuraTextColors.primary}>
-            AuraText helps you do it better.
+            AuraText helps you do it right.
           </Box>
         </Heading>
         <Button
@@ -306,7 +306,7 @@ const Footer = () => {
           © {new Date().getFullYear()} AuraText — also known as Auratext. All rights reserved.
         </Text>
         <Text color={AuraTextColors.grey} fontSize="xs" textAlign="center" maxW={600} mt={2}>
-          Master AI without losing yourself. Stop vibe creating. Start intentional creating.
+          AI generates answers. AuraText finds what you&apos;re missing before it does.
         </Text>
       </VStack>
     </Flex>

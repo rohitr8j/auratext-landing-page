@@ -35,7 +35,9 @@ const Features = () => {
         maxW={700}
         lineHeight={1.25}
       >
-        What Changes When You Think Before Using AI
+        The outcome isn&apos;t better prompts.
+        <br />
+        It&apos;s fewer rewrites.
       </Heading>
       <Text
         color={AuraTextColors.textLight}
@@ -44,7 +46,7 @@ const Features = () => {
         maxW={500}
         mb={12}
       >
-        Most tools optimize for speed. AuraText optimizes for thinking.
+        AuraText connects better thinking to real outcomes you can measure.
       </Text>
       <Grid
         templateColumns={{
@@ -109,18 +111,18 @@ const Card = ({ icon, title, children }: CardProps) => (
 const Cards = [
   {
     icon: LuBrain,
-    title: "Think Before You Send",
-    text: "AuraText interrupts before you prompt. It asks the right questions — intent, constraints, tone — to structure your thoughts in seconds.",
+    title: "Fewer Rewrites",
+    text: "When AI knows exactly what you need, it gets it right the first time. Stop regenerating. Stop debugging bad outputs. Start shipping.",
   },
   {
     icon: LuZap,
-    title: "Get Dramatically Better Outputs",
-    text: "A structured prompt gets dramatically better results than a vague one. See the difference on your first use. Works with ChatGPT, Claude, Gemini, and Perplexity.",
+    title: "Better Requirements",
+    text: "The gaps you skip at the start become the problems you debug at the end. AuraText surfaces missing requirements before AI generates anything.",
   },
   {
     icon: LuTrendingUp,
-    title: "Build Real Skills Over Time",
-    text: "You're not just getting better outputs. You're learning how to think. AuraText teaches through use — no tutorials needed.",
+    title: "Outputs You Actually Want",
+    text: "Not good enough. Not almost right. Precise and aligned with the real goal, because AuraText found the gaps before the AI filled them.",
   },
 ];
 

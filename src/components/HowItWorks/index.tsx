@@ -31,7 +31,7 @@ const HowItWorks = () => {
                     maxW={700}
                     lineHeight={1.25}
                 >
-                    From Messy Thought to Better Output in 3 Steps
+                    How AuraText Works
                 </Heading>
                 <Text
                     color={AuraTextColors.textLight}
@@ -40,7 +40,7 @@ const HowItWorks = () => {
                     maxW={560}
                     mb={16}
                 >
-                    No setup. No learning curve. Just write and let AuraText guide your thinking.
+                    No learning curve. Write your idea and let AuraText discover what&apos;s missing.
                 </Text>
 
                 <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="full">
@@ -104,18 +104,18 @@ const StepCard = ({ icon, title, description, index }: any) => (
 const steps = [
     {
         icon: LuPencil,
-        title: "Start Messy",
-        description: "Write whatever's in your head. Vague, incomplete, half-formed — it's fine. AuraText works with where you are.",
+        title: "Write Your Idea",
+        description: "Type whatever's in your head. Vague, incomplete, half-formed. It's fine. AuraText works with where you are, not where you think you should be.",
     },
     {
         icon: LuMessageCircle,
-        title: "Get the Right Questions",
-        description: "AuraText asks a few targeted questions to clarify your intent, audience, and goal. No long forms. Fast and focused.",
+        title: "AuraText Asks the Questions",
+        description: "AuraText asks targeted questions to surface missing requirements: goals, constraints, audience, scale, regulations. Fast and focused. No long forms.",
     },
     {
         icon: LuSparkles,
-        title: "Get a Better Output",
-        description: "A structured, clear input goes to the AI of your choice. Better thinking = better results. Every single time.",
+        title: "Send a Complete Request to AI",
+        description: "A structured, complete request goes to the AI tool of your choice: Cursor, Claude, ChatGPT, Gemini. Better input = better output. Every single time.",
     },
 ];
 

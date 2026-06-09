@@ -23,33 +23,34 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "AuraText | %s",
-    default: "AuraText — The Thinking Layer for AI | Better Outputs Start With Better Thinking",
+    default: "AuraText - Don't Let AI Guess | AI Requirement Discovery for Windows",
   },
   description:
-    "AuraText is a thinking layer for AI on Windows. It sits between you and AI, asks the right questions, and structures your input — so you get better results on the first try and actually improve over time.",
+    "AuraText asks the questions ChatGPT, Claude, Cursor, and Gemini never ask. Before you hit send, AuraText surfaces missing requirements, hidden assumptions, and unclear goals - so your first AI output is your best.",
   keywords: [
     "AuraText",
     "Auratext",
     "auratext",
-    "AI overlay",
-    "universal AI",
-    "Claude for Windows",
-    "Gemini for Windows",
-    "Ollama Windows",
-    "AI model agnostic",
-    "BYOK AI",
-    "bring your own key",
+    "AI requirement discovery",
+    "AI workflow clarification",
+    "better AI results",
+    "AI missing requirements",
+    "AI thinking layer",
+    "AI overlay Windows",
+    "ChatGPT better results",
+    "Claude better results",
+    "Cursor AI workflow",
+    "AI prompt discovery",
     "Windows AI tool",
-    "AI freedom",
-    "local LLM",
-    "privacy AI",
     "Windows 10",
     "Windows 11",
-    "multi-model AI",
-    "AI writing tool",
+    "AI requirement discovery tool",
+    "structured AI requests",
+    "AI output quality",
     "Yash Raj",
+    "auratxt",
   ],
-  authors: [{ name: "Yash Raj" }, { name: "AuraText Team" }],
+  authors: [{ name: "Yash Raj" }, { name: "AuraText" }],
   creator: "Yash Raj",
   publisher: "AuraText",
   robots: {
@@ -78,20 +79,20 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   metadataBase: new URL("https://auratxt.com/"),
   openGraph: {
-    title: "AuraText — The Thinking Layer for AI",
+    title: "AuraText - Don't Let AI Guess",
     siteName: "AuraText",
     description:
-      "AuraText helps you think before AI responds. It sits between you and AI, asks the right questions, and structures your input — so you get better outputs on the first try.",
+      "AuraText asks the questions ChatGPT, Claude, Cursor, and Gemini never ask. Surface missing requirements before AI generates anything. Free for Windows.",
     url: "https://auratxt.com/",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    title: "AuraText — The Thinking Layer for AI",
+    title: "AuraText - Don't Let AI Guess",
     creator: "@auratext",
     site: "@auratext",
     description:
-      "AuraText helps you think before AI responds. Better thinking = better outputs. Download for Windows — free.",
+      "AuraText surfaces missing requirements before ChatGPT, Claude, or Cursor generates anything. Better input = better output. Free for Windows.",
     card: "summary_large_image",
   },
   alternates: {
@@ -126,7 +127,7 @@ export default function RootLayout({ children }: LayoutProps) {
       ratingCount: "19",
     },
     description:
-      "AuraText (also known as Auratext) is a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with true AI freedom and BYOK (Bring Your Own Key).",
+      "AuraText is an AI requirement discovery tool for Windows. Before you send a request to ChatGPT, Claude, Cursor, or Gemini, AuraText asks the questions those tools never ask - surfacing missing requirements, hidden assumptions, and unclear goals so your first output is your best.",
     url: "https://auratxt.com/",
     creator: {
       "@type": "Person",
@@ -142,7 +143,7 @@ export default function RootLayout({ children }: LayoutProps) {
     },
     screenshot: "https://auratxt.com/opengraph-image",
     softwareVersion: "1.0",
-    releaseNotes: "Universal AI overlay for Windows with model agnosticism, local Ollama support, BYOK, and intelligent text insertion.",
+    releaseNotes: "AI requirement discovery layer for Windows. Surfaces missing requirements before AI generates anything.",
   };
 
   const organizationData = {
@@ -158,7 +159,7 @@ export default function RootLayout({ children }: LayoutProps) {
       height: 192,
     },
     description:
-      "AuraText (also known as Auratext) is a universal AI overlay for Windows built by Yash Raj. Use Claude, Gemini, Perplexity, or Ollama in any Windows app. Break free from Microsoft Copilot lock-in with true AI freedom and BYOK (Bring Your Own Key).",
+      "AuraText is an AI requirement discovery tool built by Yash Raj. It surfaces missing requirements before ChatGPT, Claude, Cursor, or Gemini generates anything - so users get better outputs on the first try.",
     founder: {
       "@type": "Person",
       name: "Yash Raj",
@@ -183,7 +184,7 @@ export default function RootLayout({ children }: LayoutProps) {
     name: "AuraText",
     alternateName: "Auratext",
     url: "https://auratxt.com",
-    description: "AuraText is a thinking layer for AI on Windows. It structures your input so you get better results on the first try.",
+    description: "AuraText surfaces missing requirements before AI generates anything - so your first output is your best. Free for Windows.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -210,20 +211,10 @@ export default function RootLayout({ children }: LayoutProps) {
         {/* Preconnect for fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Non-blocking font load: media=print loads async, onLoad switches to all */}
         <link
           href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
           rel="stylesheet"
-          media="print"
-          // @ts-ignore
-          onLoad="this.media='all'"
         />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
         {/* Structured Data - JSON-LD */}
         <script
           type="application/ld+json"

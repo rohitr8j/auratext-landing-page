@@ -2,26 +2,27 @@ import type { Metadata } from "next";
 import Features from "#/src/components/Features";
 
 export const metadata: Metadata = {
-    title: "AuraText Features — Think Better Before Using AI",
+    title: "AuraText Features - Fewer Rewrites. Better Requirements. Outputs You Actually Want.",
     description:
-        "AuraText features: guided prompt builder, works with ChatGPT, Claude, Gemini, and Perplexity. Think before you prompt, get dramatically better AI outputs on Windows.",
+        "AuraText surfaces missing requirements before ChatGPT, Claude, Gemini, or Cursor generates anything. Discover what you're missing before AI fills in the blanks. Free for Windows.",
     keywords: [
         "AuraText features",
-        "AI prompt builder",
-        "guided prompt writing",
+        "AI requirement discovery",
         "better AI outputs",
-        "Windows AI features",
-        "ChatGPT helper",
-        "Claude helper",
-        "Gemini helper",
+        "AI missing requirements",
+        "fewer AI rewrites",
+        "Windows AI tool",
+        "ChatGPT better results",
+        "Claude workflow",
+        "Cursor AI",
     ],
     alternates: {
         canonical: "https://auratxt.com/features",
     },
     openGraph: {
-        title: "AuraText Features — Get Better AI Outputs",
+        title: "AuraText Features - Surface Missing Requirements Before AI Generates Anything",
         description:
-            "AuraText helps you think before you prompt. Guided intent building, structured inputs, works with every major AI on Windows.",
+            "AuraText finds what your request is missing before ChatGPT, Claude, or Cursor generates anything. Fewer rewrites. Better requirements. Outputs you actually want.",
         url: "https://auratxt.com/features",
         type: "website",
     },
@@ -33,7 +34,7 @@ export default function FeaturesPage() {
         "@type": "WebPage",
         name: "AuraText Features",
         description:
-            "AuraText features: guided thinking before prompting, works with ChatGPT, Claude, Gemini, and Perplexity on Windows.",
+            "AuraText features: AI requirement discovery, missing requirement surfacing, and structured request building that works with ChatGPT, Claude, Gemini, and Cursor on Windows.",
         url: "https://auratxt.com/features",
     };
 

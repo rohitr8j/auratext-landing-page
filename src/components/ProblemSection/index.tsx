@@ -31,9 +31,9 @@ const ProblemSection = () => {
                 mb={10}
                 lineHeight={1.25}
             >
-                You Use AI Every Day.
+                AI generates answers.
                 <br />
-                But You&apos;re Not Getting Better.
+                Nobody asks if you&apos;re asking the right question.
             </Heading>
 
             <Flex
@@ -45,9 +45,9 @@ const ProblemSection = () => {
                 px={{ base: 2, md: 0 }}
             >
                 {[
-                    "You rewrite prompts again and again",
-                    "You accept outputs you don't fully understand",
-                    "You rely on AI more, but trust yourself less",
+                    `A developer types "Build a casino app" and ends up with 3 hours of broken code to debug`,
+                    `A writer types "Write a blog post" and rewrites it 5 times before it\'s usable`,
+                    `A founder types "Help me grow my startup" and gets generic, forgettable advice`,
                 ].map((line, i) => (
                     <Flex key={i} align="center" gap={4}>
                         <Box
@@ -75,7 +75,7 @@ const ProblemSection = () => {
                 textAlign="center"
                 mb={12}
             >
-                You&apos;re not learning. You&apos;re just operating.
+                The AI isn&apos;t wrong. Your request was incomplete.
             </Text>
 
             {/* Insight box */}
@@ -94,10 +94,10 @@ const ProblemSection = () => {
                     lineHeight={1.8}
                     mb={4}
                 >
-                    AI isn&apos;t the problem.
+                    Missing requirements. Hidden assumptions. Unclear goals.
                     <br />
                     <Box as="span" color={AuraTextColors.text} fontWeight={600}>
-                        How you think while using it is.
+                        AI generates anyway.
                     </Box>
                 </Text>
                 <Text
@@ -107,10 +107,10 @@ const ProblemSection = () => {
                     fontWeight={600}
                     lineHeight={1.7}
                 >
-                    AuraText doesn&apos;t replace your thinking.
+                    AuraText slows you down for 30 seconds
                     <br />
                     <Box as="span" color={AuraTextColors.primary}>
-                        It upgrades it.
+                        so you don&apos;t waste the next 3 hours.
                     </Box>
                 </Text>
                 <Box
@@ -128,7 +128,7 @@ const ProblemSection = () => {
                     >
                         AuraText doesn&apos;t generate for you.{" "}
                         <Box as="span" color={AuraTextColors.primary}>
-                            It thinks with you.
+                            It discovers what you&apos;re missing first.
                         </Box>
                     </Text>
                 </Box>

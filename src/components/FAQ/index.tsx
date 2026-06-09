@@ -17,27 +17,35 @@ import { motion } from "framer-motion";
 const faqs = [
     {
         question: "Is this just another prompt rewriter?",
-        answer: "No. Most tools rewrite your prompts after you write them. AuraText helps you think before you write them — by asking the right questions and structuring your intent.",
+        answer: "No. Prompt rewriters take what you wrote and rephrase it. AuraText does something different. It asks you questions to discover what's missing from your request before you send anything to AI. It finds the gaps. Then you decide what to do with them.",
+    },
+    {
+        question: "Why not just use ChatGPT directly?",
+        answer: "ChatGPT generates based on what you give it. It doesn't push back. It doesn't ask what you haven't thought of yet. AuraText surfaces the missing requirements before you hit send, so ChatGPT, Claude, or Cursor gets a complete request instead of a vague one.",
+    },
+    {
+        question: "How is this different from prompt engineering?",
+        answer: "Prompt engineering is a skill you have to learn and manually apply every time. AuraText applies it for you, in real time, through targeted questions. No frameworks to memorize. No courses to take. It just works.",
     },
     {
         question: "Will this slow me down?",
-        answer: "No. AuraText adds a few seconds of thinking — but saves minutes of rewriting and fixing bad outputs. Most people spend that time rewriting bad prompts anyway.",
+        answer: "No. AuraText adds 30 seconds of structured thinking and saves you from 3 hours of fixing a bad output. Most people spend far more time rewriting and debugging than the discovery questions take.",
     },
     {
         question: "Do I need to know prompt engineering?",
-        answer: "No. AuraText guides you in real time. You improve naturally as you use it — no courses, no frameworks to memorize.",
+        answer: "No. AuraText guides you in real time. You improve naturally as you use it. No courses, no frameworks to memorize.",
     },
     {
         question: "Does it work with the AI tools I already use?",
-        answer: "Yes. AuraText works with ChatGPT, Claude, Gemini, and Perplexity — no switching required. Use the tools you already have, just with better inputs.",
+        answer: "Yes. AuraText works with ChatGPT, Claude, Gemini, and Perplexity. No switching required. Use the tools you already have, just with complete requests instead of vague ones.",
     },
     {
         question: "Will this actually improve my results?",
-        answer: "Yes — and you'll see it immediately. AuraText shows you the difference between a vague prompt and a structured one, so you can see exactly why the output improves.",
+        answer: "Yes, and you'll see it immediately. The casino app example is real: typing \"Build a casino app\" gets you generic code. Running it through AuraText first surfaces 6 critical requirements you hadn't defined. That's the difference between an output you use and one you rewrite.",
     },
     {
         question: "What if I'm already getting decent outputs?",
-        answer: "Decent is the trap. You settle for outputs that are \"good enough\" — but not precise, reliable, or fully aligned with what you want. AuraText helps you go from decent → intentional → high-quality.",
+        answer: "Decent is the trap. You settle for outputs that are \"good enough\" but not precise, reliable, or fully aligned with what you actually need. AuraText helps you go from decent to intentional to consistently high-quality.",
     },
 ];
 

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Download from "#/src/components/Download";
 
 export const metadata: Metadata = {
-    title: "Download AuraText for Windows — Free AI Overlay",
+    title: "Download AuraText for Windows - AI Requirement Discovery Tool, Free",
     description:
-        "Download AuraText for Windows 10 and Windows 11. Free AI overlay that works with ChatGPT, Claude, Gemini, and Perplexity in any app. No Alt-Tab required.",
+        "Download AuraText free for Windows 10 and Windows 11. AuraText asks the questions ChatGPT, Claude, Cursor, and Gemini never ask - surface missing requirements before AI generates anything. Start in under 60 seconds.",
     keywords: [
         "AuraText download",
         "download AuraText",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
         canonical: "https://auratxt.com/download",
     },
     openGraph: {
-        title: "Download AuraText for Windows — Free",
+        title: "Download AuraText for Windows - Free",
         description:
-            "Download AuraText for Windows. The free AI overlay that works with ChatGPT, Claude, Gemini, and Perplexity — in any Windows app.",
+            "Download AuraText free for Windows. Surface missing requirements before ChatGPT, Claude, Cursor, or Gemini generates anything. Better input = better output.",
         url: "https://auratxt.com/download",
         type: "website",
     },
