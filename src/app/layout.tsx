@@ -27,24 +27,30 @@ export const metadata: Metadata = {
     "AuraText",
     "Auratext",
     "auratext",
-    "AI requirement discovery",
-    "AI workflow clarification",
-    "better AI results",
-    "AI missing requirements",
-    "AI thinking layer",
+    "auratxt",
+    "prompt-less AI",
+    "prompt-less engine",
+    "how to get better AI results",
+    "how to stop rewriting AI outputs",
+    "AI tool for better results",
+    "Windows AI overlay",
     "AI overlay Windows",
     "ChatGPT better results",
     "Claude better results",
     "Cursor AI workflow",
-    "AI prompt discovery",
-    "Windows AI tool",
-    "Windows 10",
-    "Windows 11",
-    "AI requirement discovery tool",
-    "structured AI requests",
+    "Gemini better results",
+    "how to use AI without prompt engineering",
+    "AI without prompts",
+    "AI request builder",
     "AI output quality",
+    "stop rewriting AI outputs",
+    "Windows AI productivity tool",
+    "Windows 10 AI",
+    "Windows 11 AI",
+    "AI tool for developers",
+    "AI tool for writers",
+    "AI tool for founders",
     "Yash Raj",
-    "auratxt",
   ],
   authors: [{ name: "Yash Raj" }, { name: "AuraText" }],
   creator: "Yash Raj",
@@ -75,20 +81,20 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   metadataBase: new URL("https://auratxt.com/"),
   openGraph: {
-    title: "AuraText - Don't Let AI Guess",
+    title: "AuraText — The Prompt-less Engine for AI",
     siteName: "AuraText",
     description:
-      "AuraText asks the questions ChatGPT, Claude, Cursor, and Gemini never ask. Surface missing requirements before AI generates anything. Free for Windows.",
+      "Tell AuraText what you want. AuraText figures out what AI needs. A prompt-less engine for AI that turns goals into AI-ready requests — free for Windows.",
     url: "https://auratxt.com/",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    title: "AuraText - Don't Let AI Guess",
+    title: "AuraText — The Prompt-less Engine for AI",
     creator: "@auratext",
     site: "@auratext",
     description:
-      "AuraText surfaces missing requirements before ChatGPT, Claude, or Cursor generates anything. Better input = better output. Free for Windows.",
+      "Tell AuraText what you want. AuraText figures out what AI needs. Stop writing prompts. Start getting results. Free for Windows.",
     card: "summary_large_image",
   },
   alternates: {
@@ -123,7 +129,7 @@ export default function RootLayout({ children }: LayoutProps) {
       ratingCount: "19",
     },
     description:
-      "AuraText is an AI requirement discovery tool for Windows. Before you send a request to ChatGPT, Claude, Cursor, or Gemini, AuraText asks the questions those tools never ask - surfacing missing requirements, hidden assumptions, and unclear goals so your first output is your best.",
+      "AuraText is a prompt-less engine for AI. You tell it what you want to build, write, or achieve. AuraText discovers what's missing, applies decision frameworks, and sends a complete request to ChatGPT, Claude, Gemini, or Cursor — automatically. No prompt engineering required.",
     url: "https://auratxt.com/",
     creator: {
       "@type": "Person",
@@ -139,7 +145,7 @@ export default function RootLayout({ children }: LayoutProps) {
     },
     screenshot: "https://auratxt.com/opengraph-image",
     softwareVersion: "1.0",
-    releaseNotes: "AI requirement discovery layer for Windows. Surfaces missing requirements before AI generates anything.",
+    releaseNotes: "Prompt-less engine for AI. Tell AuraText what you want. AuraText figures out what AI needs.",
   };
 
   const organizationData = {
@@ -155,7 +161,7 @@ export default function RootLayout({ children }: LayoutProps) {
       height: 192,
     },
     description:
-      "AuraText is an AI requirement discovery tool built by Yash Raj. It surfaces missing requirements before ChatGPT, Claude, Cursor, or Gemini generates anything - so users get better outputs on the first try.",
+      "AuraText is a prompt-less engine for AI, built by Yash Raj. It turns goals into AI-ready requests — automatically. Tell AuraText what you want to build, write, or achieve, and it figures out what ChatGPT, Claude, Gemini, or Cursor needs to deliver the result.",
     founder: {
       "@type": "Person",
       name: "Yash Raj",
@@ -170,6 +176,7 @@ export default function RootLayout({ children }: LayoutProps) {
       "https://www.instagram.com/auratext.app/",
       "https://youtube.com/@auratext_ai_app",
       "https://discord.com/invite/NamyGv3ecs",
+      "https://peerlist.io/yash",
     ],
   };
 
@@ -180,7 +187,7 @@ export default function RootLayout({ children }: LayoutProps) {
     name: "AuraText",
     alternateName: "Auratext",
     url: "https://auratxt.com",
-    description: "AuraText surfaces missing requirements before AI generates anything - so your first output is your best. Free for Windows.",
+    description: "AuraText is the prompt-less engine for AI. Tell AuraText what you want. AuraText figures out what AI needs. Free for Windows.",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -189,6 +196,110 @@ export default function RootLayout({ children }: LayoutProps) {
       },
       "query-input": "required name=search_term_string",
     },
+  };
+
+  // FAQPage schema — enables People Also Ask eligibility and direct AI citation (AEO/GEO)
+  const faqData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is AuraText?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "AuraText is a prompt-less engine for AI. You tell it what you want to build, write, or achieve. AuraText discovers what's missing, figures out what AI needs, and sends a complete request to ChatGPT, Claude, Gemini, or Cursor — automatically. No prompt engineering required.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is AuraText just another prompt rewriter?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. A prompt rewriter polishes what you wrote. AuraText works backwards from what you want to achieve — it asks the right questions, discovers what's missing, and builds a complete request for your AI tool. You never have to think about how to phrase it.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How is AuraText different from prompt engineering?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "AuraText eliminates the need for prompt engineering entirely. Prompt engineering is something you have to learn, remember, and apply manually every time. With AuraText, you describe what you want, and the rest happens automatically and invisibly before AI ever sees your request.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does AuraText work with ChatGPT, Claude, and Gemini?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. AuraText works with ChatGPT, Claude, Gemini, Cursor, and Perplexity. It sits as a Windows overlay above all of them, so you use the AI tools you already have — just with complete, structured requests instead of vague ones.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "ChatGPT and Claude already ask follow-up questions. Why do I need AuraText?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "ChatGPT and Claude ask follow-up questions inconsistently — starting from scratch every session, only when the model decides to. AuraText is consistent, structured, and works the same way across every AI tool. It is not a replacement for any AI model. It is the layer that makes all of them work better.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Do I need to know prompt engineering to use AuraText?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No technical knowledge is required to use AuraText. AuraText guides you in real time. You describe what you want, it asks the right questions, and builds the request automatically. No frameworks to memorize, no prompt syntax to learn.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is AuraText free?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. AuraText is completely free to download and use. There is also a one-time optional support payment of $49 for users who want to support indie development. No subscriptions, no recurring charges.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What operating system does AuraText support?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "AuraText is currently available for Windows 10 and Windows 11. It runs as a system-level overlay, so it works inside every application on Windows without requiring you to switch tabs.",
+        },
+      },
+    ],
+  };
+
+  // HowTo schema — enables rich results and AI step-by-step citation (AEO/GEO)
+  const howToData = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to get better AI results with AuraText",
+    description: "AuraText is a prompt-less engine that turns your goals into AI-ready requests in 3 steps. No prompt engineering required.",
+    tool: [
+      { "@type": "HowToTool", name: "AuraText (free, Windows)" },
+      { "@type": "HowToTool", name: "ChatGPT, Claude, Gemini, or Cursor" },
+    ],
+    step: [
+      {
+        "@type": "HowToStep",
+        name: "Tell AuraText what you want",
+        text: "Say what you're trying to build, write, fix, or figure out — in plain language. No prompt syntax. No structure. Just the result you want.",
+        url: "https://auratxt.com/#how-it-works",
+      },
+      {
+        "@type": "HowToStep",
+        name: "AuraText discovers what's missing",
+        text: "AuraText asks targeted questions to understand your goals, constraints, context, and edge cases. Fast. Focused. No long forms.",
+        url: "https://auratxt.com/#how-it-works",
+      },
+      {
+        "@type": "HowToStep",
+        name: "AI gets what it needs. You get results.",
+        text: "AuraText sends a complete, structured request to ChatGPT, Claude, Cursor, or Gemini. Better input, better output — every time.",
+        url: "https://auratxt.com/#how-it-works",
+      },
+    ],
   };
 
   return (
@@ -228,6 +339,20 @@ export default function RootLayout({ children }: LayoutProps) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(websiteData),
+          }}
+        />
+        {/* FAQPage schema — AEO: People Also Ask + AI citation eligibility */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqData),
+          }}
+        />
+        {/* HowTo schema — AEO/GEO: step-by-step rich results + AI citation */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(howToData),
           }}
         />
         {/* Google Analytics */}
