@@ -2,6 +2,7 @@
 import { AuraTextColors } from "#/src/utils/Colors";
 import { Box, Button, Flex, Heading, Text, HStack, VStack, Link, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import FooterTopSVG from "./FooterTopSVG";
 import FooterBg from "./FooterBg";
 import { LuArrowRight, LuInstagram, LuMail, LuTwitter, LuCopy, LuCheck } from "react-icons/lu";
@@ -10,7 +11,9 @@ import { motion } from "framer-motion";
 
 
 const Footer = () => {
+  const pathname = usePathname();
   const [emailCopied, setEmailCopied] = useState(false);
+
   const toast = useToast();
   const emailAddress = "yash@auratxt.com";
 
@@ -36,6 +39,10 @@ const Footer = () => {
       });
     }
   };
+
+  if (pathname && pathname.startsWith("/glimsy")) {
+    return null;
+  }
 
   return (
     <Flex

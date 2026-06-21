@@ -2,12 +2,8 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Providers } from "#/src/components/Providers";
 import favicon from "#/public/images/favicon.png";
-import Cookie from "../components/Cookie";
-import Banner from "../components/Banner";
-import Navbar from "../components/Navbar";
 
 import "./globals.scss";
-import Footer from "../components/Footer";
 
 interface LayoutProps {
   children: ReactNode;
@@ -23,10 +19,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "AuraText | %s",
-    default: "AuraText - Don't Let AI Guess | AI Requirement Discovery for Windows",
+    default: "AuraText — The Prompt-less Engine for AI | Tell It What You Want. It Figures Out the Rest.",
   },
   description:
-    "AuraText asks the questions ChatGPT, Claude, Cursor, and Gemini never ask. Before you hit send, AuraText surfaces missing requirements, hidden assumptions, and unclear goals - so your first AI output is your best.",
+    "AuraText is the prompt-less engine for AI. Describe what you want in plain language. AuraText discovers what's missing, figures out what AI needs, and sends a complete request to ChatGPT, Claude, Gemini, or Cursor — automatically.",
   keywords: [
     "AuraText",
     "Auratext",
@@ -252,13 +248,9 @@ export default function RootLayout({ children }: LayoutProps) {
       </head>
       <body suppressHydrationWarning={true} style={{ backgroundColor: '#000000' }}>
         <Providers>
-          <Cookie />
-          <Banner />
-          <Navbar />
           <div style={{ backgroundColor: '#000000', minHeight: '100vh' }}>
             {children}
           </div>
-          <Footer />
         </Providers>
       </body>
     </html>

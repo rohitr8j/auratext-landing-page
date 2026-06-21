@@ -31,7 +31,7 @@ const HowItWorks = () => {
                     maxW={700}
                     lineHeight={1.25}
                 >
-                    How AuraText Works
+                    From Goal to Result in 3 Steps
                 </Heading>
                 <Text
                     color={AuraTextColors.textLight}
@@ -40,7 +40,7 @@ const HowItWorks = () => {
                     maxW={560}
                     mb={16}
                 >
-                    No learning curve. Write your idea and let AuraText discover what&apos;s missing.
+                    No frameworks. No switching tabs. Just tell AuraText what you want.
                 </Text>
 
                 <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8} w="full">
@@ -104,18 +104,18 @@ const StepCard = ({ icon, title, description, index }: any) => (
 const steps = [
     {
         icon: LuPencil,
-        title: "Write Your Idea",
-        description: "Type whatever's in your head. Vague, incomplete, half-formed. It's fine. AuraText works with where you are, not where you think you should be.",
+        title: "Tell AuraText What You Want",
+        description: "Say what you're trying to build, write, fix, or figure out — in plain language. No prompt syntax. No structure. Just the result you want.",
     },
     {
         icon: LuMessageCircle,
-        title: "AuraText Asks the Questions",
-        description: "AuraText asks targeted questions to surface missing requirements: goals, constraints, audience, scale, regulations. Fast and focused. No long forms.",
+        title: "AuraText Discovers What's Missing",
+        description: "AuraText asks targeted questions to understand your goals, constraints, context, and edge cases. Fast. Focused. No long forms.",
     },
     {
         icon: LuSparkles,
-        title: "Send a Complete Request to AI",
-        description: "A structured, complete request goes to the AI tool of your choice: Cursor, Claude, ChatGPT, Gemini. Better input = better output. Every single time.",
+        title: "AI Gets What It Needs. You Get Results.",
+        description: "AuraText sends a complete, structured request to ChatGPT, Claude, Cursor, or Gemini. Better input, better output — every time.",
     },
 ];
 

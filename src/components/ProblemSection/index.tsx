@@ -31,9 +31,9 @@ const ProblemSection = () => {
                 mb={10}
                 lineHeight={1.25}
             >
-                AI generates answers.
+                Everyone knows what they want.
                 <br />
-                Nobody asks if you&apos;re asking the right question.
+                Nobody knows what to tell AI.
             </Heading>
 
             <Flex
@@ -45,9 +45,9 @@ const ProblemSection = () => {
                 px={{ base: 2, md: 0 }}
             >
                 {[
-                    `A developer types "Build a casino app" and ends up with 3 hours of broken code to debug`,
-                    `A writer types "Write a blog post" and rewrites it 5 times before it\'s usable`,
-                    `A founder types "Help me grow my startup" and gets generic, forgettable advice`,
+                    `A developer knows they need a dashboard — but types "build me a dashboard" and gets something generic`,
+                    `A writer knows the article they want — but the AI doesn't know the audience, tone, or goal`,
+                    `A founder knows the problem they're solving — but gets generic advice because AI got a generic request`,
                 ].map((line, i) => (
                     <Flex key={i} align="center" gap={4}>
                         <Box
@@ -75,7 +75,7 @@ const ProblemSection = () => {
                 textAlign="center"
                 mb={12}
             >
-                The AI isn&apos;t wrong. Your request was incomplete.
+                The gap isn&apos;t intelligence. It&apos;s translation.
             </Text>
 
             {/* Insight box */}
@@ -94,10 +94,10 @@ const ProblemSection = () => {
                     lineHeight={1.8}
                     mb={4}
                 >
-                    Missing requirements. Hidden assumptions. Unclear goals.
+                    Between what you want and what AI produces
                     <br />
                     <Box as="span" color={AuraTextColors.text} fontWeight={600}>
-                        AI generates anyway.
+                        is a gap most people never close.
                     </Box>
                 </Text>
                 <Text
@@ -107,11 +107,7 @@ const ProblemSection = () => {
                     fontWeight={600}
                     lineHeight={1.7}
                 >
-                    AuraText slows you down for 30 seconds
-                    <br />
-                    <Box as="span" color={AuraTextColors.primary}>
-                        so you don&apos;t waste the next 3 hours.
-                    </Box>
+                    AuraText closes it. Automatically.
                 </Text>
                 <Box
                     mt={6}
@@ -126,9 +122,9 @@ const ProblemSection = () => {
                         fontFamily="'Space Mono', monospace"
                         letterSpacing="0.01em"
                     >
-                        AuraText doesn&apos;t generate for you.{" "}
+                        Tell AuraText what you want.{" "}
                         <Box as="span" color={AuraTextColors.primary}>
-                            It discovers what you&apos;re missing first.
+                            AuraText figures out what AI needs.
                         </Box>
                     </Text>
                 </Box>

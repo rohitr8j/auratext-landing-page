@@ -1,16 +1,16 @@
 import dynamic from "next/dynamic";
-import Header from "../components/Header";
+import Header from "#/src/components/Header";
 
 // Below-fold sections: dynamically imported to split JS bundles and reduce TBT
-const ProblemSection  = dynamic(() => import("../components/ProblemSection"));
-const Features        = dynamic(() => import("../components/Features"));
-const HowItWorks      = dynamic(() => import("../components/HowItWorks"));
-const PromptOptimizer = dynamic(() => import("../components/PromptOptimizer"));
-const Download        = dynamic(() => import("../components/Download"));
-const Pricing         = dynamic(() => import("../components/Pricing"));
-const FAQ             = dynamic(() => import("../components/FAQ"));
-const Founder         = dynamic(() => import("../components/Founder"));
-const GitHubReleases  = dynamic(() => import("../components/GitHubReleases"));
+const ProblemSection  = dynamic(() => import("#/src/components/ProblemSection"));
+const Features        = dynamic(() => import("#/src/components/Features"));
+const HowItWorks      = dynamic(() => import("#/src/components/HowItWorks"));
+const PromptOptimizer = dynamic(() => import("#/src/components/PromptOptimizer"));
+const Download        = dynamic(() => import("#/src/components/Download"));
+const Pricing         = dynamic(() => import("#/src/components/Pricing"));
+const FAQ             = dynamic(() => import("#/src/components/FAQ"));
+const Founder         = dynamic(() => import("#/src/components/Founder"));
+const GitHubReleases  = dynamic(() => import("#/src/components/GitHubReleases"));
 
 export default function Home() {
   return (

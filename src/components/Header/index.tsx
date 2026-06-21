@@ -76,7 +76,7 @@ export default function Header() {
             fontWeight={400}
             letterSpacing="0.02em"
           >
-            AI Requirement Discovery
+            Prompt-less Engine for AI
           </Text>
         </Box>
 
@@ -92,9 +92,9 @@ export default function Header() {
           mb={6}
           maxW="720px"
         >
-          Don&apos;t Let
+          Stop Writing Prompts.
           <br />
-          AI Guess.
+          Start Getting Results.
         </Heading>
 
         {/* ── Subheadline ── */}
@@ -108,7 +108,7 @@ export default function Header() {
           lineHeight={1.65}
           mb={5}
         >
-          AuraText asks the questions ChatGPT, Claude, Cursor, and Gemini never ask. Your first output becomes your best output.
+          You know what you want. You just don&apos;t know what AI needs to get there. AuraText figures that out for you.
         </Text>
 
         {/* ── Hook line ── */}
@@ -121,9 +121,9 @@ export default function Header() {
           lineHeight={1.6}
           mb={10}
         >
-          AI generates based on what you give it.
+          Tell AuraText what you want.
           <br />
-          AuraText finds what you&apos;re missing before you hit send.
+          AuraText figures out everything AI needs.
         </Text>
 
         {/* ── CTAs ── */}

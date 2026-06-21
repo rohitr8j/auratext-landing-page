@@ -37,7 +37,7 @@ const Features = () => {
       >
         The outcome isn&apos;t better prompts.
         <br />
-        It&apos;s fewer rewrites.
+        You bring the goal. AuraText handles everything else.
       </Heading>
       <Text
         color={AuraTextColors.textLight}
@@ -46,7 +46,7 @@ const Features = () => {
         maxW={500}
         mb={12}
       >
-        AuraText connects better thinking to real outcomes you can measure.
+        No frameworks to learn. No trial and error. Just results.
       </Text>
       <Grid
         templateColumns={{
@@ -111,18 +111,18 @@ const Card = ({ icon, title, children }: CardProps) => (
 const Cards = [
   {
     icon: LuBrain,
-    title: "Fewer Rewrites",
-    text: "When AI knows exactly what you need, it gets it right the first time. Stop regenerating. Stop debugging bad outputs. Start shipping.",
+    title: "From Goal to AI-Ready Request",
+    text: "Tell AuraText what you're trying to build. It asks the right questions, applies proven decision frameworks, and turns your goal into a complete request — automatically.",
   },
   {
     icon: LuZap,
-    title: "Better Requirements",
-    text: "The gaps you skip at the start become the problems you debug at the end. AuraText surfaces missing requirements before AI generates anything.",
+    title: "The Same Thinking Experts Use",
+    text: "Before a senior developer, writer, or strategist talks to AI, they think through goals, constraints, and edge cases. AuraText applies that same thinking process for you, every single time.",
   },
   {
     icon: LuTrendingUp,
-    title: "Outputs You Actually Want",
-    text: "Not good enough. Not almost right. Precise and aligned with the real goal, because AuraText found the gaps before the AI filled them.",
+    title: "Works Across Every AI Tool",
+    text: "ChatGPT, Claude, Gemini, Cursor, Perplexity — AuraText sits above all of them as a Windows overlay. One consistent layer, no matter which AI you open.",
   },
 ];
 

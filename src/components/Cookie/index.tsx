@@ -3,9 +3,15 @@ import { AuraTextColors } from "#/src/utils/Colors";
 import useCookieVisibility from "#/src/utils/CookieVisibility";
 import { Button, Flex, Text } from "@chakra-ui/react";
 import React, { FC, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Cookie: FC = () => {
+  const pathname = usePathname();
   const [showCookie, setShowCookie] = useCookieVisibility("auratext-cookie");
+
+  if (pathname && pathname.startsWith("/glimsy")) {
+    return null;
+  }
 
   return showCookie ? (
     <Flex

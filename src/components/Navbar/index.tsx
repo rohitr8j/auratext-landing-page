@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, FC } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Box,
   Button,
@@ -35,6 +36,7 @@ const NavItems = [
 ];
 
 const Navbar: FC = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [showBanner] = useBannerVisibility("auratext-banner");
   const [activeSection, setActiveSection] = useState("");

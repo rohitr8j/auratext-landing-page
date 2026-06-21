@@ -68,14 +68,14 @@ const Founder = () => {
               size="2xl"
               fontFamily="'Space Mono', monospace"
             >
-              Built by One Founder.
+              Built by One Person.
             </Heading>
             <Text
               color={AuraTextColors.textLight}
               fontSize={{ base: "md", md: "lg" }}
               maxW="600px"
             >
-              Started from a simple observation: AI answers questions. It doesn&apos;t tell you whether you&apos;re asking the right ones.
+              Every week, people spend more time fixing AI outputs than they saved using AI. The problem isn&apos;t the AI. It&apos;s the gap between what people want and what they tell AI. AuraText exists to close that gap.
             </Text>
           </VStack>
 
@@ -194,7 +194,7 @@ const Founder = () => {
                   </Heading>
                 </HStack>
                 <Text color={AuraTextColors.textLight} fontSize="sm" lineHeight="1.6">
-                  AuraText started as a simple question: why do people get worse results from better AI? The answer was always the same. Incomplete requests. AuraText exists to surface what you&apos;re missing before AI generates anything.
+                  AuraText started from a simple observation: people who get great AI results aren&apos;t smarter. They just know how to translate what they want into what AI needs. Most people never learn that translation. AuraText makes it automatic.
                 </Text>
               </VStack>
 
@@ -214,7 +214,7 @@ const Founder = () => {
                   </Heading>
                 </HStack>
                 <Text color={AuraTextColors.textLight} fontSize="sm" lineHeight="1.6">
-                  AuraText sits between you and your AI tool. Before you hit send, it asks the questions a senior engineer, editor, or strategist would ask. The result is a complete, structured request that gets dramatically better outputs on the first try, in Cursor, Claude, ChatGPT, Gemini, or any AI tool you already use.
+                  AuraText is a Windows overlay that sits above every AI tool you use. You tell it what you want. AuraText asks the right questions, applies decision frameworks, and sends a complete request to the AI. You see the result — not the work behind it.
                 </Text>
               </VStack>
 
