@@ -62,6 +62,10 @@ const nextConfig = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          // 'same-origin-allow-popups' is required for Firebase Google Sign-In popup.
+          // 'same-origin' (the platform default) blocks the auth popup from communicating
+          // back to the parent window, causing auth/popup-closed-by-user errors.
+          { key: 'Cross-Origin-Opener-Policy', value: 'same-origin-allow-popups' },
         ],
       },
     ];
